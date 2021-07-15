@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<!--  This is used for debugging purposes.  Wheh debugging is on it displays the name of the XML file being shown.              -->
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<window id="1152" type="dialog">
+	<zorder>10</zorder>
+	<visible>Skin.HasSetting(DebugInfo)</visible>
+	<controls>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>custom_1190_TMDBHelper.xml</label>
+			<visible>Window.IsVisible(custom_1190_TMDBHelper.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>custom_1119_ExtrasDialog.xml</label>
+			<visible>Window.IsVisible(custom_1119_ExtrasDialog.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>custom_1120_OSDSettings.xml</label>
+			<visible>Window.IsVisible(custom_1120_OSDSettings.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<top>70</top>
+			<include>DebugInfoIdentifyXML</include>
+			<label>custom_1121_HomeMenuCustomizer.xml</label>
+			<visible>Window.IsVisible(custom_1121_HomeMenuCustomizer.xml)
+			</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>custom_1122_BackgroundCustomizer.xml</label>
+			<visible>Window.IsVisible(custom_1122_BackgroundCustomizer.xml)
+			</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>custom_1123_OnClickCustomizer.xml</label>
+			<visible>Window.IsVisible(custom_1123_OnClickCustomizer.xml)
+			</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>custom_1124_WidgetCustomizer.xml</label>
+			<visible>Window.IsVisible(custom_1124_WidgetCustomizer.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>custom_1125_InfoLineCustomizer.xml</label>
+			<visible>Window.IsVisible(custom_1125_InfoLineCustomizer.xml)
+			</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>custom_1126_MenuOrderCustomizer.xml</label>
+			<visible>Window.IsVisible(custom_1126_MenuOrderCustomizer.xml)
+			</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>custom_1127_OverlayIcons.xml</label>
+			<visible>Window.IsVisible(custom_1127_OverlayIcons.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>custom_1128_WindowCustomizer.xml</label>
+			<visible>Window.IsVisible(custom_1128_WindowCustomizer.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>custom_1129_Views.xml</label>
+			<visible>Window.IsVisible(custom_1129_Views.xml)</visible>
+		</control>
+		
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>custom_1153_ScopeBars.xml</label>
+			<visible>Window.IsVisible(custom_1153_ScopeBars.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<top>70</top>
+			<include>DebugInfoIdentifyXML</include>
+			<label>custom_1130_Select.xml</label>
+			<visible>Window.IsVisible(custom_1130_Select.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>custom_1131_FSFanart.xml</label>
+			<visible>Window.IsVisible(custom_1131_FSFanart.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>custom_1132_TextViewer.xml</label>
+			<visible>Window.IsVisible(custom_1132_TextViewer.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>custom_1133_Apps.xml</label>
+			<visible>Window.IsVisible(custom_1133_Apps.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>custom_1134_PausedOverlay.xml</label>
+			<visible>Window.IsVisible(custom_1134_PausedOverlay.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>custom_1150_LiveTvSettings.xml</label>
+			<visible>Window.IsVisible(custom_1150_LiveTvSettings.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>Custom_Overlay.xml</label>
+			<visible>Window.IsVisible(Custom_Overlay.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>defaults.xml</label>
+			<visible>Window.IsVisible(defaults.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogAddonInfo.xml</label>
+			<visible>Window.IsVisible(DialogAddonInfo.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogAddonSettings.xml</label>
+			<visible>Window.IsVisible(DialogAddonSettings.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogAudioDSPManager.xml</label>
+			<visible>Window.IsVisible(DialogAudioDSPManager.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<top>70</top>
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogBusy.xml</label>
+			<visible>Window.IsVisible(DialogBusy.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogButtonMenu.xml</label>
+			<visible>Window.IsVisible(DialogButtonMenu.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<top>70</top>
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogConfirm.xml</label>
+			<visible>Window.IsVisible(DialogConfirm.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogContextMenu.xml</label>
+			<visible>Window.IsVisible(DialogContextMenu.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogExtendedProgressBar.xml</label>
+			<visible>Window.IsVisible(DialogExtendedProgressBar.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogFavourites.xml</label>
+			<visible>Window.IsVisible(DialogFavourites.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogFullScreenInfo.xml</label>
+			<visible>Window.IsVisible(DialogFullScreenInfo.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogGameControllers.xml</label>
+			<visible>Window.IsVisible(DialogGameControllers.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogKeyboard.xml</label>
+			<visible>Window.IsVisible(DialogKeyboard.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogMediaSource.xml</label>
+			<visible>Window.IsVisible(DialogMediaSource.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogMusicInfo.xml</label>
+			<visible>Window.IsVisible(DialogMusicInfo.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogNotification.xml</label>
+			<visible>Window.IsVisible(DialogNotification.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogNumeric.xml</label>
+			<visible>Window.IsVisible(DialogNumeric.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogPictureInfo.xml</label>
+			<visible>Window.IsVisible(DialogPictureInfo.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogPlayerProcessInfo.xml</label>
+			<visible>Window.IsVisible(DialogPlayerProcessInfo.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogPVRChannelManager.xml</label>
+			<visible>Window.IsVisible(DialogPVRChannelManager.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogPVRChannelsOSD.xml</label>
+			<visible>Window.IsVisible(DialogPVRChannelsOSD.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogPVRGroupManager.xml</label>
+			<visible>Window.IsVisible(DialogPVRGroupManager.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogPVRGuideOSD.xml</label>
+			<visible>Window.IsVisible(DialogPVRGuideOSD.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogPVRGuideSearch.xml</label>
+			<visible>Window.IsVisible(DialogPVRGuideSearch.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogPVRInfo.xml</label>
+			<visible>Window.IsVisible(DialogPVRInfo.xml)</visible>
+		</control>
+
+<!-- 		<control type="label" id="20"> -->
+<!-- 			<left>0</left> -->
+<!-- 			<top>32</top> -->
+<!-- 			<width>780</width> -->
+<!-- 			<height>21</height> -->
+<!-- 			<align>left</align> -->
+<!-- 			<font>font11</font> -->
+<!-- 			<label>DialogSeekBar.xml</label> -->
+<!-- 			<textcolor>white</textcolor> -->
+<!-- 			<visible>Window.IsVisible(DialogSeekBar.xml)</visible> -->
+<!-- 		</control> -->
+
+		<control type="label" id="20">
+			<top>70</top>
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogSelect.xml</label>
+			<visible>Window.IsVisible(DialogSelect.xml)</visible>
+		</control>
+
+<!-- 		<control type="label" id="20"> -->
+<!-- 			<left>0</left> -->
+<!-- 			<top>32</top> -->
+<!-- 			<width>780</width> -->
+<!-- 			<height>21</height> -->
+<!-- 			<align>left</align> -->
+<!-- 			<font>font11</font> -->
+<!-- 			<label>DialogSettings.xml</label> -->
+<!-- 			<textcolor>white</textcolor> -->
+<!-- 			<visible>Window.IsVisible(DialogSettings.xml)</visible> -->
+<!-- 		</control> -->
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogSlider.xml</label>
+			<visible>Window.IsVisible(DialogSlider.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogSubtitles.xml</label>
+			<visible>Window.IsVisible(DialogSubtitles.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogTextViewer.xml</label>
+			<visible>Window.IsVisible(DialogTextViewer.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogVideoInfo.xml</label>
+			<visible>Window.IsVisible(DialogVideoInfo.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>DialogVolumeBar.xml</label>
+			<visible>Window.IsVisible(DialogVolumeBar.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>EventLog.xml</label>
+			<visible>Window.IsVisible(EventLog.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>FileBrowser.xml</label>
+			<visible>Window.IsVisible(FileBrowser.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>FileManager.xml</label>
+			<visible>Window.IsVisible(FileManager.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>Font.xml</label>
+			<visible>Window.IsVisible(Font.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<top>10</top>
+			<include>DebugInfoIdentifyXML</include>
+			<label>Home.xml</label>
+			<visible>Window.IsVisible(Home.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>Includes.xml</label>
+			<visible>Window.IsVisible(Includes.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>IncludesVideoLyrics.xml</label>
+			<visible>Window.IsVisible(IncludesVideoLyrics.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>Includes_16x9.xml</label>
+			<visible>Window.IsVisible(Includes_16x9.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>Includes_21x9.xml</label>
+			<visible>Window.IsVisible(Includes_21x9.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>Includes_Animations.xml</label>
+			<visible>Window.IsVisible(Includes_Animations.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>Includes_Backgrounds.xml</label>
+			<visible>Window.IsVisible(Includes_Backgrounds.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>Includes_CommonValues.xml</label>
+			<visible>Window.IsVisible(Includes_CommonValues.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>Includes_Home.xml</label>
+			<visible>Window.IsVisible(Includes_Home.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>Includes_LiveBG.xml</label>
+			<visible>Window.IsVisible(Includes_LiveBG.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>Includes_LiveTV.xml</label>
+			<visible>Window.IsVisible(Includes_LiveTV.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>Includes_LiveTV_Views.xml</label>
+			<visible>Window.IsVisible(Includes_LiveTV_Views.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>Includes_Widgets.xml</label>
+			<visible>Window.IsVisible(Includes_Widgets.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>LoginScreen.xml</label>
+			<visible>Window.IsVisible(LoginScreen.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>MusicOSD.xml</label>
+			<visible>Window.IsVisible(MusicOSD.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>MusicVisualisation.xml</label>
+			<visible>Window.IsVisible(MusicVisualisation.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>MyGames.xml</label>
+			<visible>Window.IsVisible(MyGames.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>MyMusicNav.xml</label>
+			<visible>Window.IsVisible(MyMusicNav.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>MyMusicPlaylistEditor.xml</label>
+			<visible>Window.IsVisible(MyMusicPlaylistEditor.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>MyPics.xml</label>
+			<visible>Window.IsVisible(MyPics.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>MyPlaylist.xml</label>
+			<visible>Window.IsVisible(MyPlaylist.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>MyPrograms.xml</label>
+			<visible>Window.IsVisible(MyPrograms.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>MyPVRChannels.xml</label>
+			<visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>MyPVRGuide.xml</label>
+			<visible>Window.IsVisible(MyPVRGuide.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>MyPVRRecordings.xml</label>
+			<visible>Window.IsVisible(MyPVRRecordings.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>MyPVRSearch.xml</label>
+			<visible>Window.IsVisible(MyPVRSearch.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>MyPVRTimers.xml</label>
+			<visible>Window.IsVisible(MyPVRTimers.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<top>10</top>
+			<include>DebugInfoIdentifyXML</include>
+			<label>MyVideoNav.xml</label>
+			<visible>Window.IsVisible(MyVideoNav.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>MyWeather.xml</label>
+			<visible>Window.IsVisible(MyWeather.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>PlayerControls.xml</label>
+			<visible>Window.IsVisible(PlayerControls.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>script-cu-lrclyrics-main.xml</label>
+			<visible>Window.IsVisible(script-cu-lrclyrics-main.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>script-globalsearch-contextmenu.xml</label>
+			<visible>Window.IsVisible(script-globalsearch-contextmenu.xml)
+			</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>script-globalsearch-infodialog.xml</label>
+			<visible>Window.IsVisible(script-globalsearch-infodialog.xml)
+			</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>script-globalsearch-main.xml</label>
+			<visible>Window.IsVisible(script-globalsearch-main.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>script-NextAired-TVGuide.xml</label>
+			<visible>Window.IsVisible(script-NextAired-TVGuide.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>script-NextAired-TVGuide2.xml</label>
+			<visible>Window.IsVisible(script-NextAired-TVGuide2.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>script-nextup-notification-NextUpInfo.xml</label>
+			<visible>Window.IsVisible(script-nextup-notification-NextUpInfo.xml)
+			</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>script-nextup-notification-StillWatchingInfo.xml</label>
+			<visible>Window.IsVisible(script-nextup-notification-StillWatchingInfo.xml)
+			</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>script-skinshortcuts-includes.xml</label>
+			<visible>Window.IsVisible(script-skinshortcuts-includes.xml)
+			</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>script-skinshortcuts.xml</label>
+			<visible>Window.IsVisible(script-skinshortcuts.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>service-LibreELEC-Settings-mainWindow.xml</label>
+			<visible>Window.IsVisible(service-LibreELEC-Settings-mainWindow.xml)
+			</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>Settings.xml</label>
+			<visible>Window.IsVisible(Settings.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>SettingsCategory.xml</label>
+			<visible>Window.IsVisible(SettingsCategory.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>SettingsProfile.xml</label>
+			<visible>Window.IsVisible(SettingsProfile.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>SettingsScreenCalibration.xml</label>
+			<visible>Window.IsVisible(SettingsScreenCalibration.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>SettingsSystemInfo.xml</label>
+			<visible>Window.IsVisible(SettingsSystemInfo.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>SkinSettings.xml</label>
+			<visible>Window.IsVisible(SkinSettings.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>SlideShow.xml</label>
+			<visible>Window.IsVisible(SlideShow.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>SmartPlaylistEditor.xml</label>
+			<visible>Window.IsVisible(SmartPlaylistEditor.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>SmartPlaylistRule.xml</label>
+			<visible>Window.IsVisible(SmartPlaylistRule.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>Startup.xml</label>
+			<visible>Window.IsVisible(Startup.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>variables.xml</label>
+			<visible>Window.IsVisible(variables.xml)</visible>
+		</control>
+
+<!-- 		<control type="label" id="20"> -->
+<!-- 			<left>0</left> -->
+<!-- 			<top>32</top> -->
+<!-- 			<width>780</width> -->
+<!-- 			<height>21</height> -->
+<!-- 			<align>left</align> -->
+<!-- 			<font>font11</font> -->
+<!-- 			<label>VideoFullScreen.xml</label> -->
+<!-- 			<textcolor>white</textcolor> -->
+<!-- 			<visible>Window.IsVisible(VideoFullScreen.xml)</visible> -->
+<!-- 		</control> -->
+
+<!-- 		<control type="label" id="20"> -->
+<!-- 			<left>0</left> -->
+<!-- 			<top>32</top> -->
+<!-- 			<width>780</width> -->
+<!-- 			<height>21</height> -->
+<!-- 			<align>left</align> -->
+<!-- 			<font>font11</font> -->
+<!-- 			<label>VideoOSD.xml</label> -->
+<!-- 			<textcolor>white</textcolor> -->
+<!-- 			<visible>Window.IsVisible(VideoOSD.xml)</visible> -->
+<!-- 		</control> -->
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>VideoOSDBookmarks.xml</label>
+			<visible>Window.IsVisible(VideoOSDBookmarks.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>View_500_Wall.xml</label>
+			<visible>Window.IsVisible(View_500_Wall.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>View_501_LowList.xml</label>
+			<visible>Window.IsVisible(View_501_LowList.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>View_502_Episode.xml</label>
+			<visible>Window.IsVisible(View_502_Episode.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>View_503_Wall.xml</label>
+			<visible>Window.IsVisible(View_503_Wall.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>View_50_List.xml</label>
+			<visible>Window.IsVisible(View_50_List.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>View_510_BigList.xml</label>
+			<visible>Window.IsVisible(View_510_BigList.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>View_51_InfoWall.xml</label>
+			<visible>Window.IsVisible(View_51_InfoWall.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>View_52_Landscape.xml</label>
+			<visible>Window.IsVisible(View_52_Landscape.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>View_52_Landscape_21x9.xml</label>
+			<visible>Window.IsVisible(View_52_Landscape_21x9.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>View_53_ShowCase.xml</label>
+			<visible>Window.IsVisible(View_53_ShowCase.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>View_53_ShowCase_21x9.xml</label>
+			<visible>Window.IsVisible(View_53_ShowCase_21x9.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>View_54_ShowCase.xml</label>
+			<visible>Window.IsVisible(View_54_ShowCase.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>View_54_ShowCase_21x9.xml</label>
+			<visible>Window.IsVisible(View_54_ShowCase_21x9.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>View_55_TriPanel.xml</label>
+			<visible>Window.IsVisible(View_55_TriPanel.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>View_56_Posters.xml</label>
+			<visible>Window.IsVisible(View_56_Posters.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>View_57_Shift.xml</label>
+			<visible>Window.IsVisible(View_57_Shift.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>View_58_BannerWall.xml</label>
+			<visible>Window.IsVisible(View_58_BannerWall.xml)</visible>
+		</control>
+
+		<control type="label" id="20">
+			<include>DebugInfoIdentifyXML</include>
+			<label>View_59_Logo.xml</label>
+			<visible>Window.IsVisible(View_59_Logo.xml)</visible>
+		</control>
+
+	</controls>
+</window>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="skin.my.scope.nox" version="1.0.0" name="My Scope Nox" provider-name="pfp-az">
+	<requires>
+		<import addon="xbmc.gui" version="5.15.0" />
+		<import addon="script.grab.fanart" version="0.12.8" />
+		<import addon="script.skinshortcuts" version="0.4.5" />
+		<import addon="service.library.data.provider" version="0.0.7" />
+		<import addon="script.embuary.info" version="2.0.8" />
+		<import addon="script.embuary.helper" version="2.0.8" />
+		<import addon="plugin.video.themoviedb.helper" version="4.3.24" />
+		<import addon="resource.images.studios.white" version="0.0.28" />
+		<import addon="resource.images.studios.coloured" version="0.0.20" />
+		<import addon="resource.images.recordlabels.white" version="0.0.1" />
+	</requires>
+	<extension point="xbmc.gui.skin" debugging="false">
+		<res width="1920" height="1080" aspect="16:9" default="true" folder="21x9" />
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">My Scope Nox: A mod of a mod, Aeon Nox formatted to suit Zoomed CIH projector setups.</summary>
+		<description lang="en">My Scope Nox: Aeon Nox in a format suitable for people using projectors and zooming for CIH. (GUI within 800-820 pixels).  Original mod - ScopeNox by Funkd</description>
+		<platform>all</platform>
+		<assets>
+			<icon>resources/icon.png</icon>
+			<fanart>resources/fanart.jpg</fanart>
+		</assets>
+	</extension>
+</addon>

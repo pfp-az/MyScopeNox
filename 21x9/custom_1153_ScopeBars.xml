@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<!-- This is the file is responsible for adding black bars at the top/bottom of the 16:9 image to effectively make it 21:9      -->
+<!-- By default it's set for a 2.40 aspect ratio.  Animations are used to adjust the size if the skin is set to use 2.35        -->
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<window id="1153" type="dialog">
+	<zorder>10</zorder>
+	<visible>[!Skin.HasSetting(DebugInfo) + [[Skin.HasSetting(scopemask) + Window.IsVisible(FullScreenVideo)] | !Window.IsVisible(FullScreenVideo)]] | System.ScreenSaverActive</visible>
+    <controls>
+		<!-- Top -->
+        <control type="image">
+			<left>0</left>
+			<top>0</top>
+			<animation effect="slide" start="0,0" end="0,-10" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
+			<width>1920</width>
+			<height>140</height>
+			<texture>black.png</texture>
+		</control>
+		<!-- Bottom -->
+		<control type="image" zorder="0">
+			<left>0</left>
+			<top>940</top>
+			<animation effect="slide" start="0,0" end="0,10" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
+			<width>1920</width>
+			<height>140</height>
+			<texture>black.png</texture>
+		</control>
+    </controls>
+</window>
