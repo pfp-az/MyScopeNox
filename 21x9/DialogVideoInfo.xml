@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-------------------------------------------------------------------------------------------------------------------------------->
-<!-- This is the file is responsible for displaying the video info details.                                                     -->
+<!-- This is the file responsible for displaying the video info details.                                                        -->
 <!-------------------------------------------------------------------------------------------------------------------------------->
 <window>
 	<defaultcontrol always="true">8</defaultcontrol>
@@ -68,6 +68,7 @@
 				<top>140</top> <!-- Need to define here due to animation on control-->
 				<width>1387</width>
 				<height>800</height>
+				<!--<texture colordiffuse="D9FFFFFF">colors/black.png</texture>-->
 				<texture border="4">dialogs/info/info_rightpaneltop.png</texture>
 			</control>
 			<!-- Info -->

@@ -151,6 +151,27 @@
 			</control>
 
 			<control type="label" id="20">
+				<top>70</top>
+				<include>DebugInfoIdentifyXML</include>
+				<label>script-embuary-video.xml</label>
+				<visible>Window.IsVisible(script-embuary-video.xml)</visible>
+			</control>
+
+			<control type="label" id="20">
+				<top>70</top>
+				<include>DebugInfoIdentifyXML</include>
+				<label>script-embuary-person.xml</label>
+				<visible>Window.IsVisible(script-embuary-person.xml)</visible>
+			</control>
+
+			<control type="label" id="20">
+				<top>70</top>
+				<include>DebugInfoIdentifyXML</include>
+				<label>script-embuary-image.xml</label>
+				<visible>Window.IsVisible(script-embuary-image.xml)</visible>
+			</control>
+
+			<control type="label" id="20">
 				<include>DebugInfoIdentifyXML</include>
 				<label>custom_1190_TMDBHelper.xml</label>
 				<visible>Window.IsVisible(custom_1190_TMDBHelper.xml)</visible>
