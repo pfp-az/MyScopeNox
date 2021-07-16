@@ -44,7 +44,7 @@
 				<top>72</top>
 				<width>1256</width>
 				<height>600</height>
-				<font>font15_textbox</font>
+				<font>font_30_ls_13</font>
 				<textcolor>grey2</textcolor>
 				<pagecontrol>61</pagecontrol>
 				<label>$INFO[Window(Home).Property(TextViewerContent)]</label>
