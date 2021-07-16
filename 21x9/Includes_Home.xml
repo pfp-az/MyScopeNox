@@ -236,7 +236,7 @@
 		<item id="14">
 			<label fallback="15016">$INFO[Skin.String(GamesHomeItem.Label)]</label>
 			<onclick>$INFO[Container(9000).ListItem.Property(Path)]</onclick>
-			<icon fallback="views/list/DefaultProgram.png">$INFO[Skin.String(GamesHomeItem.Icon)]</icon>
+			<icon fallback="views/list/DefaultGameAddons.png">$INFO[Skin.String(GamesHomeItem.Icon)]</icon>
 			<thumb>$INFO[Skin.String(GamesHomeItem.MultiFanart)]</thumb>
 			<property name="Path" fallback="ActivateWindow(games)">$INFO[Skin.String(GamesHomeItem.Path)]</property>
 			<property name="Item">Games</property>
@@ -270,7 +270,7 @@
 		<item id="6">
 			<label fallback="33060">$INFO[Skin.String(ShutdownHomeItem.Label)]</label>
 			<onclick>$INFO[Container(9000).ListItem.Property(Path)]</onclick>
-			<icon fallback="special://skin/extras/icons/power.png">$INFO[Skin.String(ShutdownHomeItem.Icon)]</icon>
+			<icon fallback="views/list/Power.png">$INFO[Skin.String(ShutdownHomeItem.Icon)]</icon>
 			<thumb>$INFO[Skin.String(ShutdownHomeItem.MultiFanart)]</thumb>
 			<property name="Path" fallback="ActivateWindow(shutdownmenu)">$INFO[Skin.String(ShutdownHomeItem.Path)]</property>
 			<property name="Item">Shutdown</property>
@@ -287,7 +287,7 @@
 		<item id="8">
 			<label fallback="1036">$INFO[Skin.String(FavoritesHomeItem.Label)]</label>
 			<onclick>$INFO[Container(9000).ListItem.Property(Path)]</onclick>
-			<icon fallback="special://skin/extras/icons/Favorites.png">$INFO[Skin.String(FavoritesHomeItem.Icon)]</icon>
+			<icon fallback="views/list/DefaultFavourite.png">$INFO[Skin.String(FavoritesHomeItem.Icon)]</icon>
 			<thumb>$INFO[Skin.String(FavoritesHomeItem.MultiFanart)]</thumb>
 			<property name="Path" fallback="ActivateWindow(Favourites)">$INFO[Skin.String(FavoritesHomeItem.Path)]</property>
 			<property name="Item">Favorites</property>
@@ -338,7 +338,7 @@
 		<item id="101">
 			<label fallback="CUSTOM1">$INFO[Skin.String(Custom1HomeItem.Label)]</label>
 			<onclick>$INFO[Container(9000).ListItem.Property(Path)]</onclick>
-			<icon fallback="special://skin/extras/icons/Customize.png">$INFO[Skin.String(Custom1HomeItem.Icon)]</icon>
+			<icon fallback="views/list/Customize.png">$INFO[Skin.String(Custom1HomeItem.Icon)]</icon>
 			<thumb>$INFO[Skin.String(Custom1HomeItem.MultiFanart)]</thumb>
 			<property name="Path">$INFO[Skin.String(Custom1HomeItem.Path)]</property>
 			<property name="Item">Custom1</property>
@@ -355,7 +355,7 @@
 		<item id="202">
 			<label fallback="CUSTOM2">$INFO[Skin.String(Custom2HomeItem.Label)]</label>
 			<onclick>$INFO[Container(9000).ListItem.Property(Path)]</onclick>
-			<icon fallback="special://skin/extras/icons/Customize.png">$INFO[Skin.String(Custom2HomeItem.Icon)]</icon>
+			<icon fallback="views/list/Customize.png">$INFO[Skin.String(Custom2HomeItem.Icon)]</icon>
 			<thumb>$INFO[Skin.String(Custom2HomeItem.MultiFanart)]</thumb>
 			<property name="Path">$INFO[Skin.String(Custom2HomeItem.Path)]</property>
 			<property name="Item">Custom2</property>
@@ -372,7 +372,7 @@
 		<item id="303">
 			<label fallback="CUSTOM3">$INFO[Skin.String(Custom3HomeItem.Label)]</label>
 			<onclick>$INFO[Container(9000).ListItem.Property(Path)]</onclick>
-			<icon fallback="special://skin/extras/icons/Customize.png">$INFO[Skin.String(Custom3HomeItem.Icon)]</icon>
+			<icon fallback="views/list/Customize.png">$INFO[Skin.String(Custom3HomeItem.Icon)]</icon>
 			<thumb>$INFO[Skin.String(Custom3HomeItem.MultiFanart)]</thumb>
 			<property name="Path">$INFO[Skin.String(Custom3HomeItem.Path)]</property>
 			<property name="Item">Custom3</property>
@@ -389,7 +389,7 @@
 		<item id="404">
 			<label fallback="CUSTOM4">$INFO[Skin.String(Custom4HomeItem.Label)]</label>
 			<onclick>$INFO[Container(9000).ListItem.Property(Path)]</onclick>
-			<icon fallback="special://skin/extras/icons/Customize.png">$INFO[Skin.String(Custom4HomeItem.Icon)]</icon>
+			<icon fallback="views/list/Customize.png">$INFO[Skin.String(Custom4HomeItem.Icon)]</icon>
 			<thumb>$INFO[Skin.String(Custom4HomeItem.MultiFanart)]</thumb>
 			<property name="Path">$INFO[Skin.String(Custom4HomeItem.Path)]</property>
 			<property name="Item">Custom4</property>
@@ -406,7 +406,7 @@
 		<item id="505">
 			<label fallback="CUSTOM5">$INFO[Skin.String(Custom5HomeItem.Label)]</label>
 			<onclick>$INFO[Container(9000).ListItem.Property(Path)]</onclick>
-			<icon fallback="special://skin/extras/icons/Customize.png">$INFO[Skin.String(Custom5HomeItem.Icon)]</icon>
+			<icon fallback="views/list/Customize.png">$INFO[Skin.String(Custom5HomeItem.Icon)]</icon>
 			<thumb>$INFO[Skin.String(Custom5HomeItem.MultiFanart)]</thumb>
 			<property name="Path">$INFO[Skin.String(Custom5HomeItem.Path)]</property>
 			<property name="Item">Custom5</property>
@@ -423,7 +423,7 @@
 		<item id="606">
 			<label fallback="CUSTOM6">$INFO[Skin.String(Custom6HomeItem.Label)]</label>
 			<onclick>$INFO[Container(9000).ListItem.Property(Path)]</onclick>
-			<icon fallback="special://skin/extras/icons/Customize.png">$INFO[Skin.String(Custom6HomeItem.Icon)]</icon>
+			<icon fallback="views/list/Customize.png">$INFO[Skin.String(Custom6HomeItem.Icon)]</icon>
 			<thumb>$INFO[Skin.String(Custom6HomeItem.MultiFanart)]</thumb>
 			<property name="Path">$INFO[Skin.String(Custom6HomeItem.Path)]</property>
 			<property name="Item">Custom6</property>
