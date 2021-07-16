@@ -8,6 +8,7 @@
 	<onunload>ClearProperty(TextViewerHeader,Home)</onunload>
 	<onunload>ClearProperty(TextViewerContent,Home)</onunload>
 	<controls>
+		<!-- A hidden button to close the window -->
 		<control type="button" id="62">
 			<onclick>Dialog.Close(1132)</onclick>
 			<onup>PageUp(61)</onup>
@@ -20,13 +21,13 @@
 			<height>904</height>
 			<centerleft>50%</centerleft>
 			<centertop>60%</centertop>
-			<control type="image">
-				<width>1380</width>
-				<height>704</height>
-				<texture border="40">listpanel_back.png</texture>
-			</control>
+			<!-- Backround image -->
+			<include content="BuildPanelBackground">
+				<param name="height" value="704" />
+				<param name="width" value="1380" />
+			</include>
+			<!-- Header label -->
 			<control type="label">
-				<description>header label</description>
 				<left>62</left>
 				<top>32</top>
 				<width>1256</width>
@@ -36,6 +37,7 @@
 				<textcolor>dialogheader</textcolor>
 				<label>$INFO[Window(Home).Property(TextViewerHeader)]</label>
 			</control>
+			<!-- The text we came here to see -->
 			<control type="textbox">
 				<description>textarea</description>
 				<left>62</left>
@@ -47,6 +49,7 @@
 				<pagecontrol>61</pagecontrol>
 				<label>$INFO[Window(Home).Property(TextViewerContent)]</label>
 			</control>
+			<!-- Scrollbar -->
 			<control type="scrollbar" id="61">
 				<left>1348</left>
 				<top>32</top>

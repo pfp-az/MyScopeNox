@@ -744,6 +744,16 @@
  		</definition>
    </include>
 
+    <!-- Used on a screen that aids in debugging-->
+    <include name="DebugInfoLabel">
+		<definition>
+			<width>400</width>
+			<height>30</height>
+			<font>font11</font>
+			<textcolor>white</textcolor>
+ 		</definition>
+   </include>
+
 	<!-- Needed for native cast lookup on DialogVideoInfo when Embuary.info scrpt is installed.  Not really sure why -->
 	<include name="HiddenActorList">
 		<control type="list" id="50">
@@ -1710,4 +1720,55 @@
 			<texture background="true">$PARAM[texture]</texture>
 		</definition>
 	</include>
+
+	<!-- Draws a box with border, a simple replacement for dedicated backgrounf images -->
+	<include name="BuildPanelBackground">
+		<param name="height" />
+		<param name="width" />
+		<param name="bordersize" default="4" /> 
+		<param name="bordercolor" default="labelheader"/>  <!-- Pass "color/trans.png" if you don't want a border -->
+		<param name="color" default="black" />
+		<param name="coloralpha" default="FF" />  <!-- Pass code for desired transparency - Examples: FF=100%, F2=95%, E6=90%, D9=85%, CC=80%, BF=75%, B3=70%, A6=65%, 99=60%, 8C=55%, 80=50% -->
+		<definition>
+			<!-- background -->
+			<control type="image">
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<texture colordiffuse="$PARAM[coloralpha]FFFFFF">colors/$PARAM[color].png</texture>
+			</control>
+			<!-- top border -->
+			<control type="image">
+				<top>0</top>
+				<left>0</left>
+				<width>$PARAM[width]</width>
+				<height>$PARAM[bordersize]</height>
+				<texture colordiffuse="$PARAM[bordercolor]">colors/white.png</texture>
+			</control>
+			<!-- left border -->
+			<control type="image">
+				<top>0</top>
+				<left>0</left>
+				<width>$PARAM[bordersize]</width>
+				<height>$PARAM[height]</height>
+				<texture colordiffuse="$PARAM[bordercolor]">colors/white.png</texture>
+			</control>
+			<!-- right border -->
+			<control type="image">
+				<top>0</top>
+				<right>$PARAM[width]r</right>
+				<width>$PARAM[bordersize]</width>
+				<height>$PARAM[height]</height>
+				<texture colordiffuse="$PARAM[bordercolor]">colors/white.png</texture>
+			</control>
+			<!-- bottom border -->
+			<control type="image">
+				<left>0</left>
+				<bottom>$PARAM[height]r</bottom>
+				<width>$PARAM[width]</width>
+				<height>$PARAM[bordersize]</height>
+				<texture colordiffuse="$PARAM[bordercolor]">colors/white.png</texture>
+			</control>
+		</definition>
+	</include>
+
 </includes>
