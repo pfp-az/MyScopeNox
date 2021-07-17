@@ -4,6 +4,7 @@
 	<allowoverlay>no</allowoverlay>
 	<include>DialogOpenCloseAnimation</include>
 	<controls>
+		<!-- Background -->
 		<control type="group">
 			<width>1570</width>
 			<height>662</height>
@@ -14,8 +15,8 @@
 				<height>662</height>
 				<texture border="40">dialogs/default/bg.png</texture>
 			</control>
+			<!-- Header label --> 
 			<control type="label" id="411">
-				<description>header label</description>
 				<label>1023</label>
 				<left>30</left>
 				<top>32</top>
@@ -28,6 +29,7 @@
 				<textcolor>dialogheader</textcolor>
 				<animation effect="fade" start="100" end="0" time="0" delay="30000" condition="True">Conditional</animation>
 			</control>
+			<!-- Path label --> 
 			<control type="label" id="412">
 				<description>Path label</description>
 				<label>1023</label>
@@ -50,6 +52,7 @@
 					<height>542</height>
 					<texture border="5">dialogs/default/inner.png</texture>
 				</control>
+				<!-- The list of files (list view)-->
 				<control type="list" id="450">
 					<left>1</left>
 					<top>1</top>
@@ -63,11 +66,6 @@
 					<viewtype>list</viewtype>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
 					<itemlayout height="60" width="960">
-						<control type="image">
-							<width>960</width>
-							<height>60</height>
-							<texture border="1">separator2.png</texture>
-						</control>
 						<control type="label">
 							<width>960</width>
 							<height>60</height>
@@ -96,6 +94,7 @@
 						</control>
 					</focusedlayout>
 				</control>
+				<!-- The list of files (icon view)-->
 				<control type="panel" id="451">
 					<left>1</left>
 					<top>1</top>
@@ -187,6 +186,7 @@
 						</control>
 					</focusedlayout>
 				</control>
+				<!-- Scrollbar -->
 				<control type="scrollbar" id="60">
 					<left>961</left>
 					<top>1</top>
@@ -230,6 +230,7 @@
 					<height>242</height>
 					<texture border="5">dialogs/default/inner.png</texture>
 				</control>
+				<!-- Buttons -->
 				<control type="grouplist" id="9000">
 					<left>1</left>
 					<top>316</top>
