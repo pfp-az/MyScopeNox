@@ -693,9 +693,9 @@
 		<value condition="ControlGroup(9001).HasFocus(90084)">Recommended movies$INFO[Container(90084).NumItems, [COLOR grey3](,)[/COLOR]]</value>
 	</variable>
 
-	<!-- Label text for buttons on the Embuary details screen, there are none-->
+	<!-- Label text for buttons on the Embuary details screen -->
 	<variable name="EmbuaryInfoButtonLabelVar">
-		<value></value>
+		<value condition="Control.HasFocus(207)">$LOCALIZE[31014]</value>
 	</variable>
 
 	<!-- Label text for the Biography / posters on the movie details screen -->

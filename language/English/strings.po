@@ -1224,3 +1224,6 @@ msgctxt "#31990"
 msgid "Image gallery"
 msgstr ""
 
+msgctxt "#31991"
+msgid "Embruary Info Settings"
+msgstr ""

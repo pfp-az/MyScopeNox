@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-------------------------------------------------------------------------------------------------------------------------------->
-<!-- This is the file responsible for displaying TMDB data from the Embuary Info addon                                          -->
+<!-- This is the file responsible for displaying TMDB person data from the Embuary Info addon                                   -->
 <!-------------------------------------------------------------------------------------------------------------------------------->
 <window>
 	<allowoverlay>no</allowoverlay>
 	<onload>SetFocus(900181)</onload>
 	<controls>
 
-		<!-- A hidden list to pull Embuary actor detals from -->
+		<!-- A hidden list to pull Embuary actor details from -->
 		<control type="list" id="10051">
 			<include>HiddenList</include>
 		</control>
@@ -184,6 +184,26 @@
 							<scroll>true</scroll>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label>$VAR[EmbuaryInfoDetailsLabelVar]</label>
+						</control>
+					</control>
+					<!-- Buttons -->
+					<control type="grouplist" id="9000">
+					<animation effect="slide" start="0,0" end="-14,0" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
+						<align>right</align>
+						<orientation>horizontal</orientation>
+						<onleft>9000</onleft>
+						<onright>9000</onright>
+						<onup>300</onup>
+						<ondown>9001</ondown>
+						<!-- Extras -->
+						<control type="button" id="207">
+							<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
+							<width>65</width>
+							<texturenofocus></texturenofocus>
+							<font>IconMediumMD</font>
+							<include>ButtonInfoDialogsCommonValues</include>
+							<label></label>
+							<onclick>ActivateWindow(1119)</onclick>
 						</control>
 					</control>
 				</control>

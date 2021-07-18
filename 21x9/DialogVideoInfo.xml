@@ -157,7 +157,7 @@
 					<!-- Year -->
 					<control type="label">
 						<visible>!String.IsEqual(ListItem.DBType,episode)</visible>
-						<width>70</width>
+						<width>80</width>
 						<align>left</align>
 						<label>$INFO[ListItem.Year]</label>
 						<font>font15</font>
