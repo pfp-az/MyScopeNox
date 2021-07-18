@@ -17,6 +17,7 @@
 
 		<!-- Needed for native cast lookup when Embuary.info scrpt is installed.  Not really sure why -->
 		<include content="HiddenActorList" condition="!String.IsEqual(ListItem.DBTYPE,set) + System.HasAddon(script.embuary.info)" />
+
 		<!-- Left Side - Poster -->
 		<control type="group">
 			<!-- <top>140</top> Unable to define here due to animation on control in group -->
@@ -463,7 +464,6 @@
 						<ondown>9001</ondown>
 						<!-- Play -->
 						<control type="button" id="8">
-							<visible>String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode)</visible>
 							<width>65</width>
 							<texturenofocus></texturenofocus>
 							<font>IconMediumMD</font>
@@ -472,7 +472,6 @@
 						</control>
 						<!-- Cast -->
 						<control type="button" id="910">
-							<visible>String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode)</visible>
 							<visible>!String.IsEmpty(ListItem.Cast)</visible>
 							<width>65</width>
 							<texturenofocus></texturenofocus>
@@ -484,8 +483,6 @@
 						</control>
 						<!-- TMDB info -->
 						<control type="button" id="208">
-							<visible>String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode)</visible>
-							<visible>System.HasAddon(script.embuary.info)</visible>
 							<width>65</width>
 							<texturenofocus></texturenofocus>
 							<font>IconMediumMD</font>
@@ -500,7 +497,6 @@
 						</control>
 						<!-- Set rating -->
 						<control type="button" id="7">
-							<visible>String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode)</visible>
 							<width>65</width>
 							<texturenofocus></texturenofocus>
 							<font>IconMediumMD</font>
@@ -582,17 +578,19 @@
 					<height>1</height>
 					<texture colordiffuse="labelheader">separator_horizontal.png</texture>
 				</control>
-				<!-- Plot area for 2.40 setting  -->
-				<include content="VariableHeightPlot" condition="!Skin.HasSetting(scopeFormat235)">
+				<!-- ExtendedInfo area for 2.40 setting  -->
+				<include content="VariableHeightExtendedInfo" condition="!Skin.HasSetting(scopeFormat235)">
+					<param name="videodetails" value="true" />
 					<param name="totalheight" value="409" />
-					<param name="plotheight" value="309" /> <!-- total height - media icon height - 10 -->
+					<param name="textheight" value="309" /> <!-- total height - media icon height - 10 -->
 					<param name="posterheight" value="329" /> <!-- poster height - 80 -->
 					<param name="posterwidth" value="219" />
 				</include>
-				<!-- Plot area for 2.35 setting  -->
-				<include content="VariableHeightPlot" condition="Skin.HasSetting(scopeFormat235)">
+				<!-- ExtendedInfo area for 2.35 setting  -->
+				<include content="VariableHeightExtendedInfo" condition="Skin.HasSetting(scopeFormat235)">
+					<param name="videodetails" value="true" />
 					<param name="totalheight" value="429" />
-					<param name="plotheight" value="329" /> <!-- total height - media icon height - 10 -->
+					<param name="textheight" value="329" /> <!-- total height - media icon height - 10 -->
 					<param name="posterheight" value="349" /> <!-- poster height - 80 -->
 					<param name="posterwidth" value="233" />
 				</include>

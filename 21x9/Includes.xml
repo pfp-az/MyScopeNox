@@ -732,19 +732,6 @@
    </include>
 
     <!-- Used on a screen that aids in debugging-->
-    <include name="DebugInfoIdentifyXML">
-		<definition>
-			<left>10</left>
-			<top>40</top>
-			<width>780</width>
-			<height>21</height>
-			<align>left</align>
-			<font>font11</font>
-			<textcolor>white</textcolor>
- 		</definition>
-   </include>
-
-    <!-- Used on a screen that aids in debugging-->
     <include name="DebugInfoLabel">
 		<definition>
 			<width>400</width>
@@ -1085,8 +1072,21 @@
 		</definition>
 	</include>
 
-	<!-- Part of ExtendedInfo area for video, the layout of the posters -->
-	<include name="ExtendedInfoPostersLayout">
+
+	<!-- ExtendedInfo area poster content -->
+	<include name="ExtendedInfoPanelContent">
+		<param name="content" />
+		<param name="sortby" />
+		<param name="sortorder" />
+		<definition>
+			<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="videos">$PARAM[content]</content>
+			<!-- This is a special case where the cast list is custom and cant use the same method as the other lists -->
+			<include content="CastPanelContent" condition="String.IsEmpty($PARAM[content])" />
+		</definition>
+	</include>
+
+	<!-- ExtendedInfo area poster layout -->
+	<include name="ExtendedInfoPanelLayout">
 		<param name="focused" default="false" />
 		<param name="overlay" />
 		<param name="height" />
@@ -1105,7 +1105,7 @@
 					<include content="ConditionalWidth">
 						<param name="width" value="$PARAM[width]" />
 					</include>
-					<aspectratio aligny="top">scale</aspectratio>
+					<aspectratio>scale</aspectratio>
 					<texture background="true" fallback="DefaultActor.png">$INFO[ListItem.Icon]</texture>
 					<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
 					<bordersize>2</bordersize>
@@ -1119,7 +1119,7 @@
 					<include content="ConditionalWidth">
 						<param name="width" value="$PARAM[width]" />
 					</include>
-					<aspectratio aligny="top">scale</aspectratio>
+					<aspectratio>scale</aspectratio>
 					<texture background="true" fallback="DefaultMovies.png">$VAR[PosterVar]</texture>
 					<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
 					<bordersize>2</bordersize>
@@ -1188,24 +1188,12 @@
 		</definition>
 	</include>
 
-	<!-- Part of ExtendedInfo area for video, the content for the posters -->
-	<include name="ExtendedInfoListContent">
-		<param name="content" />
-		<param name="sortby" />
-		<param name="sortorder" />
-		<definition>
-			<content condition="!String.IsEmpty($PARAM[content])" sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="videos">$PARAM[content]</content>
-			<!-- This is a special case where the cast list is custom and cant use the same method as the other lists -->
-			<include content="CastPanelContent" condition="String.IsEmpty($PARAM[content])" />
-		</definition>
-	</include>
-
-	<!-- Part of ExtendedInfo area for video, the list of different types of posters -->
-	<include name="ExtendedInfoListLayout">
+	<!-- ExtendedInfo area poster setup -->
+	<include name="ExtendedInfoPanelSetup">
 		<param name="controlId" />
 		<param name="label" default="$INFO[ListItem.Label]" />
 		<param name="label2" />
-		<param name="includeContent" />
+		<param name="customcontent" />
 		<param name="content" />
 		<param name="overlay" default="false" />
 		<param name="sortby" />
@@ -1220,7 +1208,7 @@
 				<orientation>horizontal</orientation>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
 				<itemlayout height="$PARAM[totalheight]" width="$PARAM[posterwidth]" condition="!Skin.HasSetting(scopeFormat235)">
-					<include content="ExtendedInfoPostersLayout">
+					<include content="ExtendedInfoPanelLayout">
 						<param name="overlay" value="$PARAM[overlay]" />
 						<param name="height" value="$PARAM[posterheight]" />
 						<param name="width" value="$PARAM[posterwidth]" />
@@ -1229,7 +1217,7 @@
 					</include>
 				</itemlayout>
 				<itemlayout height="$PARAM[totalheight]" width="$PARAM[posterwidth]" condition="Skin.HasSetting(scopeFormat235)">
-					<include content="ExtendedInfoPostersLayout">
+					<include content="ExtendedInfoPanelLayout">
 						<param name="overlay" value="$PARAM[overlay]" />
 						<param name="height" value="$PARAM[posterheight]" />
 						<param name="width" value="$PARAM[posterwidth]" />
@@ -1238,7 +1226,7 @@
 					</include>
 				</itemlayout>
 				<focusedlayout height="$PARAM[totalheight]" width="$PARAM[posterwidth]" condition="!Skin.HasSetting(scopeFormat235)">
-					<include content="ExtendedInfoPostersLayout">
+					<include content="ExtendedInfoPanelLayout">
 						<param name="focused" value="true" />
 						<param name="overlay" value="$PARAM[overlay]" />
 						<param name="height" value="$PARAM[posterheight]" />
@@ -1248,7 +1236,7 @@
 					</include>
 				</focusedlayout>
 				<focusedlayout height="$PARAM[totalheight]" width="$PARAM[posterwidth]" condition="Skin.HasSetting(scopeFormat235)">
-					<include content="ExtendedInfoPostersLayout">
+					<include content="ExtendedInfoPanelLayout">
 						<param name="focused" value="true" />
 						<param name="overlay" value="$PARAM[overlay]" />
 						<param name="height" value="$PARAM[posterheight]" />
@@ -1258,7 +1246,7 @@
 					</include>
 				</focusedlayout>
 				<!-- Content -->
-				<include content="ExtendedInfoListContent" condition="$PARAM[includeContent]">
+				<include content="ExtendedInfoPanelContent" condition="$PARAM[customcontent]">
 					<param name="content">$PARAM[content]</param>
 					<param name="sortby">$PARAM[sortby]</param>
 					<param name="sortorder">$PARAM[sortorder]</param>
@@ -1267,10 +1255,305 @@
 		</definition>
 	</include>
 
-	<!-- ExtendedInfo area for video.  As an include the height can change depending on scope aspect ratio -->	
-	<include name="VariableHeightPlot"> 
+	<!-- ExtendedInfo area for video, add the plot and media info icons -->	
+	<include name="ExtendedInfoPlot"> 
 		<param name="totalheight" />
-		<param name="plotheight" />
+		<param name="textheight" />
+		<definition>
+			<control type="group" id="90017">
+			<height>$PARAM[totalheight]</height> <!-- Don't understand why necessary in all 3 places -->
+			<!-- Button -->	
+			<control type="button" id="900171">
+				<width>0</width>>  <!-- Don't understand why necessary -->
+				<height>$PARAM[totalheight]</height> <!-- Don't understand why necessary in all 3 places -->
+				<texturenofocus></texturenofocus>
+				<onup>9000</onup>
+				<ondown condition="!System.HasAddon(script.embuary.info)">SetFocus(50)</ondown>
+				<ondown condition="System.HasAddon(script.embuary.info)">SetFocus(90050)</ondown>
+				<onclick>SetProperty(TextViewerHeader,$INFO[ListItem.Label,[B],[/B]],Home)</onclick>
+				<onclick>SetProperty(TextViewerContent,$ESCINFO[ListItem.Tagline,[I],[/I][CR]]$ESCINFO[ListItem.Plot]$ESCINFO[ListItem.PlotOutline,[CR]---[CR]],Home)</onclick>
+				<onclick>ActivateWindow(1132)</onclick>
+			</control>
+			<!-- plot -->	
+			<control type="textbox">
+				<top>10</top>
+				<height>$PARAM[textheight]</height>
+				<left>36</left>
+				<right>36</right>
+				<font>font_30_ls_13</font>
+				<label>$INFO[ListItem.Plot]</label>
+				<textcolor>white</textcolor>
+				<pagecontrol />
+				<autoscroll time="3000" delay="10000" repeat="10000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+				<animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
+				<animation effect="fade" start="100" end="78" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(900171)">Conditional</animation>
+			</control>
+			<!-- Icons -->
+			<control type="grouplist">
+				<top>90r</top>
+				<height>90</height>
+				<left>-36</left>
+				<align>center</align>
+				<aligny>center</aligny>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
+				<include>SettingsFadeAnimation</include>
+				<!-- Source-->
+				<control type="image">
+					<width>150</width>
+					<colordiffuse>grey</colordiffuse>
+					<include>MediaFlagVars</include>
+					<texture>flags/video/$VAR[MediaFlagsPath]/$VAR[SourceFlagVar].png</texture>
+				</control>
+				<!-- Video Resolution -->
+				<control type="image">
+					<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
+					<width>150</width>
+					<colordiffuse>grey</colordiffuse>
+					<include>MediaFlagVars</include>
+					<texture>flags/resolution/$VAR[MediaFlagsPath]/$INFO[ListItem.VideoResolution].png</texture>
+				</control>
+				<!-- Aspect Ratio -->
+				<control type="image">
+					<width>150</width>
+					<colordiffuse>grey</colordiffuse>
+					<include>MediaFlagVars</include>
+					<texture>flags/aspectratio/$VAR[MediaFlagsPath]/$VAR[AspectRatio].png</texture>
+				</control>
+				<!-- Unknown -->
+				<control type="group">
+					<visible>String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.Property(TotalSeasons))</visible>
+					<width>200</width>
+					<control type="label">
+						<left>0</left>
+						<top>2</top>
+						<width>200</width>
+						<height>60</height>
+						<align>center</align>
+						<label>$INFO[ListItem.Property(TotalSeasons)]</label>
+						<font>font35_bold</font>
+						<wrapmultiline>true</wrapmultiline>
+						<textcolor>grey</textcolor>
+					</control>
+					<control type="label">
+						<top>52</top>
+						<width>200</width>
+						<height>30</height>
+						<align>center</align>
+						<label>[LOWERCASE]$VAR[OneOrMoreSeasonsVar][/LOWERCASE]</label>
+						<font>font12</font>
+						<textcolor>grey</textcolor>
+					</control>
+				</control>
+				<!-- Audio Codec -->
+				<control type="image">
+					<visible>!IsEmpty(Control.GetLabel(9904))</visible>
+					<width>150</width>
+					<colordiffuse>grey</colordiffuse>
+					<include>MediaFlagVars</include>
+					<texture>flags/audio/$VAR[MediaFlagsPath]/$VAR[AudioCodecCustom].png</texture>
+				</control>
+				<!-- Unknown -->
+				<control type="group">
+					<visible>String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.Property(TotalEpisodes))</visible>
+					<width>200</width>
+					<control type="label">
+						<left>0</left>
+						<top>2</top>
+						<width>200</width>
+						<height>60</height>
+						<align>center</align>
+						<label>$INFO[ListItem.Property(TotalEpisodes)]</label>
+						<font>font35_bold</font>
+						<wrapmultiline>true</wrapmultiline>
+						<textcolor>grey</textcolor>
+					</control>
+					<control type="label">
+						<top>52</top>
+						<width>200</width>
+						<height>30</height>
+						<align>center</align>
+						<label>[LOWERCASE]$VAR[OneOrMoreEpisodesVar][/LOWERCASE]</label>
+						<font>font12</font>
+						<textcolor>grey</textcolor>
+					</control>
+				</control>
+				<!-- Audio Channels -->
+				<control type="image">
+					<visible>!IsEmpty(Control.GetLabel(9902))</visible>
+					<width>150</width>
+					<colordiffuse>grey</colordiffuse>
+					<include>MediaFlagVars</include>
+					<texture>flags/channels/$VAR[MediaFlagsPath]/$VAR[AudioChannelCustom].png</texture>
+				</control>
+				<!-- Unknown -->
+				<control type="group">
+					<visible>String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
+					<width>200</width>
+					<control type="label">
+						<top>2</top>
+						<width>200</width>
+						<height>60</height>
+						<align>center</align>
+						<label>$INFO[ListItem.Property(UnWatchedEpisodes)]</label>
+						<font>font35_bold</font>
+						<wrapmultiline>true</wrapmultiline>
+						<textcolor>grey</textcolor>
+					</control>
+					<control type="label">
+						<top>52</top>
+						<width>200</width>
+						<height>30</height>
+						<align>center</align>
+						<label>[LOWERCASE]$LOCALIZE[16101][/LOWERCASE]</label>
+						<font>font12</font>
+						<textcolor>grey</textcolor>
+					</control>
+				</control>
+				<!-- Audio / Subtitle Language -->
+				<control type="grouplist">
+					<height>90</height>
+					<width>160</width>
+					<align>center</align>
+					<aligny>center</aligny>
+					<!-- Audio Language -->
+					<control type="grouplist">
+						<height>30</height>
+						<orientation>horizontal</orientation>
+						<control type="group">
+							<!-- gap -->
+							<width>20</width>
+						</control>
+						<control type="image">
+							<width>30</width>
+							<height>30</height>
+							<aspectratio>keep</aspectratio>
+							<colordiffuse>grey</colordiffuse>
+							<texture>flags/audio.png</texture>
+							<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1))</visible>
+						</control>
+						<control type="image">
+							<width>30</width>
+							<height>30</height>
+							<include>MediaFlagValues</include>
+							<texture>flags/language/default/$INFO[ListItem.Property(AudioLanguage.1),,.png]</texture>
+							<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1))</visible>
+						</control>
+						<control type="image">
+							<width>30</width>
+							<height>30</height>
+							<include>MediaFlagValues</include>
+							<texture>flags/language/default/$INFO[ListItem.Property(AudioLanguage.2),,.png]</texture>
+							<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.2))</visible>
+						</control>
+						<control type="image">
+							<width>30</width>
+							<height>30</height>
+							<include>MediaFlagValues</include>
+							<texture>flags/language/default/$INFO[ListItem.Property(AudioLanguage.3),,.png]</texture>
+							<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.3))</visible>
+						</control>
+						<control type="image">
+							<width>30</width>
+							<height>30</height>
+							<include>MediaFlagValues</include>
+							<texture>flags/language/default/$INFO[ListItem.Property(AudioLanguage.4),,.png]</texture>
+							<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.4))</visible>
+						</control>
+					</control>
+					<!-- Subtitle Language -->
+					<control type="grouplist">
+						<height>30</height>
+						<orientation>horizontal</orientation>
+						<control type="group">
+							<!-- gap -->
+							<width>20</width> 
+						</control>
+						<control type="image">
+							<width>30</width>
+							<height>30</height>
+							<aspectratio>keep</aspectratio>
+							<colordiffuse>grey</colordiffuse>
+							<texture>flags/subtitles.png</texture>
+							<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
+						</control>
+						<control type="image">
+							<width>30</width>
+							<height>30</height>
+							<include>MediaFlagValues</include>
+							<texture>flags/language/default/$INFO[ListItem.Property(SubtitleLanguage.1),,.png]</texture>
+							<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
+						</control>
+						<control type="image">
+							<width>30</width>
+							<height>30</height>
+							<include>MediaFlagValues</include>
+							<texture>flags/language/default/$INFO[ListItem.Property(SubtitleLanguage.2),,.png]</texture>
+							<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.2))</visible>
+						</control>
+						<control type="image">
+							<width>30</width>
+							<height>30</height>
+							<include>MediaFlagValues</include>
+							<texture>flags/language/default/$INFO[ListItem.Property(SubtitleLanguage.3),,.png]</texture>
+							<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.3))</visible>
+						</control>
+						<control type="image">
+							<width>30</width>
+							<height>30</height>
+							<include>MediaFlagValues</include>
+							<texture>flags/language/default/$INFO[ListItem.Property(SubtitleLanguage.4),,.png]</texture>
+							<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.4))</visible>
+						</control>
+					</control>
+				</control>
+			</control>
+		</control>
+		</definition>
+	</include>
+
+	<!-- ExtendedInfo area for people, add their biography  -->	
+	<include name="ExtendedInfoBiography"> 
+		<param name="totalheight" />
+		<param name="textheight" />
+		<definition>
+			<control type="group" id="90018">
+			<height>$PARAM[totalheight]</height> <!-- Don't understand why necessary in all 3 places -->
+			<!-- Button -->	
+			<control type="button" id="900181">
+				<width>0</width>>  <!-- Don't understand why necessary -->
+				<height>$PARAM[totalheight]</height> <!-- Don't understand why necessary in all 3 places -->
+				<texturenofocus></texturenofocus>
+				<onup>9000</onup>
+				<ondown>10052</ondown>
+				<onclick>SetProperty(TextViewerHeader,$ESCINFO[Container(10051).ListItem.Label,[B],[/B]],Home)</onclick>
+				<onclick>SetProperty(TextViewerContent,[CR]$ESCINFO[Container(10051).ListItem.Property(Biography)],Home)</onclick>
+				<onclick>ActivateWindow(1132)</onclick>
+			</control>
+			<!-- Biography -->	
+			<control type="textbox">
+				<top>10</top>
+				<height>$PARAM[textheight]</height>
+				<left>36</left>
+				<right>36</right>
+				<font>font_30_ls_13</font>
+				<textcolor>white</textcolor>
+				<label>$INFO[Container(10051).ListItem.Property(Biography)]</label>
+				<pagecontrol />
+				<autoscroll time="3000" delay="10000" repeat="10000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+				<animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
+				<animation effect="fade" start="100" end="78" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(900181)">Conditional</animation>
+			</control>
+		</control>
+		</definition>
+	</include>
+
+	<!-- ExtendedInfo area.  Done with many includes so the height can change depending on the scope aspect ratio -->	
+	<include name="VariableHeightExtendedInfo"> 
+		<param name="videodetails" default="false" />
+		<param name="embuaryperson" default="false" />
+		<param name="totalheight" />
+		<param name="textheight" />
 		<param name="posterheight" />
 		<param name="posterwidth" />
 		<definition>
@@ -1283,280 +1566,43 @@
 				<ondown>noop</ondown>
 				<pagecontrol>70</pagecontrol>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<!-- Plot group -->	
-				<control type="group" id="90017">
-					<height>$PARAM[totalheight]</height> <!-- Don't understand why necessary in all 3 places -->
-					<!-- Button -->	
-					<control type="button" id="900171">
-						<width>0</width>>  <!-- Don't understand why necessary -->
-						<height>$PARAM[totalheight]</height> <!-- Don't understand why necessary in all 3 places -->
-						<texturenofocus></texturenofocus>
-						<onup>9000</onup>
-						<ondown condition="!System.HasAddon(script.embuary.info)">SetFocus(50)</ondown>
-						<ondown condition="System.HasAddon(script.embuary.info)">SetFocus(90050)</ondown>
-						<onclick>SetProperty(TextViewerHeader,$INFO[ListItem.Label,[B],[/B]],Home)</onclick>
-						<onclick>SetProperty(TextViewerContent,$ESCINFO[ListItem.Tagline,[I],[/I][CR]]$ESCINFO[ListItem.Plot]$ESCINFO[ListItem.PlotOutline,[CR]---[CR]],Home)</onclick>
-						<onclick>ActivateWindow(1132)</onclick>
-					</control>
-					<!-- plot -->	
-					<control type="textbox" id="4">
-						<top>10</top>
-						<height>$PARAM[plotheight]</height>
-						<left>36</left>
-						<right>36</right>
-						<font>font_30_ls_13</font>
-						<label>$INFO[ListItem.Plot]</label>
-						<textcolor>white</textcolor>
-						<pagecontrol />
-						<autoscroll time="3000" delay="10000" repeat="10000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-						<animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
-						<animation effect="fade" start="100" end="78" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(900171)">Conditional</animation>
-					</control>
-					<!-- Icons -->
-					<control type="grouplist">
-						<top>90r</top>
-						<height>90</height>
-						<left>-36</left>
-						<align>center</align>
-						<aligny>center</aligny>
-						<itemgap>10</itemgap>
-						<orientation>horizontal</orientation>
-						<include>SettingsFadeAnimation</include>
-						<!-- Source-->
-						<control type="image">
-							<width>150</width>
-							<colordiffuse>grey</colordiffuse>
-							<include>MediaFlagVars</include>
-							<texture>flags/video/$VAR[MediaFlagsPath]/$VAR[SourceFlagVar].png</texture>
-						</control>
-						<!-- Video Resolution -->
-						<control type="image">
-							<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
-							<width>150</width>
-							<colordiffuse>grey</colordiffuse>
-							<include>MediaFlagVars</include>
-							<texture>flags/resolution/$VAR[MediaFlagsPath]/$INFO[ListItem.VideoResolution].png</texture>
-						</control>
-						<!-- Aspect Ratio -->
-						<control type="image">
-							<width>150</width>
-							<colordiffuse>grey</colordiffuse>
-							<include>MediaFlagVars</include>
-							<texture>flags/aspectratio/$VAR[MediaFlagsPath]/$VAR[AspectRatio].png</texture>
-						</control>
-						<!-- Unknown -->
-						<control type="group">
-							<visible>String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.Property(TotalSeasons))</visible>
-							<width>200</width>
-							<control type="label">
-								<left>0</left>
-								<top>2</top>
-								<width>200</width>
-								<height>60</height>
-								<align>center</align>
-								<label>$INFO[ListItem.Property(TotalSeasons)]</label>
-								<font>font35_bold</font>
-								<wrapmultiline>true</wrapmultiline>
-								<textcolor>grey</textcolor>
-							</control>
-							<control type="label">
-								<top>52</top>
-								<width>200</width>
-								<height>30</height>
-								<align>center</align>
-								<label>[LOWERCASE]$VAR[OneOrMoreSeasonsVar][/LOWERCASE]</label>
-								<font>font12</font>
-								<textcolor>grey</textcolor>
-							</control>
-						</control>
-						<!-- Audio Codec -->
-						<control type="image">
-							<visible>!IsEmpty(Control.GetLabel(9904))</visible>
-							<width>150</width>
-							<colordiffuse>grey</colordiffuse>
-							<include>MediaFlagVars</include>
-							<texture>flags/audio/$VAR[MediaFlagsPath]/$VAR[AudioCodecCustom].png</texture>
-						</control>
-						<!-- Unknown -->
-						<control type="group">
-							<visible>String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.Property(TotalEpisodes))</visible>
-							<width>200</width>
-							<control type="label">
-								<left>0</left>
-								<top>2</top>
-								<width>200</width>
-								<height>60</height>
-								<align>center</align>
-								<label>$INFO[ListItem.Property(TotalEpisodes)]</label>
-								<font>font35_bold</font>
-								<wrapmultiline>true</wrapmultiline>
-								<textcolor>grey</textcolor>
-							</control>
-							<control type="label">
-								<top>52</top>
-								<width>200</width>
-								<height>30</height>
-								<align>center</align>
-								<label>[LOWERCASE]$VAR[OneOrMoreEpisodesVar][/LOWERCASE]</label>
-								<font>font12</font>
-								<textcolor>grey</textcolor>
-							</control>
-						</control>
-						<!-- Audio Channels -->
-						<control type="image">
-							<visible>!IsEmpty(Control.GetLabel(9902))</visible>
-							<width>150</width>
-							<colordiffuse>grey</colordiffuse>
-							<include>MediaFlagVars</include>
-							<texture>flags/channels/$VAR[MediaFlagsPath]/$VAR[AudioChannelCustom].png</texture>
-						</control>
-						<!-- Unknown -->
-						<control type="group">
-							<visible>String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
-							<width>200</width>
-							<control type="label">
-								<top>2</top>
-								<width>200</width>
-								<height>60</height>
-								<align>center</align>
-								<label>$INFO[ListItem.Property(UnWatchedEpisodes)]</label>
-								<font>font35_bold</font>
-								<wrapmultiline>true</wrapmultiline>
-								<textcolor>grey</textcolor>
-							</control>
-							<control type="label">
-								<top>52</top>
-								<width>200</width>
-								<height>30</height>
-								<align>center</align>
-								<label>[LOWERCASE]$LOCALIZE[16101][/LOWERCASE]</label>
-								<font>font12</font>
-								<textcolor>grey</textcolor>
-							</control>
-						</control>
-						<!-- Audio / Subtitle Language -->
-						<control type="grouplist">
-							<height>90</height>
-							<width>160</width>
-							<align>center</align>
-							<aligny>center</aligny>
-							<!-- Audio Language -->
-							<control type="grouplist">
-								<height>30</height>
-								<orientation>horizontal</orientation>
-								<control type="group">
-									<!-- gap -->
-									<width>20</width>
-								</control>
-								<control type="image">
-									<width>30</width>
-									<height>30</height>
-									<aspectratio>keep</aspectratio>
-									<colordiffuse>grey</colordiffuse>
-									<texture>flags/audio.png</texture>
-									<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1))</visible>
-								</control>
-								<control type="image">
-									<width>30</width>
-									<height>30</height>
-									<include>MediaFlagValues</include>
-									<texture>flags/language/default/$INFO[ListItem.Property(AudioLanguage.1),,.png]</texture>
-									<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1))</visible>
-								</control>
-								<control type="image">
-									<width>30</width>
-									<height>30</height>
-									<include>MediaFlagValues</include>
-									<texture>flags/language/default/$INFO[ListItem.Property(AudioLanguage.2),,.png]</texture>
-									<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.2))</visible>
-								</control>
-								<control type="image">
-									<width>30</width>
-									<height>30</height>
-									<include>MediaFlagValues</include>
-									<texture>flags/language/default/$INFO[ListItem.Property(AudioLanguage.3),,.png]</texture>
-									<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.3))</visible>
-								</control>
-								<control type="image">
-									<width>30</width>
-									<height>30</height>
-									<include>MediaFlagValues</include>
-									<texture>flags/language/default/$INFO[ListItem.Property(AudioLanguage.4),,.png]</texture>
-									<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.4))</visible>
-								</control>
-							</control>
-							<!-- Subtitle Language -->
-							<control type="grouplist">
-								<height>30</height>
-								<orientation>horizontal</orientation>
-								<control type="group">
-									<!-- gap -->
-									<width>20</width> 
-								</control>
-								<control type="image">
-									<width>30</width>
-									<height>30</height>
-									<aspectratio>keep</aspectratio>
-									<colordiffuse>grey</colordiffuse>
-									<texture>flags/subtitles.png</texture>
-									<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
-								</control>
-								<control type="image">
-									<width>30</width>
-									<height>30</height>
-									<include>MediaFlagValues</include>
-									<texture>flags/language/default/$INFO[ListItem.Property(SubtitleLanguage.1),,.png]</texture>
-									<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
-								</control>
-								<control type="image">
-									<width>30</width>
-									<height>30</height>
-									<include>MediaFlagValues</include>
-									<texture>flags/language/default/$INFO[ListItem.Property(SubtitleLanguage.2),,.png]</texture>
-									<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.2))</visible>
-								</control>
-								<control type="image">
-									<width>30</width>
-									<height>30</height>
-									<include>MediaFlagValues</include>
-									<texture>flags/language/default/$INFO[ListItem.Property(SubtitleLanguage.3),,.png]</texture>
-									<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.3))</visible>
-								</control>
-								<control type="image">
-									<width>30</width>
-									<height>30</height>
-									<include>MediaFlagValues</include>
-									<texture>flags/language/default/$INFO[ListItem.Property(SubtitleLanguage.4),,.png]</texture>
-									<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.4))</visible>
-								</control>
-							</control>
-						</control>
-					</control>
-				</control>
+				<!-- Movie details - add plot-->	
+				<include content="ExtendedInfoPlot" condition="$PARAM[videodetails]">
+					<param name="totalheight" value="$PARAM[totalheight]"/>
+					<param name="textheight" value="$PARAM[textheight]"/>
+				</include>
+				<!-- Embuary person - add biography-->	
+				<include content="ExtendedInfoBiography" condition="$PARAM[embuaryperson]">
+					<param name="totalheight" value="$PARAM[totalheight]"/>
+					<param name="textheight" value="$PARAM[textheight]"/>
+				</include>
 				<!-- Cast without Embuary.Info script installed-->	
-				<include content="ExtendedInfoListLayout" condition="!System.HasAddon(script.embuary.info)">
+				<!-- Native cast list does not offer TMDB lookup option -->
+				<!-- Embuary.info is currently required so always false -->
+				<include content="ExtendedInfoPanelSetup" condition="false + $PARAM[videodetails]">
 					<param name="controlId" value="50" />
 					<param name="label2" value="$INFO[ListItem.Label2]" />
-					<param name="includeContent" value="false" />
+					<param name="customcontent" value="false" />
 					<param name="totalheight" value="$PARAM[totalheight]" />
 					<param name="posterheight" value="$PARAM[posterheight]" />
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>
 				<!-- Cast with Embuary.Info script installed-->	
-				<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.embuary.info)">
+				<!-- We built our own cast list from local data to use here -->
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[videodetails]">
 					<param name="controlId" value="90050" />
 					<param name="label2" value="$INFO[ListItem.Label2]" />
-					<param name="includeContent" value="true" />
+					<param name="customcontent" value="true" />
 					<param name="content" value="" /> <!-- needs to be null in order to pick up content elsewhere -->
 					<param name="totalheight" value="$PARAM[totalheight]" />
 					<param name="posterheight" value="$PARAM[posterheight]" />
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>
 				<!-- Movies from Set -->	
-				<include content="ExtendedInfoListLayout" condition="String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.SetID)" >
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[videodetails] + String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.SetID)" >
 					<param name="controlId" value="90080" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
-					<param name="includeContent" value="true" />
+					<param name="customcontent" value="true" />
 					<param name="content" value="videodb://movies/sets/$INFO[ListItem.SetID]" />
 					<param name="sortby" value="year" />
 					<param name="sortorder" value="ascending" />
@@ -1565,10 +1611,10 @@
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>
 				<!-- Movies from the same Director(s) -->
-				<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.embuary.helper) + String.IsEqual(ListItem.DBType,movie)">
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[videodetails] + String.IsEqual(ListItem.DBType,movie)">
 					<param name="controlId" value="90081" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
-					<param name="includeContent" value="true" />
+					<param name="customcontent" value="true" />
 					<param name="content" value="plugin://script.embuary.helper/?info=getdirectedby&dbid=$INFO[ListItem.DBID]" /> 
 					<!--<param name="content" value="plugin://plugin.video.themoviedb.helper?info=crew_in_movies&amp;type=person&amp;filter_key=job&amp;filter_value=Director&amp;query=$INFO[Window(home).Property(DirectorList.0)]&amp;exclude_value=$INFO[ListItem.Title]&amp;nextpage=false" /> -->
 					<!--<param name="content" value="plugin://plugin.video.themoviedb.helper?info=discover&amp;type=movie&amp;with_crew=$INFO[ListItem.Director]&amp;with_separator=OR&amp;exclude_key=title&amp;exclude_value=$INFO[ListItem.Title]&amp;nextpage=false" />  -->
@@ -1579,10 +1625,11 @@
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>
 				<!-- Movies from the same Writer(s) -->
-				<include content="ExtendedInfoListLayout" condition="false + System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,movie)">
+				<!-- Writers not implemented in Embuary.info so false -->
+				<include content="ExtendedInfoPanelSetup" condition="false + $PARAM[videodetails] + String.IsEqual(ListItem.DBType,movie)">
 					<param name="controlId" value="90082" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
-					<param name="includeContent" value="true" />
+					<param name="customcontent" value="true" />
 					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=discover&amp;type=movie&amp;with_crew=$INFO[ListItem.Writer]&amp;with_separator=OR&amp;exclude_key=title&amp;exclude_value=$INFO[ListItem.Title]&amp;nextpage=false" />
 					<param name="sortby" value="year" />
 					<param name="sortorder" value="descending" />
@@ -1591,10 +1638,10 @@
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>                                  
 				<!-- Similar Movies-->
-				<include content="ExtendedInfoListLayout" condition="System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,movie)">
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[videodetails] + String.IsEqual(ListItem.DBType,movie)">
 					<param name="controlId" value="90083" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
-					<param name="includeContent" value="true" />
+					<param name="customcontent" value="true" />
 					<!-- <param name="content" value="plugin://script.embuary.helper/?info=getsimilar&dbid=$INFO[ListItem.DBID]&type=movie" /> -->
 					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=similar&amp;type=movie&amp;imdb_id=$INFO[ListItem.IMDBNumber]&amp;nextpage=false" /> 
 					<param name="overlay" value="true" />
@@ -1605,10 +1652,10 @@
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>                                  
 				<!-- Recommended Movies-->
-				<include content="ExtendedInfoListLayout" condition="System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,movie)">
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[videodetails] + String.IsEqual(ListItem.DBType,movie)">
 					<param name="controlId" value="90084" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
-					<param name="includeContent" value="true" />
+					<param name="customcontent" value="true" />
 					<!-- <param name="content" value="plugin://script.embuary.helper/?info=getsimilar&type=movie&pos=0" /> -->
 					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=recommendations&amp;type=movie&amp;imdb_id=$INFO[ListItem.IMDBNumber]&amp;nextpage=false" /> 
 					<param name="overlay" value="true" />
@@ -1618,10 +1665,45 @@
 					<param name="posterheight" value="$PARAM[posterheight]" />
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>                                  
+				<!-- Embruary Movies with Actor -->
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[embuaryperson]">
+					<param name="controlId" value="10052" />
+					<param name="label2" value="$INFO[ListItem.Year]" />
+					<param name="customcontent" value="false" />
+					<param name="overlay" value="true" />
+					<param name="sortby" value="year" />
+					<param name="sortorder" value="descending" />
+					<param name="totalheight" value="$PARAM[totalheight]" />
+					<param name="posterheight" value="$PARAM[posterheight]" />
+					<param name="posterwidth" value="$PARAM[posterwidth]" />
+				</include>                                  
+				<!-- Embruary TV with Actor -->
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[embuaryperson]">
+					<param name="controlId" value="10053" />
+					<param name="label2" value="$INFO[ListItem.Year]" />
+					<param name="customcontent" value="false" />
+					<param name="overlay" value="true" />
+					<param name="sortby" value="year" />
+					<param name="sortorder" value="descending" />
+					<param name="totalheight" value="$PARAM[totalheight]" />
+					<param name="posterheight" value="$PARAM[posterheight]" />
+					<param name="posterwidth" value="$PARAM[posterwidth]" />
+				</include>                                  
+				<!-- Embruary Actor Images -->
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[embuaryperson]">
+					<param name="controlId" value="10054" />
+					<param name="label2" value="$INFO[ListItem.Year]" />
+					<param name="customcontent" value="false" />
+					<param name="sortby" value="year" />
+					<param name="sortorder" value="descending" />
+					<param name="totalheight" value="$PARAM[totalheight]" />
+					<param name="posterheight" value="$PARAM[posterheight]" />
+					<param name="posterwidth" value="$PARAM[posterwidth]" />
+				</include>                                  
 
 
 				<!-- TV seasons -->	
-				<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">
+				<include content="ExtendedInfoPanelSetup" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">
 					<param name="controlId" value="90016" />
 					<param name="label2" value="$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20453]]" />
 					<param name="overlayVisibility" value="false" />
@@ -1630,7 +1712,7 @@
 					<param name="height" value="$PARAM[height]" />
 				</include>
 				<!-- TV similar -->	
-				<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">
+				<include content="ExtendedInfoPanelSetup" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">
 					<param name="controlId" value="90015" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="listVisible" value="Integer.IsGreater(Container(90015).NumItems,0) | Container(90015).IsUpdating" />
@@ -1638,7 +1720,7 @@
 					<param name="height" value="$PARAM[height]" />
 				</include>
 				<!-- TV popular -->	
-				<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">
+				<include content="ExtendedInfoPanelSetup" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">
 					<param name="controlId" value="90019" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="listVisible" value="!String.IsEqual(Window(Home).Property(PopularTVShows.Count),0)" />
@@ -1646,7 +1728,7 @@
 					<param name="height" value="$PARAM[height]" />
 				</include>
 				<!-- TV top rated -->	
-				<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">
+				<include content="ExtendedInfoPanelSetup" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">
 					<param name="controlId" value="90020" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="listVisible" value="!String.IsEqual(Window(Home).Property(TopRatedTVShows.Count),0)" />
@@ -1654,7 +1736,7 @@
 					<param name="height" value="$PARAM[height]" />
 				</include>
 				<!-- TV airing today -->	
-				<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">
+				<include content="ExtendedInfoPanelSetup" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">
 					<param name="controlId" value="90021" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="listVisible" value="!String.IsEqual(Window(Home).Property(AiringTodayTVShows.Count),0)" />
@@ -1662,7 +1744,7 @@
 					<param name="height" value="$PARAM[height]" />
 				</include>
 				<!-- TV on the air -->	
-				<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">
+				<include content="ExtendedInfoPanelSetup" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">
 					<param name="controlId" value="90022" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="listVisible" value="!String.IsEqual(Window(Home).Property(OnAirTVShows.Count),0)" />

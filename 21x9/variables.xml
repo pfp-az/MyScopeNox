@@ -612,6 +612,7 @@
 <!-- I'm placing all code I've written or fully reviewed/modified below this area.  This is strictly for organization purposes  -->
 <!-------------------------------------------------------------------------------------------------------------------------------->
 
+
 	<!-- Used to define the long descriptions of each option configured in the skin settings -->
 	<variable name="SkinSettingsDescriptionVar">
 		<value condition="Control.HasFocus(100)">$LOCALIZE[31912]</value>
@@ -685,24 +686,24 @@
 	<variable name="VideoInfoDetailsLabelVar">
 		<value condition="Control.HasFocus(900171)">$LOCALIZE[207] - $LOCALIZE[31175]</value>
 		<value condition="ControlGroup(9001).HasFocus(50) | ControlGroup(9001).HasFocus(90050)">$LOCALIZE[206]$INFO[Container(50).NumItems, [COLOR grey3](,)[/COLOR]]</value>
-		<value condition="ControlGroup(9001).HasFocus(90080)">$INFO[ListItem.Set]$INFO[Container(90080).NumItems, [COLOR grey3](,)[/COLOR]]</value>
+		<value condition="ControlGroup(9001).HasFocus(90080)">$INFO[ListItem.Set[]$INFOContainer(90080).NumItems, [COLOR grey3](,)[/COLOR]]</value>
 		<value condition="ControlGroup(9001).HasFocus(90081)">$INFO[ListItem.Director,$LOCALIZE[31112] ]$INFO[Container(90081).NumItems, [COLOR grey3](,)[/COLOR]]</value>
 		<value condition="ControlGroup(9001).HasFocus(90082)">$INFO[ListItem.Writer,$LOCALIZE[31113] ]$INFO[Container(90082).NumItems, [COLOR grey3](,)[/COLOR]]</value>
 		<value condition="ControlGroup(9001).HasFocus(90083)">Similar movies$INFO[Container(90083).NumItems, [COLOR grey3](,)[/COLOR]]</value>
 		<value condition="ControlGroup(9001).HasFocus(90084)">Recommended movies$INFO[Container(90084).NumItems, [COLOR grey3](,)[/COLOR]]</value>
-		<!--  existing data commented out as I don;t believe its used any more
-		<value condition="ControlGroup(9001).HasFocus(90019)">$ADDON[script.extendedinfo 32041]$INFO[Container(90019).NumItems, [COLOR grey3](,)[/COLOR]]</value>
-		<value condition="ControlGroup(9001).HasFocus(90020)">$ADDON[script.extendedinfo 32040]$INFO[Container(90020).NumItems, [COLOR grey3](,)[/COLOR]]</value>
-		<value condition="ControlGroup(9001).HasFocus(90021)">$ADDON[script.extendedinfo 32038]$INFO[Container(90021).NumItems, [COLOR grey3](,)[/COLOR]]</value>
-		<value condition="ControlGroup(9001).HasFocus(90022)">$ADDON[script.extendedinfo 32039]$INFO[Container(90022).NumItems, [COLOR grey3](,)[/COLOR]]</value>
-		<value condition="ControlGroup(9001).HasFocus(90011)">$LOCALIZE[31111]$INFO[Container(90011).NumItems, [COLOR grey3](,)[/COLOR]]</value>
-		<value condition="ControlGroup(9001).HasFocus(90012)">$INFO[ListItem.Director,$LOCALIZE[31112] ]$INFO[Container(90012).NumItems, [COLOR grey3](,)[/COLOR]]</value>
-		<value condition="ControlGroup(9001).HasFocus(90013)">$INFO[ListItem.Writer,$LOCALIZE[31113] ]$INFO[Container(90013).NumItems, [COLOR grey3](,)[/COLOR]]</value>
-		<value condition="ControlGroup(9001).HasFocus(90014)">$INFO[ListItem.Studio,$LOCALIZE[31114] ]$INFO[Container(90014).NumItems, [COLOR grey3](,)[/COLOR]]</value>
-		<value condition="ControlGroup(9001).HasFocus(90015)">$LOCALIZE[31115]$INFO[Container(90015).NumItems, [COLOR grey3](,)[/COLOR]]</value>
-		<value condition="ControlGroup(9001).HasFocus(90016)">$LOCALIZE[33054]$INFO[Container(90016).NumItems, [COLOR grey3](,)[/COLOR]]</value>
-		<value condition="ControlGroup(9001).HasFocus(90018)">$INFO[ListItem.Set]$INFO[Container(90018).NumItems, [COLOR grey3](,)[/COLOR]]</value>
-		-->
+	</variable>
+
+	<!-- Label text for buttons on the Embuary details screen, there are none-->
+	<variable name="EmbuaryInfoButtonLabelVar">
+		<value></value>
+	</variable>
+
+	<!-- Label text for the Biography / posters on the movie details screen -->
+	<variable name="EmbuaryInfoDetailsLabelVar">
+		<value condition="Control.HasFocus(900181)">$LOCALIZE[31987] - $LOCALIZE[31175]</value>
+		<value condition="ControlGroup(9001).HasFocus(10052)">$LOCALIZE[31988] $INFO[Container(10051).ListItem.Label]</value>
+		<value condition="ControlGroup(9001).HasFocus(10053)">$LOCALIZE[31989] $INFO[Container(10051).ListItem.Label]</value>
+		<value condition="ControlGroup(9001).HasFocus(10054)">$LOCALIZE[31990] [COLOR grey3]($INFO[Container(10054).NumItems])[/COLOR]</value>
 	</variable>
 
 	<!-- Where to find the images used for certification ratings -->
