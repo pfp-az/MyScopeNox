@@ -1227,3 +1227,16 @@ msgstr ""
 msgctxt "#31991"
 msgid "Embruary Info Settings"
 msgstr ""
+
+msgctxt "#31992"
+msgid "Budget"
+msgstr ""
+
+msgctxt "#31993"
+msgid "Revenue"
+msgstr ""
+
+msgctxt "#31994"
+msgid "Awards"
+msgstr ""
+

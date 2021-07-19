@@ -16,4 +16,7 @@
 	<color name="dialogheader">FF606060</color>
 	<color name="labelheader">FFFFA500</color>
 	<color name="shadow">AA000000</color>
+	<color name="TMDBPrimaryColor">FF0d253f</color>
+	<color name="TMDBSecondaryColor">FF01b4e4</color>
+	<color name="TMDBTertiaryColor">FF90cea1</color>
 </colors>

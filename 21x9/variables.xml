@@ -169,11 +169,6 @@
 		<value condition="String.IsEmpty(ListItem.Votes)">$LOCALIZE[563]</value>
 		<value>$INFO[ListItem.Votes,, $LOCALIZE[205]]</value>
 	</variable>
-	<variable name="DurationVar">
-		<value condition="Container.Content(tvshows) + !String.IsEmpty(Window(Home).Property(NextAired.Runtime))">$INFO[Window(Home).Property(NextAired.Runtime)]</value>
-		<value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(h)]h $INFO[ListItem.Duration(mm)]m</value>
-		<value>?</value>
-	</variable>
 	<variable name="OneOrMoreSeasonsVar">
 		<value condition="String.IsEqual(ListItem.Property(TotalSeasons),1)">$LOCALIZE[20373]</value>
 		<value>$LOCALIZE[33054]</value>
@@ -612,6 +607,17 @@
 <!-- I'm placing all code I've written or fully reviewed/modified below this area.  This is strictly for organization purposes  -->
 <!-------------------------------------------------------------------------------------------------------------------------------->
 
+	<variable name="DurationVar">
+		<value condition="Container.Content(tvshows) + !String.IsEmpty(Window(Home).Property(NextAired.Runtime))">$INFO[Window(Home).Property(NextAired.Runtime)]</value>
+		<value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(h)]h $INFO[ListItem.Duration(mm)]m</value>
+		<value>?</value>
+	</variable>
+
+	<variable name="EmbuaryDurationVar">
+		<value condition="Container.Content(tvshows) + !String.IsEmpty(Window(Home).Property(NextAired.Runtime))">$INFO[Window(Home).Property(NextAired.Runtime)]</value>
+		<value condition="!String.IsEmpty(Container(10051).ListItem.Duration)">$INFO[Container(10051).ListItem.Duration(h)]h $INFO[Container(10051).ListItem.Duration(mm)]m</value>
+		<value>?</value>
+	</variable>
 
 	<!-- Used to define the long descriptions of each option configured in the skin settings -->
 	<variable name="SkinSettingsDescriptionVar">
@@ -740,13 +746,56 @@
 		<value condition="String.Contains(ListItem.mpaa,불가)">flags/mpaa/$VAR[MediaFlagsPath]/KR_Certificate_18.png</value>
 		<value condition="String.Contains(ListItem.mpaa,제한)">flags/mpaa/$VAR[MediaFlagsPath]/KR_Certificate_R.png</value>
 		<value condition="String.Contains(ListItem.mpaa,Brazil:Livre) | String.Contains(ListItem.mpaa,Livre)">flags/mpaa/$VAR[MediaFlagsPath]/MPAA_Brazil_Livre.png</value>
-		<value condition="String.Contains(ListItem.mpaa,Brazil:10) | String.Contains(ListItem.mpaa,10 anos)">flags/mpaa/$VAR[MediaFlagsPath]/MPAA_Brazil_10.png</value>
-		<value condition="String.Contains(ListItem.mpaa,Brazil:12) | String.Contains(ListItem.mpaa,12 anos)">flags/mpaa/$VAR[MediaFlagsPath]/MPAA_Brazil_12.png</value>
-		<value condition="String.Contains(ListItem.mpaa,Brazil:14) | String.Contains(ListItem.mpaa,14 anos)">flags/mpaa/$VAR[MediaFlagsPath]/MPAA_Brazil_14.png</value>
-		<value condition="String.Contains(ListItem.mpaa,Brazil:16) | String.Contains(ListItem.mpaa,16 anos)">flags/mpaa/$VAR[MediaFlagsPath]/MPAA_Brazil_16.png</value>
-		<value condition="String.Contains(ListItem.mpaa,Brazil:18) | String.Contains(ListItem.mpaa,18 anos)">flags/mpaa/$VAR[MediaFlagsPath]/MPAA_Brazil_18.png</value>
-		<value condition="String.Contains(ListItem.mpaa,Australia:)">,flags/mpaa/$VAR[MediaFlagsPath]/australia_$INFO[ListItem.MPAA].png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:10) | String.Contains(ListItem.mpaa,10 anos)">flags/mpaa/$VAR[MediaFlagsPath]/mpaa_Brazil_10.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:12) | String.Contains(ListItem.mpaa,12 anos)">flags/mpaa/$VAR[MediaFlagsPath]/mpaa_Brazil_12.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:14) | String.Contains(ListItem.mpaa,14 anos)">flags/mpaa/$VAR[MediaFlagsPath]/mpaa_Brazil_14.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:16) | String.Contains(ListItem.mpaa,16 anos)">flags/mpaa/$VAR[MediaFlagsPath]/mpaa_Brazil_16.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Brazil:18) | String.Contains(ListItem.mpaa,18 anos)">flags/mpaa/$VAR[MediaFlagsPath]/mpaa_Brazil_18.png</value>
+		<value condition="String.Contains(ListItem.mpaa,Australia:)">,flags/mpaa/$VAR[MediaFlagsPath]/australia_$INFO[ListItem.mpaa].png</value>
 		<value>flags/mpaa/$VAR[MediaFlagsPath]/$INFO[ListItem.MPAA].png</value>
+	</variable>
+
+	<!-- Where to find the images used for certification ratings -->
+	<variable name="EmbuaryRatingFlagVar">
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,US:G) | String.Contains(Container(10051).ListItem.mpaa,USA:G) | String.Contains(Container(10051).ListItem.mpaa,Rated G)">flags/mpaa/$VAR[MediaFlagsPath]/G.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,PG-13)">flags/mpaa/$VAR[MediaFlagsPath]/PG-13.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,Rated PG) | String.IsEqual(Container(10051).ListItem.mpaa,PG)">flags/mpaa/$VAR[MediaFlagsPath]/PG.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,US:R) | String.Contains(Container(10051).ListItem.mpaa,USA:R) | String.Contains(Container(10051).ListItem.mpaa,Rated R) | String.IsEqual(Container(10051).ListItem.mpaa,R)">flags/mpaa/$VAR[MediaFlagsPath]/R.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,US:NC-17)| String.Contains(Container(10051).ListItem.mpaa,USA:NC-17)| String.Contains(Container(10051).ListItem.mpaa,Rated NC-17)">flags/mpaa/NC-17.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,UK:U)">flags/mpaa/$VAR[MediaFlagsPath]/BBFC_U_Certificate_UK.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,UK:PG)">flags/mpaa/$VAR[MediaFlagsPath]/BBFC_PG_Certificate_UK.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,UK:12A)">flags/mpaa/$VAR[MediaFlagsPath]/BBFC_12A_Certificate_UK.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,UK:12)">flags/mpaa/$VAR[MediaFlagsPath]/BBFC_12_Certificate_UK.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,UK:15)">flags/mpaa/$VAR[MediaFlagsPath]/BBFC_15_Certificate_UK.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,UK:18)">flags/mpaa/$VAR[MediaFlagsPath]/BBFC_18_Certificate_UK.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,Germany:0) | String.Contains(Container(10051).ListItem.mpaa,ab 0) | String.IsEqual(Container(10051).ListItem.mpaa,0) | String.Contains(Container(10051).ListItem.mpaa,FSK 0) | String.Contains(Container(10051).ListItem.mpaa,Rated 0)">flags/mpaa/$VAR[MediaFlagsPath]/FSK-0.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,Germany:16) | String.Contains(Container(10051).ListItem.mpaa,ab 16) | String.IsEqual(Container(10051).ListItem.mpaa,16) | String.Contains(Container(10051).ListItem.mpaa,FSK 16) | String.Contains(Container(10051).ListItem.mpaa,Rated 16)">flags/mpaa/$VAR[MediaFlagsPath]/FSK-16.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,Germany:6)| String.Contains(Container(10051).ListItem.mpaa,ab 6) | String.IsEqual(Container(10051).ListItem.mpaa,6) | String.Contains(Container(10051).ListItem.mpaa,Rated 6)">flags/mpaa/$VAR[MediaFlagsPath]/FSK-6.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,Germany:12) | String.Contains(Container(10051).ListItem.mpaa,ab 12) | String.IsEqual(Container(10051).ListItem.mpaa,12) | String.Contains(Container(10051).ListItem.mpaa,FSK 12) | String.Contains(Container(10051).ListItem.mpaa,Rated 12)">flags/mpaa/$VAR[MediaFlagsPath]/FSK-12.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,Germany:18) | String.Contains(Container(10051).ListItem.mpaa,ab 18) | String.IsEqual(Container(10051).ListItem.mpaa,18) | String.Contains(Container(10051).ListItem.mpaa,FSK 18) | String.Contains(Container(10051).ListItem.mpaa,Rated 18)">flags/mpaa/$VAR[MediaFlagsPath]/FSK-18.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,besorolás alatt)">flags/mpaa/$VAR[MediaFlagsPath]/HU_BA.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,korhatárra való tekintett nélkül megtekintetheto)">flags/mpaa/$VAR[MediaFlagsPath]/HU_KN.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">flags/mpaa/$VAR[MediaFlagsPath]/HU_12.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,16 éven aluliak számára nem ajánlott)">flags/mpaa/$VAR[MediaFlagsPath]/HU_16.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,18 éven aluliak számára nem ajánlott)">flags/mpaa/$VAR[MediaFlagsPath]/HU_18.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,France:U) | String.Contains(Container(10051).ListItem.mpaa,Tout public) | String.Contains(Container(10051).ListItem.mpaa,Tous publics)">flags/mpaa/$VAR[MediaFlagsPath]/csaU.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,France:10) | String.Contains(Container(10051).ListItem.mpaa,Interdit aux moins de 10 ans) | String.Contains(Container(10051).ListItem.mpaa,des propos ou des images peuvent heurter)">flags/mpaa/$VAR[MediaFlagsPath]/csa10.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,France:12) | String.Contains(Container(10051).ListItem.mpaa,Interdit aux moins de 12 ans)">flags/mpaa/$VAR[MediaFlagsPath]/csa12.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,France:16) | String.Contains(Container(10051).ListItem.mpaa,Interdit aux moins de 16 ans)">flags/mpaa/$VAR[MediaFlagsPath]/csa16.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,France:18) | String.Contains(Container(10051).ListItem.mpaa,Interdit aux moins de 18 ans)">flags/mpaa/$VAR[MediaFlagsPath]/csa18.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,전체)">flags/mpaa/$VAR[MediaFlagsPath]/KR_Certificate_All.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,12세)">flags/mpaa/$VAR[MediaFlagsPath]/KR_Certificate_12.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,15세)">flags/mpaa/$VAR[MediaFlagsPath]/KR_Certificate_15.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,불가)">flags/mpaa/$VAR[MediaFlagsPath]/KR_Certificate_18.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,제한)">flags/mpaa/$VAR[MediaFlagsPath]/KR_Certificate_R.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,Brazil:Livre) | String.Contains(Container(10051).ListItem.mpaa,Livre)">flags/mpaa/$VAR[MediaFlagsPath]/mpaa_Brazil_Livre.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,Brazil:10) | String.Contains(Container(10051).ListItem.mpaa,10 anos)">flags/mpaa/$VAR[MediaFlagsPath]/mpaa_Brazil_10.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,Brazil:12) | String.Contains(Container(10051).ListItem.mpaa,12 anos)">flags/mpaa/$VAR[MediaFlagsPath]/mpaa_Brazil_12.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,Brazil:14) | String.Contains(Container(10051).ListItem.mpaa,14 anos)">flags/mpaa/$VAR[MediaFlagsPath]/mpaa_Brazil_14.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,Brazil:16) | String.Contains(Container(10051).ListItem.mpaa,16 anos)">flags/mpaa/$VAR[MediaFlagsPath]/mpaa_Brazil_16.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,Brazil:18) | String.Contains(Container(10051).ListItem.mpaa,18 anos)">flags/mpaa/$VAR[MediaFlagsPath]/mpaa_Brazil_18.png</value>
+		<value condition="String.Contains(Container(10051).ListItem.mpaa,Australia:)">,flags/mpaa/$VAR[MediaFlagsPath]/australia_$INFO[Container(10051).ListItem.mpaa].png</value>
+		<value>flags/mpaa/$VAR[MediaFlagsPath]/$INFO[Container(10051).ListItem.mpaa].png</value>
 	</variable>
 
 	<!-- Where to find the images used for certification ratings -->
