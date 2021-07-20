@@ -692,7 +692,7 @@
 	<variable name="VideoInfoDetailsLabelVar">
 		<value condition="Control.HasFocus(900171)">$LOCALIZE[207] - $LOCALIZE[31175]</value>
 		<value condition="ControlGroup(9001).HasFocus(50) | ControlGroup(9001).HasFocus(90050)">$LOCALIZE[206]$INFO[Container(50).NumItems, [COLOR grey3](,)[/COLOR]]</value>
-		<value condition="ControlGroup(9001).HasFocus(90080)">$INFO[ListItem.Set[]$INFOContainer(90080).NumItems, [COLOR grey3](,)[/COLOR]]</value>
+		<value condition="ControlGroup(9001).HasFocus(90080)">$INFO[ListItem.Set] [COLOR grey3]($INFO[Container(90080).NumItems])[/COLOR]</value>
 		<value condition="ControlGroup(9001).HasFocus(90081)">$INFO[ListItem.Director,$LOCALIZE[31112] ]$INFO[Container(90081).NumItems, [COLOR grey3](,)[/COLOR]]</value>
 		<value condition="ControlGroup(9001).HasFocus(90082)">$INFO[ListItem.Writer,$LOCALIZE[31113] ]$INFO[Container(90082).NumItems, [COLOR grey3](,)[/COLOR]]</value>
 		<value condition="ControlGroup(9001).HasFocus(90083)">Similar movies$INFO[Container(90083).NumItems, [COLOR grey3](,)[/COLOR]]</value>
