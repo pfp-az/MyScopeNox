@@ -1241,10 +1241,14 @@ msgid "Awards"
 msgstr ""
 
 msgctxt "#31995"
-msgid "Posters"
+msgid "Poster Gallery"
 msgstr ""
 
 msgctxt "#31996"
+msgid "Fanart Gallery"
+msgstr ""
+
+msgctxt "#31997"
 msgid "Crew"
 msgstr ""
 

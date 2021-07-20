@@ -1698,6 +1698,36 @@
 					<param name="posterheight" value="$PARAM[posterheight]" />
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>                                  
+
+				<!-- TMDB Similar Movies-->
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isvideodetails] + String.IsEqual(ListItem.DBType,movie)">
+					<param name="controlId" value="90083" />
+					<param name="label2" value="$INFO[ListItem.Year]" />
+					<param name="customcontent" value="true" />
+					<!-- <param name="content" value="plugin://script.embuary.helper/?info=getsimilar&dbid=$INFO[ListItem.DBID]&type=movie" /> -->
+					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=similar&amp;type=movie&amp;imdb_id=$INFO[ListItem.IMDBNumber]&amp;nextpage=false" /> 
+					<param name="overlay" value="true" />
+					<param name="sortby" value="year" />
+					<param name="sortorder" value="descending" />
+					<param name="totalheight" value="$PARAM[totalheight]" />
+					<param name="posterheight" value="$PARAM[posterheight]" />
+					<param name="posterwidth" value="$PARAM[posterwidth]" />
+				</include>                                  
+				<!-- TMDB Recommended Movies-->
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isvideodetails] + String.IsEqual(ListItem.DBType,movie)">
+					<param name="controlId" value="90084" />
+					<param name="label2" value="$INFO[ListItem.Year]" />
+					<param name="customcontent" value="true" />
+					<!-- <param name="content" value="plugin://script.embuary.helper/?info=getsimilar&type=movie&pos=0" /> -->
+					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=recommendations&amp;type=movie&amp;imdb_id=$INFO[ListItem.IMDBNumber]&amp;nextpage=false" /> 
+					<param name="overlay" value="true" />
+					<param name="sortby" value="year" />
+					<param name="sortorder" value="descending" />
+					<param name="totalheight" value="$PARAM[totalheight]" />
+					<param name="posterheight" value="$PARAM[posterheight]" />
+					<param name="posterwidth" value="$PARAM[posterwidth]" />
+				</include>                                  
+
 				<!-- Embruary Movies with Actor -->
 				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isembuaryperson]">
 					<param name="controlId" value="10052" />
@@ -1734,7 +1764,6 @@
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>                                  
 
-
 				<!-- Embuary Cast -->
 				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isembuaryvideo]">
 					<param name="controlId" value="10052" />
@@ -1760,8 +1789,21 @@
 				<!-- Embuary Collection -->
 				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isembuaryvideo]">
 					<param name="controlId" value="10057" />
-					<param name="label2" value="$INFO[ListItem.Label2]" />
+					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="customcontent" value="false" />
+					<param name="overlay" value="true" />
+					<param name="sortby" value="year" />
+					<param name="sortorder" value="descending" />
+					<param name="totalheight" value="$PARAM[totalheight]" />
+					<param name="posterheight" value="$PARAM[posterheight]" />
+					<param name="posterwidth" value="$PARAM[posterwidth]" />
+				</include>                                  
+				<!-- Embuary Similar  -->
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isembuaryvideo]">
+					<param name="controlId" value="10053" />
+					<param name="label2" value="$INFO[ListItem.Year]" />
+					<param name="customcontent" value="false" />
+					<param name="overlay" value="true" />
 					<param name="sortby" value="year" />
 					<param name="sortorder" value="descending" />
 					<param name="totalheight" value="$PARAM[totalheight]" />
@@ -1788,40 +1830,10 @@
 					<param name="sortorder" value="descending" />
 					<param name="totalheight" value="$PARAM[totalheight]" />
 					<param name="posterheight" value="$PARAM[posterheight]" /> 
-					<param name="posterwidth" value="350" /> <!-- 16:9 aspect ratio -->
+					<param name="posterwidth" value="350" /> <!-- Fanart needs to be wider -->
 					<param name="isfanart" value="true" /> <!-- Changes poster display -->
 				</include>                                  
-
 				
-				<!-- TMDB Similar Movies-->
-				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isvideodetails] + String.IsEqual(ListItem.DBType,movie)">
-					<param name="controlId" value="90083" />
-					<param name="label2" value="$INFO[ListItem.Year]" />
-					<param name="customcontent" value="true" />
-					<!-- <param name="content" value="plugin://script.embuary.helper/?info=getsimilar&dbid=$INFO[ListItem.DBID]&type=movie" /> -->
-					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=similar&amp;type=movie&amp;imdb_id=$INFO[ListItem.IMDBNumber]&amp;nextpage=false" /> 
-					<param name="overlay" value="true" />
-					<param name="sortby" value="year" />
-					<param name="sortorder" value="descending" />
-					<param name="totalheight" value="$PARAM[totalheight]" />
-					<param name="posterheight" value="$PARAM[posterheight]" />
-					<param name="posterwidth" value="$PARAM[posterwidth]" />
-				</include>                                  
-				<!-- TMDB Recommended Movies-->
-				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isvideodetails] + String.IsEqual(ListItem.DBType,movie)">
-					<param name="controlId" value="90084" />
-					<param name="label2" value="$INFO[ListItem.Year]" />
-					<param name="customcontent" value="true" />
-					<!-- <param name="content" value="plugin://script.embuary.helper/?info=getsimilar&type=movie&pos=0" /> -->
-					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=recommendations&amp;type=movie&amp;imdb_id=$INFO[ListItem.IMDBNumber]&amp;nextpage=false" /> 
-					<param name="overlay" value="true" />
-					<param name="sortby" value="year" />
-					<param name="sortorder" value="descending" />
-					<param name="totalheight" value="$PARAM[totalheight]" />
-					<param name="posterheight" value="$PARAM[posterheight]" />
-					<param name="posterwidth" value="$PARAM[posterwidth]" />
-				</include>                                  
-
 
 
 				<!-- TV seasons -->	

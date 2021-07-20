@@ -411,6 +411,12 @@
 							</control>
 						</focusedlayout>
 						<content>
+							<!-- Release -->
+							<item>
+								<visible>!String.IsEmpty(Container(10051).ListItem.Property(Release))</visible>
+								<label>Container(10051).ListItem.Property(Release)</label>
+								<label2>$LOCALIZE[31985]:</label2>
+							</item>
 							<!-- Budget -->
 							<item>
 								<visible>!String.IsEmpty(Container(10051).ListItem.Property(Budget))</visible>
