@@ -337,6 +337,7 @@
 				<!-- Data Labels - Director, Writer, Genre, etc -->
 				<control type="group">
 					<control type="panel" id="300">
+					<enable>no</enable>
 					<top>176</top>
 					<left>-36</left>
 					<onup>noop</onup>
@@ -352,8 +353,8 @@
 						</itemlayout>
 						<focusedlayout height="42" width="1040">
 							<control type="image">
-								<texture colordiffuse="$VAR[HighlightBarColor]" border="4">listselect_fo.png</texture>
 								<visible>Control.HasFocus(300)</visible>
+								<texture colordiffuse="$VAR[HighlightBarColor]" border="4">listselect_fo.png</texture>
 								<include>VisibleFadeAnimation</include>
 							</control>
 							<control type="label">
@@ -365,27 +366,27 @@
 						<content>
 							<!-- Director -->
 							<item>
+								<visible>!String.IsEmpty(Container(10051).ListItem.Director)</visible>
 								<label>$INFO[Container(10051).ListItem.Director]</label>
 								<label2>$LOCALIZE[20339]:</label2>
-								<visible>!String.IsEmpty(Container(10051).ListItem.Director)</visible>
 							</item>
 							<!-- Writer -->
 							<item>
+								<visible>!String.IsEmpty(Container(10051).ListItem.Writer)</visible>
 								<label>$INFO[Container(10051).ListItem.Writer]</label>
 								<label2>$LOCALIZE[20417]:</label2>
-								<visible>!String.IsEmpty(Container(10051).ListItem.Writer)</visible>
 							</item>
 							<!-- Genre -->
 							<item>
+								<visible>!String.IsEmpty(Container(10051).ListItem.Genre)</visible>
 								<label>$INFO[Container(10051).ListItem.Genre]</label>
 								<label2>$LOCALIZE[515]:</label2>
-								<visible>!String.IsEmpty(Container(10051).ListItem.Genre)</visible>
 							</item>
 							<!-- Awards -->
 							<item>
+								<visible>!String.IsEmpty(Container(10051).ListItem.Property(Awards))</visible>
 								<label>$INFO[Container(10051).ListItem.Property(Awards)]</label>
 								<label2>$LOCALIZE[31994]:</label2>
-								<visible>!String.IsEmpty(Container(10051).ListItem.Property(Awards))</visible>
 							</item>
 						</content>
 					</control>
@@ -412,15 +413,15 @@
 						<content>
 							<!-- Budget -->
 							<item>
+								<visible>!String.IsEmpty(Container(10051).ListItem.Property(Budget))</visible>
 								<label>$INFO[Container(10051).ListItem.Property(Budget),$]</label>
 								<label2>$LOCALIZE[31992]:</label2>
-								<visible>!String.IsEmpty(Container(10051).ListItem.Property(Budget))</visible>
 							</item>
 							<!-- Revenue -->
 							<item>
+								<visible>!String.IsEmpty(Container(10051).ListItem.Property(Revenue))</visible>
 								<label>$INFO[Container(10051).ListItem.Property(Revenue),$]</label>
 								<label2>$LOCALIZE[31993]:</label2>
-								<visible>!String.IsEmpty(Container(10051).ListItem.Property(Revenue))</visible>
 							</item>
 						</content>
 					</control>
@@ -450,7 +451,7 @@
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label>$VAR[EmbuaryInfoButtonLabelVar]</label>
 						</control>
-						<!-- Focus is on plot area -->
+						<!-- Focus is on ExtendedInfo area -->
 						<control type="label">
 							<visible>ControlGroup(9001).HasFocus + !Control(90017).HasFocus</visible>
 							<width>1000</width>
@@ -511,7 +512,7 @@
 				</control>
 				<!-- ExtendedInfo area for 2.40 setting  -->
 				<include content="VariableHeightExtendedInfo" condition="!Skin.HasSetting(scopeFormat235)">
-					<param name="embuaryvideo" value="true" />
+					<param name="isembuaryvideo" value="true" /> <!-- determines panels shown -->
 					<param name="totalheight" value="409" />
 					<param name="textheight" value="389" /> <!-- total height - media icon height - 10 -->
 					<param name="posterheight" value="329" /> <!-- poster height - 80 -->
@@ -519,7 +520,7 @@
 				</include>
 				<!-- ExtendedInfo area for 2.35 setting  -->
 				<include content="VariableHeightExtendedInfo" condition="Skin.HasSetting(scopeFormat235)">
-					<param name="embuaryvideo" value="true" />
+					<param name="isembuaryvideo" value="true" /> <!-- determines panels shown -->
 					<param name="totalheight" value="429" />
 					<param name="textheight" value="409" /> <!-- total height - media icon height - 10 -->
 					<param name="posterheight" value="349" /> <!-- poster height - 80 -->

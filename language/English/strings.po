@@ -1240,3 +1240,11 @@ msgctxt "#31994"
 msgid "Awards"
 msgstr ""
 
+msgctxt "#31995"
+msgid "Posters"
+msgstr ""
+
+msgctxt "#31996"
+msgid "Crew"
+msgstr ""
+

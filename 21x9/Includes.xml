@@ -678,7 +678,6 @@
 <!-------------------------------------------------------------------------------------------------------------------------------->
 
 
-
 	<!-- Build a list of icons (white) for studios associated with the video.  The listID can be referenced to display the icons --> 
 	<include name="StudioIconsWhile">
 		<definition>
@@ -690,7 +689,7 @@
 				</itemlayout>
 				<focusedlayout>
 				</focusedlayout>
-				<content>plugin://script.embuary.helper/?info=getresourceimages&addon=resource.images.studios.white&separator='" / "'&string='$ESCINFO[ListItem.Studio]'</content> 
+				<content>plugin://script.embuary.helper/?info=getresourceimages&addon=resource.images.studios.white&separator='" / "'&string='$VAR[StudioListVar]'</content> 
 			</control>
 		</definition>
 	</include>
@@ -706,7 +705,7 @@
 				</itemlayout>
 				<focusedlayout>
 				</focusedlayout>
-				<content>plugin://script.embuary.helper/?info=getresourceimages&addon=resource.images.studios.coloured&separator='" / "'&string='$ESCINFO[ListItem.Studio]'</content> 
+				<content>plugin://script.embuary.helper/?info=getresourceimages&addon=resource.images.studios.coloured&separator='" / "'&string='$VAR[StudioListVar]'</content> 
 			</control>
 		</definition>
 	</include>
@@ -1088,17 +1087,33 @@
 	<!-- ExtendedInfo area poster layout -->
 	<include name="ExtendedInfoPanelLayout">
 		<param name="focused" default="false" />
-		<param name="overlay" />
 		<param name="height" />
 		<param name="width" />
+		<param name="overlay" />
+		<param name="isfanart" />
 		<param name="label" />
 		<param name="label2" />
 		<definition>
 			<control type="group">
-			<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" condition="$PARAM[focused]">Focus</animation>
-				<!-- Image and placeholder for non movies (cast) -->
+				<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" condition="$PARAM[focused]">Focus</animation>
+				<!-- Image and placeholder for fanart -->
+				<control type="group"> 
+					<visible>$PARAM[isfanart]</visible> <!-- this group is used to center the fanart in the poster space (not including the label) -->
+					<height>$PARAM[height]</height>  
+					<width>$PARAM[width]</width>
+					<control type="image">
+						<height>197</height> <!-- based on width of 350 - keeps 16:9 aspect ratio -->
+						<width>$PARAM[width]</width>
+						<centertop>50%</centertop>
+						<aspectratio>scale</aspectratio>
+						<texture background="true" fallback="DefaultPicture.png">$INFO[ListItem.Icon]</texture>
+						<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
+						<bordersize>2</bordersize>
+					</control>
+				</control>
+				<!-- Image and placeholder for non video (cast) -->
 				<control type="image"> 
-					<visible>!String.IsEqual(ListItem.DBType,movie)</visible> <!-- not sure is this is the right way to do this -->
+					<visible>!$PARAM[isfanart] + String.IsEmpty(ListItem.DBType)</visible> <!-- not sure is this is the right way to do this -->
 					<include content="ConditionalHeight">
 						<param name="height" value="$PARAM[height]" />
 					</include>
@@ -1110,9 +1125,9 @@
 					<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
 					<bordersize>2</bordersize>
 				</control>
-				<!-- Image and placeholder for movies-->
+				<!-- Image and placeholder for video -->
 				<control type="image"> 
-					<visible>String.IsEqual(ListItem.DBType,movie)</visible> <!-- not sure is this is the right way to do this -->
+					<visible>!$PARAM[isfanart] + !String.IsEmpty(ListItem.DBType)</visible> <!-- not sure is this is the right way to do this -->
 					<include content="ConditionalHeight">
 						<param name="height" value="$PARAM[height]" />
 					</include>
@@ -1201,6 +1216,7 @@
 		<param name="totalheight" />
 		<param name="posterheight" />
 		<param name="posterwidth" />
+		<param name="isfanart" default="false" />
 		<definition>
 			<control type="panel" id="$PARAM[controlId]">
 				<height>$PARAM[totalheight]</height>
@@ -1209,18 +1225,20 @@
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
 				<itemlayout height="$PARAM[totalheight]" width="$PARAM[posterwidth]" condition="!Skin.HasSetting(scopeFormat235)">
 					<include content="ExtendedInfoPanelLayout">
-						<param name="overlay" value="$PARAM[overlay]" />
 						<param name="height" value="$PARAM[posterheight]" />
 						<param name="width" value="$PARAM[posterwidth]" />
+						<param name="overlay" value="$PARAM[overlay]" />
+						<param name="isfanart" value="$PARAM[isfanart]" />
 						<param name="label" value="$INFO[ListItem.Label]" />
 						<param name="label2" value="$PARAM[label2]" />
 					</include>
 				</itemlayout>
 				<itemlayout height="$PARAM[totalheight]" width="$PARAM[posterwidth]" condition="Skin.HasSetting(scopeFormat235)">
 					<include content="ExtendedInfoPanelLayout">
-						<param name="overlay" value="$PARAM[overlay]" />
 						<param name="height" value="$PARAM[posterheight]" />
 						<param name="width" value="$PARAM[posterwidth]" />
+						<param name="overlay" value="$PARAM[overlay]" />
+						<param name="isfanart" value="$PARAM[isfanart]" />
 						<param name="label" value="$INFO[ListItem.Label]" />
 						<param name="label2" value="$PARAM[label2]" />
 					</include>
@@ -1228,9 +1246,10 @@
 				<focusedlayout height="$PARAM[totalheight]" width="$PARAM[posterwidth]" condition="!Skin.HasSetting(scopeFormat235)">
 					<include content="ExtendedInfoPanelLayout">
 						<param name="focused" value="true" />
-						<param name="overlay" value="$PARAM[overlay]" />
 						<param name="height" value="$PARAM[posterheight]" />
 						<param name="width" value="$PARAM[posterwidth]" />
+						<param name="overlay" value="$PARAM[overlay]" />
+						<param name="isfanart" value="$PARAM[isfanart]" />
 						<param name="label" value="$INFO[ListItem.Label]" />
 						<param name="label2" value="$PARAM[label2]" />
 					</include>
@@ -1238,9 +1257,10 @@
 				<focusedlayout height="$PARAM[totalheight]" width="$PARAM[posterwidth]" condition="Skin.HasSetting(scopeFormat235)">
 					<include content="ExtendedInfoPanelLayout">
 						<param name="focused" value="true" />
-						<param name="overlay" value="$PARAM[overlay]" />
 						<param name="height" value="$PARAM[posterheight]" />
 						<param name="width" value="$PARAM[posterwidth]" />
+						<param name="overlay" value="$PARAM[overlay]" />
+						<param name="isfanart" value="$PARAM[isfanart]" />
 						<param name="label" value="$INFO[ListItem.Label]" />
 						<param name="label2" value="$PARAM[label2]" />
 					</include>
@@ -1585,9 +1605,9 @@
 
 	<!-- ExtendedInfo area.  Done with many includes so the height can change depending on the scope aspect ratio -->	
 	<include name="VariableHeightExtendedInfo"> 
-		<param name="videodetails" default="false" />
-		<param name="embuaryperson" default="false" />
-		<param name="embuaryvideo" default="false" />
+		<param name="isvideodetails" default="false" />
+		<param name="isembuaryperson" default="false" />
+		<param name="isembuaryvideo" default="false" />
 		<param name="totalheight" />
 		<param name="textheight" />
 		<param name="posterheight" />
@@ -1603,24 +1623,24 @@
 				<pagecontrol>70</pagecontrol>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
 				<!-- Video details - add plot-->	
-				<include content="ExtendedInfoPlot" condition="$PARAM[videodetails]">
+				<include content="ExtendedInfoPlot" condition="$PARAM[isvideodetails]">
 					<param name="totalheight" value="$PARAM[totalheight]"/>
 					<param name="textheight" value="$PARAM[textheight]"/>
 				</include>
 				<!-- Embuary video - add plot-->	
-				<include content="ExtendedInfoPlotEmbruary" condition="$PARAM[embuaryvideo]">
+				<include content="ExtendedInfoPlotEmbruary" condition="$PARAM[isembuaryvideo]">
 					<param name="totalheight" value="$PARAM[totalheight]"/>
 					<param name="textheight" value="$PARAM[textheight]"/>
 				</include>
 				<!-- Embuary person - add biography-->	
-				<include content="ExtendedInfoBiographyEmbruary" condition="$PARAM[embuaryperson]">
+				<include content="ExtendedInfoBiographyEmbruary" condition="$PARAM[isembuaryperson]">
 					<param name="totalheight" value="$PARAM[totalheight]"/>
 					<param name="textheight" value="$PARAM[textheight]"/>
 				</include>
 				<!-- Cast without Embuary.Info script installed-->	
 				<!-- Native cast list does not offer TMDB lookup option -->
 				<!-- Embuary.info is currently required so always false -->
-				<include content="ExtendedInfoPanelSetup" condition="false + $PARAM[videodetails]">
+				<include content="ExtendedInfoPanelSetup" condition="false + $PARAM[isvideodetails]">
 					<param name="controlId" value="50" />
 					<param name="label2" value="$INFO[ListItem.Label2]" />
 					<param name="customcontent" value="false" />
@@ -1630,7 +1650,7 @@
 				</include>
 				<!-- Cast with Embuary.Info script installed-->	
 				<!-- We built our own cast list from local data to use here -->
-				<include content="ExtendedInfoPanelSetup" condition="$PARAM[videodetails]">
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isvideodetails]">
 					<param name="controlId" value="90050" />
 					<param name="label2" value="$INFO[ListItem.Label2]" />
 					<param name="customcontent" value="true" />
@@ -1640,7 +1660,7 @@
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>
 				<!-- Movies from Set -->	
-				<include content="ExtendedInfoPanelSetup" condition="$PARAM[videodetails] + String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.SetID)" >
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isvideodetails] + String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.SetID)" >
 					<param name="controlId" value="90080" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="customcontent" value="true" />
@@ -1652,7 +1672,7 @@
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>
 				<!-- Movies from the same Director(s) -->
-				<include content="ExtendedInfoPanelSetup" condition="$PARAM[videodetails] + String.IsEqual(ListItem.DBType,movie)">
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isvideodetails] + String.IsEqual(ListItem.DBType,movie)">
 					<param name="controlId" value="90081" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="customcontent" value="true" />
@@ -1667,7 +1687,7 @@
 				</include>
 				<!-- Movies from the same Writer(s) -->
 				<!-- Writers not implemented in Embuary.info so false -->
-				<include content="ExtendedInfoPanelSetup" condition="false + $PARAM[videodetails] + String.IsEqual(ListItem.DBType,movie)">
+				<include content="ExtendedInfoPanelSetup" condition="false + $PARAM[isvideodetails] + String.IsEqual(ListItem.DBType,movie)">
 					<param name="controlId" value="90082" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="customcontent" value="true" />
@@ -1679,7 +1699,7 @@
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>                                  
 				<!-- Embruary Movies with Actor -->
-				<include content="ExtendedInfoPanelSetup" condition="$PARAM[embuaryperson]">
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isembuaryperson]">
 					<param name="controlId" value="10052" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="customcontent" value="false" />
@@ -1691,7 +1711,7 @@
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>                                  
 				<!-- Embruary TV with Actor -->
-				<include content="ExtendedInfoPanelSetup" condition="$PARAM[embuaryperson]">
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isembuaryperson]">
 					<param name="controlId" value="10053" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="customcontent" value="false" />
@@ -1703,7 +1723,7 @@
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>                                  
 				<!-- Embruary Actor Images -->
-				<include content="ExtendedInfoPanelSetup" condition="$PARAM[embuaryperson]">
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isembuaryperson]">
 					<param name="controlId" value="10054" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="customcontent" value="false" />
@@ -1716,7 +1736,7 @@
 
 
 				<!-- Embuary Cast -->
-				<include content="ExtendedInfoPanelSetup" condition="$PARAM[embuaryvideo]">
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isembuaryvideo]">
 					<param name="controlId" value="10052" />
 					<param name="label2" value="$INFO[ListItem.Label2]" />
 					<param name="customcontent" value="false" />
@@ -1727,7 +1747,7 @@
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>                                  
 				<!-- Embuary Crew -->
-				<include content="ExtendedInfoPanelSetup" condition="$PARAM[embuaryvideo]">
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isembuaryvideo]">
 					<param name="controlId" value="10056" />
 					<param name="label2" value="$INFO[ListItem.Label2]" />
 					<param name="customcontent" value="false" />
@@ -1738,7 +1758,7 @@
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>                                  
 				<!-- Embuary Collection -->
-				<include content="ExtendedInfoPanelSetup" condition="$PARAM[embuaryvideo]">
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isembuaryvideo]">
 					<param name="controlId" value="10057" />
 					<param name="label2" value="$INFO[ListItem.Label2]" />
 					<param name="customcontent" value="false" />
@@ -1749,7 +1769,7 @@
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>                                  
 				<!-- Embuary Posters -->
-				<include content="ExtendedInfoPanelSetup" condition="$PARAM[embuaryvideo]">
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isembuaryvideo]">
 					<param name="controlId" value="10059" />
 					<param name="label2" value="$INFO[ListItem.Label2]" />
 					<param name="customcontent" value="false" />
@@ -1760,20 +1780,21 @@
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>                                  
 				<!-- Embuary Fanart -->
-				<include content="ExtendedInfoPanelSetup" condition="$PARAM[embuaryvideo]">
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isembuaryvideo]">
 					<param name="controlId" value="10055" />
 					<param name="label2" value="$INFO[ListItem.Label2]" />
 					<param name="customcontent" value="false" />
 					<param name="sortby" value="year" />
 					<param name="sortorder" value="descending" />
 					<param name="totalheight" value="$PARAM[totalheight]" />
-					<param name="posterheight" value="$PARAM[posterheight]" />
-					<param name="posterwidth" value="$PARAM[posterwidth]" />
+					<param name="posterheight" value="$PARAM[posterheight]" /> 
+					<param name="posterwidth" value="350" /> <!-- 16:9 aspect ratio -->
+					<param name="isfanart" value="true" /> <!-- Changes poster display -->
 				</include>                                  
 
 				
 				<!-- TMDB Similar Movies-->
-				<include content="ExtendedInfoPanelSetup" condition="$PARAM[videodetails] + String.IsEqual(ListItem.DBType,movie)">
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isvideodetails] + String.IsEqual(ListItem.DBType,movie)">
 					<param name="controlId" value="90083" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="customcontent" value="true" />
@@ -1787,7 +1808,7 @@
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>                                  
 				<!-- TMDB Recommended Movies-->
-				<include content="ExtendedInfoPanelSetup" condition="$PARAM[videodetails] + String.IsEqual(ListItem.DBType,movie)">
+				<include content="ExtendedInfoPanelSetup" condition="$PARAM[isvideodetails] + String.IsEqual(ListItem.DBType,movie)">
 					<param name="controlId" value="90084" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="customcontent" value="true" />

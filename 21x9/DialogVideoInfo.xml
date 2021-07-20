@@ -573,7 +573,7 @@
 				</control>
 				<!-- ExtendedInfo area for 2.40 setting  -->
 				<include content="VariableHeightExtendedInfo" condition="!Skin.HasSetting(scopeFormat235)">
-					<param name="videodetails" value="true" />
+					<param name="isvideodetails" value="true" /> <!-- determines panels shown -->
 					<param name="totalheight" value="409" />
 					<param name="textheight" value="309" /> <!-- total height - media icon height - 10 -->
 					<param name="posterheight" value="329" /> <!-- poster height - 80 -->
@@ -581,7 +581,7 @@
 				</include>
 				<!-- ExtendedInfo area for 2.35 setting  -->
 				<include content="VariableHeightExtendedInfo" condition="Skin.HasSetting(scopeFormat235)">
-					<param name="videodetails" value="true" />
+					<param name="isvideodetails" value="true" /> <!-- determines panels shown -->
 					<param name="totalheight" value="429" />
 					<param name="textheight" value="329" /> <!-- total height - media icon height - 10 -->
 					<param name="posterheight" value="349" /> <!-- poster height - 80 -->

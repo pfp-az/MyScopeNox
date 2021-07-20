@@ -607,6 +607,12 @@
 <!-- I'm placing all code I've written or fully reviewed/modified below this area.  This is strictly for organization purposes  -->
 <!-------------------------------------------------------------------------------------------------------------------------------->
 
+	<!-- Create a list of studios for a video -->  
+	<variable name="StudioListVar">
+		<value condition="Window.IsActive(script-embuary-video.xml)">$INFO[Container(10051).ListItem.Property(Studio.0)] / $INFO[Container(10051).ListItem.Property(Studio.1)] / $INFO[Container(10051).ListItem.Property(Studio.2)] / $INFO[Container(10051).ListItem.Property(Studio.3)] / $INFO[Container(10051).ListItem.Property(Studio.4)] / $INFO[Container(10051).ListItem.Property(Studio.5)] / $INFO[Container(10051).ListItem.Property(Studio.6)] / $INFO[Container(10051).ListItem.Property(Studio.7)]</value>
+		<value>$ESCINFO[ListItem.Studio]</value>
+	</variable>
+
 	<variable name="DurationVar">
 		<value condition="Container.Content(tvshows) + !String.IsEmpty(Window(Home).Property(NextAired.Runtime))">$INFO[Window(Home).Property(NextAired.Runtime)]</value>
 		<value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(h)]h $INFO[ListItem.Duration(mm)]m</value>
@@ -691,7 +697,7 @@
 	<!-- Label text for the plot / posters on the movie details screen -->
 	<variable name="VideoInfoDetailsLabelVar">
 		<value condition="Control.HasFocus(900171)">$LOCALIZE[207] - $LOCALIZE[31175]</value>
-		<value condition="ControlGroup(9001).HasFocus(50) | ControlGroup(9001).HasFocus(90050)">$LOCALIZE[206]$INFO[Container(50).NumItems, [COLOR grey3](,)[/COLOR]]</value>
+		<value condition="ControlGroup(9001).HasFocus(50) | ControlGroup(9001).HasFocus(90050)">$LOCALIZE[206] [COLOR grey3]($INFO[Container(50).NumItems])[/COLOR]</value>
 		<value condition="ControlGroup(9001).HasFocus(90080)">$INFO[ListItem.Set] [COLOR grey3]($INFO[Container(90080).NumItems])[/COLOR]</value>
 		<value condition="ControlGroup(9001).HasFocus(90081)">$INFO[ListItem.Director,$LOCALIZE[31112] ]$INFO[Container(90081).NumItems, [COLOR grey3](,)[/COLOR]]</value>
 		<value condition="ControlGroup(9001).HasFocus(90082)">$INFO[ListItem.Writer,$LOCALIZE[31113] ]$INFO[Container(90082).NumItems, [COLOR grey3](,)[/COLOR]]</value>
@@ -699,17 +705,23 @@
 		<value condition="ControlGroup(9001).HasFocus(90084)">Recommended movies$INFO[Container(90084).NumItems, [COLOR grey3](,)[/COLOR]]</value>
 	</variable>
 
-	<!-- Label text for buttons on the Embuary details screen -->
+	<!-- Label text for buttons on the Embuary video/person details screens -->
 	<variable name="EmbuaryInfoButtonLabelVar">
 		<value condition="Control.HasFocus(207)">$LOCALIZE[31014]</value>
 	</variable>
 
-	<!-- Label text for the Biography / posters on the movie details screen -->
+	<!-- Label text for Embuary panels on the video/person details screens -->
 	<variable name="EmbuaryInfoDetailsLabelVar">
 		<value condition="Control.HasFocus(900181)">$LOCALIZE[31987] - $LOCALIZE[31175]</value>
-		<value condition="ControlGroup(9001).HasFocus(10052)">$LOCALIZE[31988] $INFO[Container(10051).ListItem.Label]</value>
-		<value condition="ControlGroup(9001).HasFocus(10053)">$LOCALIZE[31989] $INFO[Container(10051).ListItem.Label]</value>
-		<value condition="ControlGroup(9001).HasFocus(10054)">$LOCALIZE[31990] [COLOR grey3]($INFO[Container(10054).NumItems])[/COLOR]</value>
+		<value condition="Window.IsActive(script-embuary-person.xml) + ControlGroup(9001).HasFocus(10052)">$LOCALIZE[31988] $INFO[Container(10051).ListItem.Label]</value>
+		<value condition="Window.IsActive(script-embuary-person.xml) + ControlGroup(9001).HasFocus(10053)">$LOCALIZE[31989] $INFO[Container(10051).ListItem.Label]</value>
+		<value condition="Window.IsActive(script-embuary-person.xml) + ControlGroup(9001).HasFocus(10054)">$LOCALIZE[31990] [COLOR grey3]($INFO[Container(10054).NumItems])[/COLOR]</value>
+		<value condition="Control.HasFocus(900171)">$LOCALIZE[207] - $LOCALIZE[31175]</value>
+		<value condition="Window.IsActive(script-embuary-video.xml) + ControlGroup(9001).HasFocus(10052)">$LOCALIZE[206] [COLOR grey3]($INFO[Container(10052).NumItems])[/COLOR]</value>
+		<value condition="Window.IsActive(script-embuary-video.xml) + ControlGroup(9001).HasFocus(10056)">$LOCALIZE[31996] [COLOR grey3]($INFO[Container(10056).NumItems])[/COLOR]</value>
+		<value condition="Window.IsActive(script-embuary-video.xml) + ControlGroup(9001).HasFocus(10057)">$INFO[Container(10051).ListItem.Property(Collection)] [COLOR grey3]($INFO[Container(10057).NumItems])[/COLOR]</value>
+		<value condition="Window.IsActive(script-embuary-video.xml) + ControlGroup(9001).HasFocus(10059)">$LOCALIZE[31995] [COLOR grey3]($INFO[Container(10059).NumItems])[/COLOR]</value>
+		<value condition="Window.IsActive(script-embuary-video.xml) + ControlGroup(9001).HasFocus(10055)">$LOCALIZE[20445] [COLOR grey3]($INFO[Container(10055).NumItems])[/COLOR]</value>
 	</variable>
 
 	<!-- Where to find the images used for certification ratings -->
