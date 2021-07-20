@@ -436,7 +436,7 @@
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label>$VAR[VideoInfoButtonLabelVar]</label>
 						</control>
-						<!-- Focus is on plot area -->
+						<!-- Focus is on ExtendedInfo area -->
 						<control type="label">
 							<visible>ControlGroup(9001).HasFocus + !Control(90017).HasFocus</visible>
 							<width>770</width>

@@ -117,36 +117,36 @@
 						</focusedlayout>
 						<content>
 							<item>
+								<visible>!String.IsEmpty(Container(10051).ListItem.Property(Age))</visible>
 								<label>$INFO[Container(10051).ListItem.Property(Age)]</label>
 								<label2>$ADDON[script.embuary.info 32006]:</label2>
-								<visible>!String.IsEmpty(Container(10051).ListItem.Property(Age))</visible>
 							</item>
 							<item>
+								<visible>!String.IsEmpty(Container(10051).ListItem.Property(Birthday))</visible>
 								<label>$INFO[Container(10051).ListItem.Property(Birthday)]</label>
 								<label2>$LOCALIZE[21893]:</label2>
-								<visible>!String.IsEmpty(Container(10051).ListItem.Property(Birthday))</visible>
 							</item>
 							<item>
+								<visible>!String.IsEmpty(Container(10051).ListItem.Property(Deathday))</visible>
 								<label>$INFO[Container(10051).ListItem.Property(Deathday)]</label>
 								<label2>$LOCALIZE[21897]:</label2>
-								<visible>!String.IsEmpty(Container(10051).ListItem.Property(Deathday))</visible>
 							</item>
 							<item>
+								<visible>!String.IsEmpty(Container(10051).ListItem.Property(place_of_birth))</visible>
 								<label>$INFO[Container(10051).ListItem.Property(place_of_birth)]</label>
 								<label2>$ADDON[script.embuary.info 32007]:</label2>
-								<visible>!String.IsEmpty(Container(10051).ListItem.Property(place_of_birth))</visible>
 							</item>
 							<item>
+								<visible>!String.IsEmpty(Container(10052).ListItemAbsolute(0).Label)</visible>
 								<label>$INFO[Container(10052).NumItems]</label>
 								<label2>$LOCALIZE[342]:</label2>
 								<onclick>SetFocus(10052)</onclick>
-								<visible>!String.IsEmpty(Container(10052).ListItemAbsolute(0).Label)</visible>
 							</item>
 							<item>
+								<visible>!String.IsEmpty(Container(10053).ListItemAbsolute(0).Label)</visible>
 								<label>$INFO[Container(10053).NumItems]</label>
 								<label2>$LOCALIZE[20343]:</label2>
 								<onclick>SetFocus(10053)</onclick>
-								<visible>!String.IsEmpty(Container(10053).ListItemAbsolute(0).Label)</visible>
 							</item>
 						</content>
 					</control>
@@ -176,7 +176,7 @@
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label>$VAR[EmbuaryInfoButtonLabelVar]</label>
 						</control>
-						<!-- Focus is on plot area -->
+						<!-- Focus is on ExtendedInfo area -->
 						<control type="label">
 							<visible>ControlGroup(9001).HasFocus + !Control(90017).HasFocus</visible>
 							<width>1000</width>
