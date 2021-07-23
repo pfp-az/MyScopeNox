@@ -9,47 +9,46 @@
 		<control type="group">
 			<left>457</left>
 			<top>240</top>
-			<!-- Draw the popup -->
+			<!-- Backround Image, narrow variation -->
+			<include content="BuildPanelBackground" condition="Control.IsVisible(3) + ![Control.IsVisible(5) | Control.IsVisible(7)]">
+				<param name="height" value="610" />
+				<param name="width" value="692" />
+				<param name="bordersize" value="5" />
+			</include>
+			<!-- Backround Image, wide variation -->
+			<include content="BuildPanelBackground" condition="[Control.IsVisible(5) | Control.IsVisible(7)] | Control.isVisible(6)">
+				<param name="height" value="610" />
+				<param name="width" value="1050" />
+				<param name="bordersize" value="5" />
+			</include>
+			<!-- Heading Background -->
 			<control type="image">
-				<visible>Control.IsVisible(3) + ![Control.IsVisible(5) | Control.IsVisible(7)]</visible>
-				<left>157</left>
-				<width>692</width>
-				<height>600</height>
-				<texture border="40">dialogs/default/bg.png</texture>
+				<top>5</top>
+				<left>5</left>
+				<width>1040</width>
+				<height>60</height>
+				<texture border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texture>
 			</control>
-			<!-- Draw the popup -->
-			<control type="image">
-				<visible>[Control.IsVisible(5) | Control.IsVisible(7)] | Control.isVisible(6)</visible>
-				<width>1006</width>
-				<height>600</height>
-				<texture border="40">dialogs/default/bg.png</texture>
-			</control>
-			<!-- Draw the popup -->
-			<control type="image">
-				<left>30</left>
-				<top>86</top>
-				<width>632</width>
-				<height>482</height>
-				<texture border="5">dialogs/default/inner.png</texture>
-				<animation effect="slide" start="0" end="157" time="0" tween="quadratic" condition="Control.IsVisible(3) + ![Control.IsVisible(5) | Control.IsVisible(7)]">Conditional</animation>
-			</control>
-			<!-- Heading label -->
-			<control type="label" id="1">
-				<left>30</left>
-				<top>32</top>
-				<width>940</width>
+			<!-- Heading Label -->
+			<control type="label">
+				<top>15</top>
+				<left>5</left>
+				<width>1040</width>
 				<height>40</height>
-				<font>font15_title</font>
-				<label />
 				<align>center</align>
 				<textcolor>dialogheader</textcolor>
+				<font>font15_title</font>
+				<label>$LOCALIZE[22080]</label>
 			</control>
-			<!-- A group for images -->
+
+			<!-- A group for images, only id6 -->
 			<control type="group">
-				<left>676</left>
-				<top>86</top>
+				<visible>Control.IsVisible(6)</visible>
+				<top>75</top>
+				<left>725</left>
+				<!-- Icon -->
 				<control type="image">
-					<visible>Control.IsVisible(6)</visible>
+					<visible>Control.IsVisible(6) + String.IsEmpty(Container(6).ListItem.Art(poster))</visible>
 					<width>300</width>
 					<height>332</height>
 					<aspectratio aligny="top">keep</aspectratio>
@@ -57,14 +56,25 @@
 					<bordertexture border="5">dialogs/default/inner.png</bordertexture>
 					<bordersize>1</bordersize>
 				</control>
+				<!-- Poster -->
+				<control type="image">
+					<visible>Control.IsVisible(6) + !String.IsEmpty(Container(6).ListItem.Art(poster))</visible>
+					<width>300</width>
+					<height>332</height>
+					<aspectratio aligny="top">keep</aspectratio>
+					<texture>$INFO[Container(6).ListItem.Art(poster)]</texture>
+					<bordertexture border="5">dialogs/default/inner.png</bordertexture>
+					<bordersize>1</bordersize>
+				</control>
 			</control>
+
+			<!-- Create the list -->
 			<control type="group" id="9000">
-				<!-- Create the list -->
 				<control type="list" id="3">
-					<left>32</left>
-					<top>88</top>
-					<width>630</width>
-					<height>480</height>
+					<top>65</top>
+					<left>5</left>
+					<width>705</width>
+					<height>540</height>
 					<onup>3</onup>
 					<ondown>3</ondown>
 					<onleft>5</onleft>
@@ -72,9 +82,9 @@
 					<pagecontrol>60</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
 					<animation effect="slide" start="0" end="157" time="0" tween="quadratic" condition="![Control.IsVisible(5) | Control.IsVisible(7)]">Conditional</animation>
-					<itemlayout height="60" width="630">
+					<itemlayout height="60" width="705">
 						<control type="label">
-							<width>630</width>
+							<width>705</width>
 							<height>60</height>
 							<textoffsetx>15</textoffsetx>
 							<font>font14</font>
@@ -83,7 +93,7 @@
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<width>630</width>
+							<width>705</width>
 							<height>60</height>
 							<textoffsetx>15</textoffsetx>
 							<font>font14</font>
@@ -93,16 +103,16 @@
 							<label>$INFO[ListItem.Label2]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout height="60" width="630">
+					<focusedlayout height="60" width="705">
 						<control type="image">
 							<visible>Control.HasFocus(3)</visible>
-							<width>630</width>
+							<width>705</width>
 							<height>60</height>
-							<texture border="5">listselect_fo.png</texture>
 							<include>VisibleFadeAnimation</include>
+						<texture border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texture>
 						</control>
 						<control type="label">
-							<width>630</width>
+							<width>705</width>
 							<height>60</height>
 							<textoffsetx>15</textoffsetx>
 							<font>font14</font>
@@ -113,7 +123,7 @@
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(3)">Conditional</animation>
 						</control>
 						<control type="label">
-							<width>630</width>
+							<width>705</width>
 							<height>60</height>
 							<textoffsetx>15</textoffsetx>
 							<font>font14</font>
@@ -125,21 +135,20 @@
 						</control>
 					</focusedlayout>
 				</control>
-				<!-- Create the list -->
 				<control type="list" id="6">
-					<left>32</left>
-					<top>88</top>
-					<width>630</width>
-					<height>480</height>
+					<top>65</top>
+					<left>5</left>
+					<width>705</width>
+					<height>540</height>
 					<onup>6</onup>
 					<ondown>6</ondown>
 					<onleft>9001</onleft>
 					<onright>60</onright>
 					<pagecontrol>60</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
-					<itemlayout height="60" width="641">
+					<itemlayout height="60" width="705">
 						<control type="label">
-							<width>630</width>
+							<width>705</width>
 							<height>60</height>
 							<font>font14</font>
 							<textoffsetx>15</textoffsetx>
@@ -148,7 +157,7 @@
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<width>630</width>
+							<width>705</width>
 							<height>60</height>
 							<font>font14</font>
 							<textoffsetx>15</textoffsetx>
@@ -158,17 +167,16 @@
 							<label>$VAR[DialogSelectLabel2Var]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout height="60" width="641">
+					<focusedlayout height="60" width="705">
 						<control type="image">
 							<visible>Control.HasFocus(6)</visible>
-							<left>1</left>
-							<width>630</width>
+							<width>705</width>
 							<height>60</height>
-							<texture border="5">listselect_fo.png</texture>
 							<include>VisibleFadeAnimation</include>
+						<texture border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texture>
 						</control>
 						<control type="label">
-							<width>630</width>
+							<width>705</width>
 							<height>60</height>
 							<font>font14</font>
 							<textoffsetx>15</textoffsetx>
@@ -178,7 +186,7 @@
 							<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(6)">Conditional</animation>
 						</control>
 						<control type="label">
-							<width>630</width>
+							<width>705</width>
 							<height>60</height>
 							<font>font14</font>
 							<textoffsetx>15</textoffsetx>
@@ -191,10 +199,11 @@
 					</focusedlayout>
 				</control>
 			</control>
+
 			<!-- A group for buttons -->
 			<control type="grouplist" id="9001">
-				<left>676</left>
-				<top>434</top>
+				<left>730</left>
+				<top>429</top>
 				<height>134</height>
 				<onleft>60</onleft>
 				<onright>3</onright>
@@ -203,27 +212,27 @@
 				<itemgap>14</itemgap>
 				<!-- OK / Manual / Get More -->
 				<control type="button" id="5">
-					<description>Manual button</description>
 					<width>300</width>
 					<label>186</label>
-					<texturefocus border="5">button_fo.png</texturefocus>
-					<texturenofocus border="5">dialogs/default/inner.png</texturenofocus>
+					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+					<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texturenofocus>
 				</control>
 				<!-- Cancel -->
 				<control type="button" id="7">
 					<description>Cancel button</description>
 					<width>300</width>
 					<label />
-					<texturefocus border="5">button_fo.png</texturefocus>
-					<texturenofocus border="5">dialogs/default/inner.png</texturenofocus>
+					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+					<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texturenofocus>
 				</control>
 			</control>
+
 			<!-- Scrollbar -->
 			<control type="scrollbar" id="60">
-				<left>662</left>
-				<top>88</top>
-				<height>480</height>
-				<width>14</width>
+				<left>710</left>
+				<top>65</top>
+				<height>540</height>
+				<width>10</width>
 				<onleft>6</onleft>
 				<onright>9001</onright>
 				<ondown>60</ondown>
@@ -235,6 +244,7 @@
 				<animation effect="slide" start="0" end="157" time="0" tween="quadratic" condition="Control.IsVisible(3) + ![Control.IsVisible(5) | Control.IsVisible(7)]">Conditional</animation>
 			</control>
 		</control>
+
 		<!-- Unknown -->
 		<control type="label" id="4">
 			<width>692</width>

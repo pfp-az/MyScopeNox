@@ -69,8 +69,8 @@
 				<top>140</top> <!-- Need to define here due to animation on control-->
 				<width>1387</width>
 				<height>800</height>
-				<!--<texture colordiffuse="D9FFFFFF">colors/black.png</texture>-->
-				<texture border="4">dialogs/info/info_rightpaneltop.png</texture>
+				<texture colordiffuse="D9FFFFFF">colors/black.png</texture>
+				<!--<texture border="4">dialogs/info/info_rightpaneltop.png</texture>-->
 			</control>
 			<!-- Info -->
 			<control type="group">
@@ -608,34 +608,35 @@
 				<effect type="fade" start="100" end="0" time="100" delay="100" />
 				<effect type="zoom" start="100" end="130" center="CenterWidth,CenterHeight" time="200" tween="cubic" easing="in" />
 			</animation>
+			<!-- Backround Image -->
+			<include content="BuildPanelBackground">
+				<param name="height" value="720" />
+				<param name="width" value="1100" />
+				<param name="bordersize" value="5" />
+			</include>
+			<!-- Heading Background -->
 			<control type="image">
-				<description>background image</description>
-				<width>1122</width>
-				<height>720</height>
-				<texture border="40">dialogs/default/bg.png</texture>
+				<top>5</top>
+				<left>5</left>
+				<width>1090</width>
+				<height>60</height>
+				<texture border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texture>
 			</control>
+			<!-- Heading Label -->
 			<control type="label">
-				<description>header label</description>
-				<left>30</left>
-				<top>32</top>
-				<width>1062</width>
+				<top>15</top>
+				<left>10</left>
+				<width>1090</width>
 				<height>40</height>
-				<font>font15_title</font>
-				<label>$LOCALIZE[544]</label>
 				<align>center</align>
 				<textcolor>dialogheader</textcolor>
-			</control>
-			<control type="image">
-				<left>30</left>
-				<top>86</top>
-				<width>1060</width>
-				<height>602</height>
-				<texture border="5">dialogs/default/inner.png</texture>
+				<font>font15_title</font>
+				<label>$LOCALIZE[544]</label>
 			</control>
 			<control type="list" id="9002">
-				<left>31</left>
-				<top>88</top>
-				<width>1058</width>
+				<left>5</left>
+				<top>70</top>
+				<width>1080</width>
 				<height>600</height>
 				<onup>9002</onup>
 				<ondown>9002</ondown>
@@ -645,47 +646,47 @@
 				<onback>9000</onback>
 				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="quadratic" easing="out">200</scrolltime>
-				<itemlayout height="60" width="1058">
+				<itemlayout height="60" width="1080">
 					<control type="label">
-						<width>1058</width>
+						<width>1080</width>
 						<height>60</height>
 						<font>font15</font>
 						<textcolor>labelheader</textcolor>
 						<selectedcolor>selected</selectedcolor>
 						<label>$INFO[ListItem.Label2]</label>
-						<textoffsetx>15</textoffsetx>
+						<textoffsetx>10</textoffsetx>
 					</control>
 					<control type="label">
-						<width>1058</width>
+						<width>1080</width>
 						<height>60</height>
 						<font>font15</font>
 						<align>right</align>
 						<textcolor>grey</textcolor>
 						<selectedcolor>selected</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
-						<textoffsetx>15</textoffsetx>
+						<textoffsetx>20</textoffsetx>
 					</control>
 				</itemlayout>
-				<focusedlayout height="60" width="1058">
+				<focusedlayout height="60" width="1080">
 					<control type="image">
-						<width>1058</width>
-						<height>60</height>
-						<texture border="4">listselect_fo.png</texture>
 						<visible>Control.HasFocus(9002)</visible>
+						<width>1080</width>
+						<height>60</height>
 						<include>VisibleFadeAnimation</include>
+						<texture border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texture>
 					</control>
 					<control type="label">
-						<width>1058</width>
+						<width>1080</width>
 						<height>60</height>
 						<font>font15</font>
 						<textcolor>white</textcolor>
 						<selectedcolor>selected</selectedcolor>
 						<label>$INFO[ListItem.Label2]</label>
 						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(9002)">Conditional</animation>
-						<textoffsetx>15</textoffsetx>
+						<textoffsetx>10</textoffsetx>
 					</control>
 					<control type="label">
-						<width>1058</width>
+						<width>1080</width>
 						<height>60</height>
 						<font>font15</font>
 						<align>right</align>
@@ -693,7 +694,7 @@
 						<selectedcolor>selected</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(9002)">Conditional</animation>
-						<textoffsetx>15</textoffsetx>
+						<textoffsetx>20</textoffsetx>
 					</control>
 				</focusedlayout>
 				<content>
@@ -1008,10 +1009,10 @@
 				</content>
 			</control>
 			<control type="scrollbar" id="60">
-				<left>1092</left>
-				<top>88</top>
+				<left>1085</left>
+				<top>70</top>
 				<height>600</height>
-				<width>14</width>
+				<width>10</width>
 				<onleft>9002</onleft>
 				<onright>9002</onright>
 				<ondown>60</ondown>

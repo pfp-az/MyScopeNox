@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<!-- This file displays the menu when the power option is selected in the menu                                                  -->
+<!-------------------------------------------------------------------------------------------------------------------------------->
 <window>
 	<defaultcontrol>9000</defaultcontrol>
 	<include>DialogOpenCloseAnimation</include>
 	<controls>
 		<control type="grouplist" id="9000">
 			<centerleft>50%</centerleft>
-			<width>510</width>
+			<width>450</width>
 			<height>100%</height>
 			<onleft>9000</onleft>
 			<onright>9000</onright>
@@ -13,178 +16,164 @@
 			<ondown>9000</ondown>
 			<align>center</align>
 			<control type="image" id="1">
-				<description>background image</description>
-				<width>510</width>
-				<height>34</height>
-				<texture border="30,20,30,2">dialog_top2.png</texture>
+				<width>450</width>
+				<height>5</height>
+				<texture colordiffuse="labelheader">colors\white.png</texture>
 			</control>
+			<!-- Exit Button -->
 			<control type="button" id="2">
-				<description>Exit button</description>
-				<width>510</width>
+				<visible>System.ShowExitButton</visible>
+				<width>450</width>
 				<height>60</height>
-				<textwidth>435</textwidth>
-				<textoffsetx>45</textoffsetx>
-				<texturefocus border="35,2,35,2">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="35,2,35,2">button_shutdown_nofocus.png</texturenofocus>
+				<align>center</align>
+				<texturefocus border="12,0,12,0" colordiffuse="labelheader">list_item_focus.png</texturefocus>
+				<texturenofocus border="12,0,12,0" colordiffuse="labelheader">list_item_nofocus.png</texturenofocus>
 				<onclick>Quit()</onclick>
 				<label>13012</label>
-				<visible>System.ShowExitButton</visible>
 			</control>
+			<!-- Shutdown Button -->
 			<control type="button" id="3">
-				<description>Shutdown button</description>
-				<width>510</width>
-				<height>60</height>
-				<textwidth>435</textwidth>
-				<textoffsetx>45</textoffsetx>
-				<texturefocus border="35,2,35,2">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="35,2,35,2">button_shutdown_nofocus.png</texturenofocus>
-				<onclick>Powerdown()</onclick>
 				<visible>System.CanPowerDown</visible>
+				<width>450</width>
+				<height>60</height>
+				<align>center</align>
+				<texturefocus border="12,0,12,0" colordiffuse="labelheader">list_item_focus.png</texturefocus>
+				<texturenofocus border="12,0,12,0" colordiffuse="labelheader">list_item_nofocus.png</texturenofocus>
+				<onclick>Powerdown()</onclick>
 				<label>13016</label>
 			</control>
+			<!-- Custom Shutdown Timer Button-->
 			<control type="button" id="4">
-				<description>Custom Shutdown Timer</description>
-				<width>510</width>
-				<height>60</height>
-				<textwidth>435</textwidth>
-				<textoffsetx>45</textoffsetx>
-				<texturefocus border="35,2,35,2">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="35,2,35,2">button_shutdown_nofocus.png</texturenofocus>
-				<onclick>AlarmClock(shutdowntimer,Shutdown())</onclick>
-				<label>20150</label>
 				<visible>!System.HasAlarm(shutdowntimer)</visible>
 				<visible>System.CanPowerDown | System.CanSuspend | System.CanHibernate</visible>
-			</control>
-			<control type="button" id="5">
-				<description>Cancel Shutdown Timer</description>
-				<width>510</width>
+				<width>450</width>
 				<height>60</height>
-				<textwidth>435</textwidth>
-				<textoffsetx>45</textoffsetx>
-				<texturefocus border="35,2,35,2">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="35,2,35,2">button_shutdown_nofocus.png</texturenofocus>
+				<align>center</align>
+				<texturefocus border="12,0,12,0" colordiffuse="labelheader">list_item_focus.png</texturefocus>
+				<texturenofocus border="12,0,12,0" colordiffuse="labelheader">list_item_nofocus.png</texturenofocus>
+				<onclick>AlarmClock(shutdowntimer,Shutdown())</onclick>
+				<label>20150</label>
+			</control>
+			<!-- Cancel Shutdown Timer Button -->
+			<control type="button" id="5">
+				<visible>System.HasAlarm(shutdowntimer)</visible>
+				<width>450</width>
+				<height>60</height>
+				<align>center</align>
+				<texturefocus border="12,0,12,0" colordiffuse="labelheader">list_item_focus.png</texturefocus>
+				<texturenofocus border="12,0,12,0" colordiffuse="labelheader">list_item_nofocus.png</texturenofocus>
 				<onclick>CancelAlarm(shutdowntimer)</onclick>
 				<label>$LOCALIZE[20151]$INFO[System.Alarmpos, (,)]</label>
-				<visible>System.HasAlarm(shutdowntimer)</visible>
 			</control>
+			<!-- Suspend Button -->
 			<control type="button" id="6">
-				<description>Suspend button</description>
-				<width>510</width>
-				<height>60</height>
-				<textwidth>435</textwidth>
-				<textoffsetx>45</textoffsetx>
-				<texturefocus border="35,2,35,2">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="35,2,35,2">button_shutdown_nofocus.png</texturenofocus>
-				<onclick>Suspend()</onclick>
 				<visible>System.CanSuspend</visible>
+				<width>450</width>
+				<height>60</height>
+				<align>center</align>
+				<texturefocus border="12,0,12,0" colordiffuse="labelheader">list_item_focus.png</texturefocus>
+				<texturenofocus border="12,0,12,0" colordiffuse="labelheader">list_item_nofocus.png</texturenofocus>
+				<onclick>Suspend()</onclick>
 				<label>13011</label>
 			</control>
+			<!-- Hibernate Button -->
 			<control type="button" id="7">
-				<description>Hibernate button</description>
-				<width>510</width>
-				<height>60</height>
-				<textwidth>435</textwidth>
-				<textoffsetx>45</textoffsetx>
-				<texturefocus border="35,2,35,2">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="35,2,35,2">button_shutdown_nofocus.png</texturenofocus>
-				<onclick>Hibernate()</onclick>
 				<visible>System.CanHibernate</visible>
+				<width>450</width>
+				<height>60</height>
+				<align>center</align>
+				<texturefocus border="12,0,12,0" colordiffuse="labelheader">list_item_focus.png</texturefocus>
+				<texturenofocus border="12,0,12,0" colordiffuse="labelheader">list_item_nofocus.png</texturenofocus>
+				<onclick>Hibernate()</onclick>
 				<label>13010</label>
 			</control>
+			<!-- Reboot Button -->
 			<control type="button" id="8">
-				<description>Reboot button</description>
-				<width>510</width>
-				<height>60</height>
-				<textwidth>435</textwidth>
-				<textoffsetx>45</textoffsetx>
-				<texturefocus border="35,2,35,2">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="35,2,35,2">button_shutdown_nofocus.png</texturenofocus>
-				<onclick>Reset()</onclick>
 				<visible>System.CanReboot</visible>
+				<width>450</width>
+				<height>60</height>
+				<align>center</align>
+				<texturefocus border="12,0,12,0" colordiffuse="labelheader">list_item_focus.png</texturefocus>
+				<texturenofocus border="12,0,12,0" colordiffuse="labelheader">list_item_nofocus.png</texturenofocus>
+				<onclick>Reset()</onclick>
 				<label>13013</label>
 			</control>
+			<!-- Logoff Button -->
 			<control type="button" id="9">
-				<description>Logoff button</description>
-				<width>510</width>
+				<visible>System.HasLoginScreen | Integer.IsGreater(System.ProfileCount,1)</visible>
+				<visible>System.Loggedon</visible>
+				<width>450</width>
 				<height>60</height>
-				<textwidth>435</textwidth>
-				<textoffsetx>45</textoffsetx>
-				<texturefocus border="35,2,35,2">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="35,2,35,2">button_shutdown_nofocus.png</texturenofocus>
+				<align>center</align>
+				<texturefocus border="12,0,12,0" colordiffuse="labelheader">list_item_focus.png</texturefocus>
+				<texturenofocus border="12,0,12,0" colordiffuse="labelheader">list_item_nofocus.png</texturenofocus>
 				<onclick>dialog.close(all,true)</onclick>
 				<onclick>System.LogOff</onclick>
 				<label>$LOCALIZE[20126] $INFO[system.profilename]</label>
-				<visible>System.HasLoginScreen | Integer.IsGreater(System.ProfileCount,1)</visible>
-				<visible>System.Loggedon</visible>
 			</control>
+			<!-- Master mode Button -->
 			<control type="togglebutton" id="10">
-				<description>Master mode button</description>
-				<width>510</width>
+				<visible>System.HasLocks</visible>
+				<width>450</width>
 				<height>60</height>
 				<label>20046</label>
 				<altlabel>20045</altlabel>
-				<textwidth>435</textwidth>
-				<textoffsetx>45</textoffsetx>
-				<texturefocus border="35,2,35,2">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="35,2,35,2">button_shutdown_nofocus.png</texturenofocus>
+				<align>center</align>
+				<texturefocus border="12,0,12,0" colordiffuse="labelheader">list_item_focus.png</texturefocus>
+				<texturenofocus border="12,0,12,0" colordiffuse="labelheader">list_item_nofocus.png</texturenofocus>
 				<usealttexture>!System.IsMaster</usealttexture>
 				<alttexturefocus border="35,2,35,2">button_shutdown_focus.png</alttexturefocus>
 				<alttexturenofocus border="35,2,35,2">button_shutdown_nofocus.png</alttexturenofocus>
 				<onclick>xbmc.mastermode</onclick>
-				<visible>System.HasLocks</visible>
 			</control>
+			<!-- Inhibit idle shutdown Button -->
 			<control type="button" id="12">
-				<description>Inhibit idle shutdown</description>
-				<width>510</width>
+				<visible>System.HasShutdown +!System.IsInhibit</visible>
+				<width>450</width>
 				<height>60</height>
-				<textwidth>435</textwidth>
-				<textoffsetx>45</textoffsetx>
-				<texturefocus border="35,2,35,2">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="35,2,35,2">button_shutdown_nofocus.png</texturenofocus>
+				<align>center</align>
+				<texturefocus border="12,0,12,0" colordiffuse="labelheader">list_item_focus.png</texturefocus>
+				<texturenofocus border="12,0,12,0" colordiffuse="labelheader">list_item_nofocus.png</texturenofocus>
 				<onclick>InhibitIdleShutdown(true)</onclick>
 				<label>13017</label>
-				<visible>System.HasShutdown +!System.IsInhibit</visible>
 			</control>
+			<!-- Allow idle shutdown Button -->
 			<control type="button" id="13">
-				<description>Allow idle shutdown</description>
-				<width>510</width>
+				<visible>System.HasShutdown + System.IsInhibit</visible>
+				<width>450</width>
 				<height>60</height>
-				<textwidth>435</textwidth>
-				<textoffsetx>45</textoffsetx>
-				<texturefocus border="35,2,35,2">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="35,2,35,2">button_shutdown_nofocus.png</texturenofocus>
+				<align>center</align>
+				<texturefocus border="12,0,12,0" colordiffuse="labelheader">list_item_focus.png</texturefocus>
+				<texturenofocus border="12,0,12,0" colordiffuse="labelheader">list_item_nofocus.png</texturenofocus>
 				<onclick>InhibitIdleShutdown(false)</onclick>
 				<label>13018</label>
-				<visible>System.HasShutdown + System.IsInhibit</visible>
 			</control>
+			<!-- Settings Button -->
 			<control type="button" id="14">
-				<description>Settings</description>
-				<width>510</width>
+				<width>450</width>
 				<height>60</height>
-				<textwidth>435</textwidth>
-				<textoffsetx>45</textoffsetx>
-				<texturefocus border="35,2,35,2">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="35,2,35,2">button_shutdown_nofocus.png</texturenofocus>
+				<align>center</align>
+				<texturefocus border="12,0,12,0" colordiffuse="labelheader">list_item_focus.png</texturefocus>
+				<texturenofocus border="12,0,12,0" colordiffuse="labelheader">list_item_nofocus.png</texturenofocus>
 				<onclick>Dialog.Close(all,true)</onclick>
 				<onclick>ActivateWindow(settings)</onclick>
 				<label>$LOCALIZE[5]</label>
 			</control>
+			<!-- Favorites Button -->
 			<control type="button" id="15">
-				<description>Favorites</description>
-				<width>510</width>
+				<width>450</width>
 				<height>60</height>
-				<textwidth>435</textwidth>
-				<textoffsetx>45</textoffsetx>
-				<texturefocus border="35,2,35,2">button_shutdown_focus.png</texturefocus>
-				<texturenofocus border="35,2,35,2">button_shutdown_nofocus.png</texturenofocus>
+				<align>center</align>
+				<texturefocus border="12,0,12,0" colordiffuse="labelheader">list_item_focus.png</texturefocus>
+				<texturenofocus border="12,0,12,0" colordiffuse="labelheader">list_item_nofocus.png</texturenofocus>
 				<onclick>ActivateWindow(favourites)</onclick>
 				<label>1036</label>
 			</control>
+			<!-- Bottom Border -->
 			<control type="image" id="16">
-				<description>background image</description>
-				<width>510</width>
-				<height>34</height>
-				<texture border="30,2,30,20">dialog_bottom2.png</texture>
+				<width>450</width>
+				<height>5</height>
+				<texture colordiffuse="labelheader">colors\white.png</texture>
 			</control>
 		</control>
 	</controls>

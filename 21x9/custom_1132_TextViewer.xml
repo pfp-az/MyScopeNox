@@ -23,26 +23,35 @@
 			<centertop>60%</centertop>
 			<!-- Backround image -->
 			<include content="BuildPanelBackground">
-				<param name="height" value="704" />
+				<param name="height" value="700" />
 				<param name="width" value="1380" />
+				<param name="bordersize" value="5" />
 			</include>
-			<!-- Header label -->
+			<!-- Heading Background -->
+			<control type="image">
+				<top>5</top>
+				<left>5</left>
+				<width>1370</width>
+				<height>60</height>
+				<texture border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texture>
+			</control>
+			<!-- Heading label -->
 			<control type="label">
-				<left>62</left>
-				<top>32</top>
-				<width>1256</width>
+				<top>15</top>
+				<left>5</left>
+				<width>1370</width>
 				<height>40</height>
-				<font>font15_title</font>
 				<align>center</align>
 				<textcolor>dialogheader</textcolor>
+				<font>font15_title</font>
 				<label>$INFO[Window(Home).Property(TextViewerHeader)]</label>
 			</control>
 			<!-- The text we came here to see -->
 			<control type="textbox">
 				<description>textarea</description>
-				<left>62</left>
-				<top>72</top>
-				<width>1256</width>
+				<left>50</left>
+				<top>75</top>
+				<width>1280</width>
 				<height>600</height>
 				<font>font_30_ls_13</font>
 				<textcolor>grey2</textcolor>
@@ -51,10 +60,10 @@
 			</control>
 			<!-- Scrollbar -->
 			<control type="scrollbar" id="61">
-				<left>1348</left>
-				<top>32</top>
-				<width>14</width>
-				<height>640</height>
+				<left>1365</left>
+				<top>65</top>
+				<width>10</width>
+				<height>635</height>
 				<ondown>61</ondown>
 				<onup>61</onup>
 				<showonepage>false</showonepage>
