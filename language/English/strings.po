@@ -1252,3 +1252,7 @@ msgctxt "#31997"
 msgid "Crew"
 msgstr ""
 
+msgctxt "#31998"
+msgid "Skin Settings: Home Menu Customizer"
+msgstr ""
+
