@@ -97,66 +97,56 @@
                         <!-- entry name and text value -->
                         <control type="group">
                             <visible>!String.IsEqual(ListItem.Property(Typ), separator)</visible>
-                            <control type="image">
-                                <width>1316</width>
-                                <height>90</height>
-                                <texture border="1">separator5.png</texture>
-                            </control>
                             <control type="label">
-                                <width>1316</width>
-                                <height>90</height>
+								<width>1330</width>
+								<height>60</height>
                                 <font>font15</font>
                                 <textcolor>grey2</textcolor>
                                 <textoffsetx>30</textoffsetx>
                                 <info>ListItem.Label</info>
                             </control>
                             <control type="label">
-                                <width>1316</width>
-                                <height>90</height>
+                                <visible>!String.IsEqual(ListItem.Property(Typ), bool) + !String.IsEqual(ListItem.Property(Typ), button)</visible>
+								<width>1330</width>
+								<height>60</height>
                                 <font>font15</font>
                                 <align>right</align>
                                 <textcolor>grey2</textcolor>
                                 <textoffsetx>30</textoffsetx>
                                 <info>ListItem.Property(value)</info>
-                                <visible>!String.IsEqual(ListItem.Property(Typ), bool) + !String.IsEqual(ListItem.Property(Typ), button)</visible>
                             </control>
                         </control>
                         <!-- section name / seperator -->
                         <control type="group">
                             <visible>String.IsEqual(ListItem.Property(Typ), separator)</visible>
-                            <control type="image">
-                                <width>1316</width>
-                                <height>90</height>
-                                <texture border="1">separator5.png</texture>
-                            </control>
                             <control type="label">
-                                <width>1316</width>
-                                <height>90</height>
+                                <visible>true</visible>
+								<width>1330</width>
+								<height>60</height>
                                 <font>font15_title</font>
                                 <textcolor>themecolor</textcolor>
                                 <textoffsetx>30</textoffsetx>
                                 <info>ListItem.Label</info>
-                                <visible>true</visible>
                             </control>
                         </control>
                         <!-- boolean value -->
                         <control type="group">
                             <visible>String.IsEqual(ListItem.Property(Typ), bool)</visible>
                             <control type="image">
+                                <visible>String.IsEqual(ListItem.Property(value), 0) | String.IsEqual(ListItem.Property(value), false) | IsEmpty(ListItem.Property(value))</visible>
                                 <left>1232</left>
                                 <top>13</top>
                                 <width>64</width>
                                 <height>64</height>
                                 <texture>android/btn_radio_off_holo_dark.png</texture>
-                                <visible>String.IsEqual(ListItem.Property(value), 0) | String.IsEqual(ListItem.Property(value), false) | IsEmpty(ListItem.Property(value))</visible>
                             </control>
                             <control type="image">
+                                <visible>String.IsEqual(ListItem.Property(value), 1) | String.IsEqual(ListItem.Property(value), true)</visible>
                                 <left>1232</left>
                                 <top>13</top>
                                 <width>64</width>
                                 <height>64</height>
                                 <texture>android/btn_radio_on_holo_dark.png</texture>
-                                <visible>String.IsEqual(ListItem.Property(value), 1) | String.IsEqual(ListItem.Property(value), true)</visible>
                             </control>
                         </control>
                     </itemlayout>
@@ -164,97 +154,92 @@
                         <!-- entry name and text value -->
                         <control type="group">
                             <visible>!String.IsEqual(ListItem.Property(Typ), separator) + !Control.HasFocus(1100)</visible>
-                            <control type="image">
-                                <width>1316</width>
-                                <height>90</height>
-                                <texture border="1">separator5.png</texture>
-                            </control>
                             <control type="label">
-                                <width>1316</width>
-                                <height>90</height>
+								<width>1330</width>
+								<height>60</height>
                                 <font>font15</font>
                                 <textcolor>grey2</textcolor>
                                 <textoffsetx>30</textoffsetx>
                                 <info>ListItem.Label</info>
                             </control>
                             <control type="label">
-                                <width>1316</width>
-                                <height>90</height>
-                                <font>font15</font>
+                                <visible>!String.IsEqual(ListItem.Property(Typ), bool) + !String.IsEqual(ListItem.Property(Typ), button)</visible>
+								<width>1330</width>
+								<height>60</height>
+								<font>font15</font>
                                 <align>right</align>
                                 <textcolor>grey2</textcolor>
                                 <textoffsetx>30</textoffsetx>
-                                <info>ListItem.Property(value)</info>
-                                <visible>!String.IsEqual(ListItem.Property(Typ), bool) + !String.IsEqual(ListItem.Property(Typ), button)</visible>
+                               <info>ListItem.Property(value)</info>
                             </control>
                         </control>
                         <control type="group">
                             <visible>!String.IsEqual(ListItem.Property(Typ), separator) + Control.HasFocus(1100)</visible>
                             <control type="image">
-                                <width>1316</width>
-                                <height>90</height>
-                                <texture border="3">listselect_fo.png</texture>
+								<width>1330</width>
+								<height>60</height>
+								<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
                             </control>
                             <control type="label">
-                                <width>1316</width>
-                                <height>90</height>
+								<width>1330</width>
+								<height>60</height>
                                 <font>font15</font>
                                 <textcolor>white</textcolor>
                                 <textoffsetx>30</textoffsetx>
                                 <info>ListItem.Label</info>
                             </control>
                             <control type="label">
-                                <width>1316</width>
-                                <height>90</height>
+                                <visible>!String.IsEqual(ListItem.Property(Typ), bool) + !String.IsEqual(ListItem.Property(Typ), button)</visible>
+								<width>1330</width>
+								<height>60</height>
                                 <font>font15</font>
                                 <align>right</align>
                                 <textcolor>white</textcolor>
                                 <textoffsetx>30</textoffsetx>
                                 <info>ListItem.Property(value)</info>
-                                <visible>!String.IsEqual(ListItem.Property(Typ), bool) + !String.IsEqual(ListItem.Property(Typ), button)</visible>
                             </control>
                         </control>
                         <!-- section name / seperator -->
                         <control type="group">
                             <visible>String.IsEqual(ListItem.Property(Typ), separator)</visible>
                             <control type="image">
-                                <width>1316</width>
-                                <height>90</height>
-                                <texture border="1">separator5.png</texture>
+								<width>1330</width>
+								<height>60</height>
+								<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
                             </control>
                             <control type="label">
-                                <width>1316</width>
-                                <height>90</height>
+                                <visible>true</visible>
+								<width>1330</width>
+								<height>60</height>
                                 <font>font15_title</font>
                                 <textcolor>themecolor</textcolor>
                                 <textoffsetx>30</textoffsetx>
                                 <info>ListItem.Label</info>
-                                <visible>true</visible>
                             </control>
                         </control>
                         <!-- boolean value -->
                         <control type="group">
                             <visible>String.IsEqual(ListItem.Property(Typ), bool)</visible>
                             <control type="image">
+                                <visible>String.IsEqual(ListItem.Property(value), 0) | String.IsEqual(ListItem.Property(value), false) | IsEmpty(ListItem.Property(value))</visible>
                                 <left>1232</left>
                                 <top>13</top>
                                 <width>64</width>
                                 <height>64</height>
                                 <texture>android/btn_radio_off_holo_dark.png</texture>
-                                <visible>String.IsEqual(ListItem.Property(value), 0) | String.IsEqual(ListItem.Property(value), false) | IsEmpty(ListItem.Property(value))</visible>
                             </control>
                             <control type="image">
+                                <visible>String.IsEqual(ListItem.Property(value), 1) | String.IsEqual(ListItem.Property(value), true)</visible>
                                 <left>1232</left>
                                 <top>13</top>
                                 <width>64</width>
                                 <height>64</height>
                                 <texture>android/btn_radio_on_holo_dark.png</texture>
-                                <visible>String.IsEqual(ListItem.Property(value), 1) | String.IsEqual(ListItem.Property(value), true)</visible>
                             </control>
                         </control>
                     </focusedlayout>
                 </control>
-				<!-- Icons -->
+				<!-- Connections ??? -->
                 <control type="list" id="1200">
                     <visible>String.IsEqual(Container(1000).ListItem.Property(listTyp), 1200)</visible>
 					<left>531</left>
@@ -384,7 +369,7 @@
                     <focusedlayout height="60">
                         <control type="image">
 							<visible>Control.HasFocus(1200)</visible>
-							<width>358</width>
+							<width>1330</width>
 							<height>60</height>
 							<texture border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texture>
                         </control>
@@ -586,7 +571,7 @@
                     <font>font48</font>
                     <info />
                 </control>
-				<!-- Icons -->
+				<!-- Bluetooth ??? -->
                 <control type="list" id="1300">
                     <visible>String.IsEqual(Container(1000).ListItem.Property(listTyp), 1300)</visible>
 					<left>531</left>
@@ -773,7 +758,7 @@
                     <focusedlayout height="60">
                         <control type="image">
                             <visible>Control.HasFocus(1300)</visible>
-							<width>358</width>
+							<width>1330</width>
 							<height>60</height>
 							<texture border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texture>
                         </control>

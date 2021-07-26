@@ -122,8 +122,8 @@
 				<texturefocus border="12,0,12,0" colordiffuse="labelheader">list_item_focus.png</texturefocus>
 				<texturenofocus border="12,0,12,0" colordiffuse="labelheader">list_item_nofocus.png</texturenofocus>
 				<usealttexture>!System.IsMaster</usealttexture>
-				<alttexturefocus border="35,2,35,2">button_shutdown_focus.png</alttexturefocus>
-				<alttexturenofocus border="35,2,35,2">button_shutdown_nofocus.png</alttexturenofocus>
+				<texturefocus border="12,0,12,0" colordiffuse="labelheader">list_item_focus.png</texturefocus>
+				<texturenofocus border="12,0,12,0" colordiffuse="labelheader">list_item_nofocus.png</texturenofocus>
 				<onclick>xbmc.mastermode</onclick>
 			</control>
 			<!-- Inhibit idle shutdown Button -->
