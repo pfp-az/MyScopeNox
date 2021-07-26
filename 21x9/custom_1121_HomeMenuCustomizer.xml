@@ -31,14 +31,13 @@
 				<left>81</left>
 				<top>61</top>
 				<width>358</width>
-				<height>620</height>
+				<height>610</height>
 				<onleft>61</onleft>
 				<onright>90001</onright>
 				<onup>90000</onup>
 				<ondown>90000</ondown>
 				<pagecontrol>61</pagecontrol>
 				<scrolltime tween="quadratic">300</scrolltime>
-				<include>SettingsFadeAnimation</include>
 				<itemlayout height="60" width="358">
 					<control type="label">
 						<width>358</width>
@@ -94,10 +93,10 @@
 			</control>
 			<!-- Scrollbar -->
 			<control type="scrollbar" id="61">
-				<left>68</left>
+				<left>70</left>
 				<top>60</top>
-				<width>8</width>
-				<height>620</height>
+				<width>10</width>
+				<height>610</height>
 				<onleft>90000</onleft>
 				<onright>90000</onright>
 				<ondown>61</ondown>
@@ -391,7 +390,6 @@
 				<left>561</left>
 				<top>680</top>
 				<width>1300</width>
-				<height>90</height>
 				<font>font15_textbox</font>
 				<textcolor>grey2</textcolor>
 				<label>$VAR[SkinSettingsDescriptionVar]</label>

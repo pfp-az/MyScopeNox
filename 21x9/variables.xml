@@ -84,39 +84,6 @@
 		<value condition="Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),99)">   99 +</value>
 		<value>$INFO[ListItem.Property(UnWatchedEpisodes)]</value>
 	</variable>
-	<variable name="BreadcrumbsFillerVar">
-		<value condition="Container.Content(tvshows) | Container.Content(seasons)">$LOCALIZE[20343]: </value>
-		<value condition="String.StartsWith(Container.FolderPath,videodb://recentlyadded)">$INFO[Window(home).Property(fakelabel)]</value>
-		<value condition="Container.Content(episodes) + !String.IsEqual(Container.FolderName,Container.ShowTitle)">$INFO[Container.ShowTitle]: </value>
-		<value condition="String.StartsWith(Container.FolderPath,videodb://tvshows/)">$LOCALIZE[20343]: </value>
-		<value condition="String.StartsWith(Container.FolderPath,videodb://movies/)">$LOCALIZE[20342]: </value>
-		<value condition="Window.IsActive(textviewer)">$INFO[Control.GetLabel(1)]</value>
-		<value condition="Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml)">$INFO[System.AddonTitle(script.tv.show.next.aired)]</value>
-		<value condition="Window.IsActive(skinsettings)">$LOCALIZE[20077]</value>
-		<value condition="Window.IsActive(music) + !String.IsEmpty(Container.FolderName)">$LOCALIZE[2]: </value>
-		<value condition="Window.IsActive(music)">$LOCALIZE[2]</value>
-		<value condition="Window.IsActive(tvchannels) | Window.IsActive(TVGuide) | Window.IsActive(TVRecordings) | Window.IsActive(TVTimers) | Window.IsActive(TVSearch)">$LOCALIZE[19020]: </value>
-		<value condition="Window.IsActive(RadioChannels) | Window.IsActive(RadioGuide) | Window.IsActive(RadioRecordings) | Window.IsActive(RadioSearch)">$LOCALIZE[19183]: </value>
-		<value condition="Window.IsActive(Games) + [Container.Content(games) | Container.Content(addons)]">$LOCALIZE[15016]: </value>
-		<value condition="Window.IsActive(Games)">$LOCALIZE[15016]</value>
-		<value condition="!String.IsEmpty(Container.FolderName)">$INFO[System.CurrentWindow]: </value>
-		<value>$INFO[System.CurrentWindow]</value>
-	</variable>
-	<variable name="BreadcrumbsVar">
-		<value condition="Window.IsActive(videos) + Container.Filtered">$VAR[BreadcrumbsFillerVar]$INFO[Container.FolderName]$INFO[Control.GetLabel(10),[COLOR grey3] | ,: $LOCALIZE[587][/COLOR]]</value>
-		<value condition="Window.IsActive(videos) + !String.IsEqual(Control.GetLabel(10),$LOCALIZE[16100])">$VAR[BreadcrumbsFillerVar]$INFO[Container.FolderName]$INFO[Control.GetLabel(10),[COLOR grey3] | ,[/COLOR]]</value>
-		<value condition="Window.IsActive(videos)">$VAR[BreadcrumbsFillerVar]$INFO[Container.FolderName]</value>
-		<value condition="Window.IsActive(addoninformation) + !Window.IsActive(textviewer)">$VAR[BreadcrumbsFillerVar]$INFO[ListItem.AddonName]</value>
-		<value condition="Window.IsActive(textviewer)">$VAR[BreadcrumbsFillerVar]</value>
-		<value condition="Window.IsActive(script-globalsearch-main.xml)">$INFO[System.AddonTitle(script.globalsearch)]$INFO[Control.GetLabel(190),: ]$INFO[Control.GetLabel(191), ]</value>
-		<value condition="Window.IsActive(TVGuide) | Window.IsActive(RadioGuide)">$VAR[BreadcrumbsFillerVar,, $LOCALIZE[19069]]</value>
-		<value condition="Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)">$VAR[BreadcrumbsFillerVar,, $LOCALIZE[19163]]</value>
-		<value condition="Window.IsActive(TVTimers) | Window.IsActive(RadioTimers)">$VAR[BreadcrumbsFillerVar,, $LOCALIZE[19040]]</value>
-		<value condition="Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)">$VAR[BreadcrumbsFillerVar,, $LOCALIZE[137]]</value>
-		<value condition="Window.IsActive(eventlog)">$LOCALIZE[14111]$INFO[Control.GetLabel(21),[COLOR grey3] | , [/COLOR]]</value>
-		<value condition="Window.IsActive(SettingsCategory.xml)">$INFO[Control.GetLabel(2),$LOCALIZE[5]: ]$INFO[Control.GetLabel(20),[COLOR grey3] | , [/COLOR]]</value>
-		<value>$VAR[BreadcrumbsFillerVar]$INFO[Container.FolderName]</value>
-	</variable>
 	<variable name="LibraryStatsVar">
 		<value condition="ControlGroup(9004).HasFocus()">$VAR[WidgetLabelVar]</value>
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(InfoLine),1)">$INFO[Window(Home).Property(Movies.Count),[COLOR grey]$LOCALIZE[20342]:[/COLOR] ]$INFO[Window(Home).Property(Movies.Watched),[COLOR grey]  |  $LOCALIZE[16102]:[/COLOR] ]$INFO[Window(Home).Property(Movies.UnWatched),[COLOR grey]  |  $LOCALIZE[16101]:[/COLOR] ]</value>
@@ -606,6 +573,45 @@
 <!-------------------------------------------------------------------------------------------------------------------------------->
 <!-- I'm placing all code I've written or fully reviewed/modified below this area.  This is strictly for organization purposes  -->
 <!-------------------------------------------------------------------------------------------------------------------------------->
+
+
+	<!-- Used along with breadcrumbsvar -->  
+	<variable name="BreadcrumbsFillerVar">
+		<value condition="Container.Content(tvshows) | Container.Content(seasons)">$LOCALIZE[20343]: </value>
+		<value condition="String.StartsWith(Container.FolderPath,videodb://recentlyadded)">$INFO[Window(home).Property(fakelabel)]</value>
+		<value condition="Container.Content(episodes) + !String.IsEqual(Container.FolderName,Container.ShowTitle)">$INFO[Container.ShowTitle]: </value>
+		<value condition="String.StartsWith(Container.FolderPath,videodb://tvshows/)">$LOCALIZE[20343]: </value>
+		<value condition="String.StartsWith(Container.FolderPath,videodb://movies/)">$LOCALIZE[20342]: </value>
+		<value condition="Window.IsActive(textviewer)">$INFO[Control.GetLabel(1)]</value>
+		<value condition="Window.IsActive(script-NextAired-TVGuide.xml) | Window.IsActive(script-NextAired-TVGuide2.xml)">$INFO[System.AddonTitle(script.tv.show.next.aired)]</value>
+		<value condition="Window.IsActive(skinsettings)">$LOCALIZE[20077]</value>
+		<value condition="Window.IsActive(custom_1121_HomeMenuCustomizer.xml)">$LOCALIZE[31998]</value>
+		<value condition="Window.IsActive(music) + !String.IsEmpty(Container.FolderName)">$LOCALIZE[2]: </value>
+		<value condition="Window.IsActive(music)">$LOCALIZE[2]</value>
+		<value condition="Window.IsActive(tvchannels) | Window.IsActive(TVGuide) | Window.IsActive(TVRecordings) | Window.IsActive(TVTimers) | Window.IsActive(TVSearch)">$LOCALIZE[19020]: </value>
+		<value condition="Window.IsActive(RadioChannels) | Window.IsActive(RadioGuide) | Window.IsActive(RadioRecordings) | Window.IsActive(RadioSearch)">$LOCALIZE[19183]: </value>
+		<value condition="Window.IsActive(Games) + [Container.Content(games) | Container.Content(addons)]">$LOCALIZE[15016]: </value>
+		<value condition="Window.IsActive(Games)">$LOCALIZE[15016]</value>
+		<value condition="!String.IsEmpty(Container.FolderName)">$INFO[System.CurrentWindow]: </value>
+		<value>$INFO[System.CurrentWindow]</value>
+	</variable>
+
+	<!-- A value used in the topbar to let the user know where they are -->  
+	<variable name="BreadcrumbsVar">
+		<value condition="Window.IsActive(videos) + Container.Filtered">$VAR[BreadcrumbsFillerVar]$INFO[Container.FolderName]$INFO[Control.GetLabel(10),[COLOR grey3] | ,: $LOCALIZE[587][/COLOR]]</value>
+		<value condition="Window.IsActive(videos) + !String.IsEqual(Control.GetLabel(10),$LOCALIZE[16100])">$VAR[BreadcrumbsFillerVar]$INFO[Container.FolderName]$INFO[Control.GetLabel(10),[COLOR grey3] | ,[/COLOR]]</value>
+		<value condition="Window.IsActive(videos)">$VAR[BreadcrumbsFillerVar]$INFO[Container.FolderName]</value>
+		<value condition="Window.IsActive(addoninformation) + !Window.IsActive(textviewer)">$VAR[BreadcrumbsFillerVar]$INFO[ListItem.AddonName]</value>
+		<value condition="Window.IsActive(textviewer)">$VAR[BreadcrumbsFillerVar]</value>
+		<value condition="Window.IsActive(script-globalsearch-main.xml)">$INFO[System.AddonTitle(script.globalsearch)]$INFO[Control.GetLabel(190),: ]$INFO[Control.GetLabel(191), ]</value>
+		<value condition="Window.IsActive(TVGuide) | Window.IsActive(RadioGuide)">$VAR[BreadcrumbsFillerVar,, $LOCALIZE[19069]]</value>
+		<value condition="Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)">$VAR[BreadcrumbsFillerVar,, $LOCALIZE[19163]]</value>
+		<value condition="Window.IsActive(TVTimers) | Window.IsActive(RadioTimers)">$VAR[BreadcrumbsFillerVar,, $LOCALIZE[19040]]</value>
+		<value condition="Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)">$VAR[BreadcrumbsFillerVar,, $LOCALIZE[137]]</value>
+		<value condition="Window.IsActive(eventlog)">$LOCALIZE[14111]$INFO[Control.GetLabel(21),[COLOR grey3] | , [/COLOR]]</value>
+		<value condition="Window.IsActive(SettingsCategory.xml)">$INFO[Control.GetLabel(2),$LOCALIZE[5]: ]$INFO[Control.GetLabel(20),[COLOR grey3] | , [/COLOR]]</value>
+		<value>$VAR[BreadcrumbsFillerVar]$INFO[Container.FolderName]</value>
+	</variable>
 
 	<!-- Create a list of studios for a video -->  
 	<variable name="StudioListVar">

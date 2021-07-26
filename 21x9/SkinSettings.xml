@@ -11,8 +11,8 @@
 	<onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=x1|x2|x3|x4|x5|x6|x7|x8|x9|x10|x11|x12|x13|x101|x202|x303|x404|x505|x606)</onunload>
 	<controls>
 		<include content="CommonBackground">
-			<param name="windowOpen" value="![Window.Previous(SettingsCategory.xml) | Window.Previous(custom_1122_BackgroundCustomizer.xml)]" />
-			<param name="windowClose" value="![Window.Next(SettingsCategory.xml) | Window.Next(custom_1122_BackgroundCustomizer.xml)]" />
+			<param name="windowOpen" value="![Window.Previous(SettingsCategory.xml) | Window.Previous(custom_1121_HomeMenuCustomizer.xml)]" />
+			<param name="windowClose" value="![Window.Next(SettingsCategory.xml) | Window.Next(custom_1121_HomeMenuCustomizer.xml)]" />
 		</include>
 
 		<include>Topbar</include>
@@ -21,8 +21,8 @@
 			<top>140</top>
 			<left>0</left>
 			<include content="WindowOpenCloseAnimation">
-			<param name="windowOpen" value="![Window.Previous(SettingsCategory.xml) | Window.Previous(custom_1122_BackgroundCustomizer.xml)]" />
-			<param name="windowClose" value="![Window.Next(SettingsCategory.xml) | Window.Next(custom_1122_BackgroundCustomizer.xml)]" />
+				<param name="windowOpen" value="![Window.Previous(SettingsCategory.xml) | Window.Previous(custom_1121_HomeMenuCustomizer.xml)]" />
+				<param name="windowClose" value="![Window.Next(SettingsCategory.xml) | Window.Next(custom_1121_HomeMenuCustomizer.xml)]" />
 			</include>
 
 			<!-- Left side -->
@@ -33,7 +33,7 @@
 				<left>81</left>
 				<top>61</top>
 				<width>358</width>
-				<height>620</height>
+				<height>610</height>
 				<onleft>noop</onleft>
 				<onright>9010</onright>
 				<onup>9000</onup>
@@ -563,7 +563,6 @@
 				<left>561</left>
 				<top>680</top>
 				<width>1300</width>
-				<height>90</height>
 				<font>font14_textbox</font>
 				<textcolor>grey2</textcolor>
 				<label>$VAR[SkinSettingsDescriptionVar]</label>

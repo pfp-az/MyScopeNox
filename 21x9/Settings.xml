@@ -32,7 +32,7 @@
 				<left>81</left>
 				<top>61</top>
 				<width>358</width>
-				<height>620</height>
+				<height>610</height>
 				<onleft>SetProperty(MediaMenu,True,home)</onleft>
 				<onleft>SetFocus(9050)</onleft>
 				<onright>noop</onright>
