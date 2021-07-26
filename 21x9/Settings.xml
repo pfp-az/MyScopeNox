@@ -125,6 +125,11 @@
 						<onclick>ActivateWindow(SystemInfo)</onclick>
 						<icon />
 					</item>
+					<item>
+						<label>LibreELEC</label>
+						<onclick>ActivateWindow(3033)</onclick>
+						<icon />
+					</item>
 				</content>
 			</control>
 			<include>SettingsSkinLogo</include>
