@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<!-- This is the setting page for areas other than system info, profiles and skin settings				                        -->
+<!-------------------------------------------------------------------------------------------------------------------------------->
 <window>
 	<defaultcontrol>3</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
+	<menucontrol>9051</menucontrol>
 	<onload>SetProperty(Window.HasSettings,True,home)</onload>
 	<onload>ClearProperty(MediaMenu,Home)</onload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
@@ -10,89 +14,52 @@
 			<param name="windowOpen" value="![Window.Previous(settings) | Window.Previous(skinsettings)]" />
 			<param name="windowClose" value="![Window.Next(settings) | Window.Next(skinsettings)]" />
 		</include>
+
+		<include>Topbar</include>
+
 		<control type="group">
-			<top>128</top>
-			<left>SettingsLeft</left>
+			<top>140</top>
+			<left>0</left>
 			<include content="WindowOpenCloseAnimation">
 				<param name="windowOpen" value="![Window.Previous(settings) | Window.Previous(skinsettings)]" />
 				<param name="windowClose" value="![Window.Next(settings) | Window.Next(skinsettings)]" />
 			</include>
+
+			<!-- Left side -->
 			<include>SystemLeftPanel</include>
+			<!-- Areas -->
 			<control type="grouplist" id="3">
-				<description>button area</description>
-				<left>82</left>
-				<top>80</top>
-				<width>356</width>
-				<height>840</height>
-				<onleft>61</onleft>
+				<left>81</left>
+				<top>61</top>
+				<width>358</width>
+				<height>620</height>
+				<onleft>SetProperty(MediaMenu,True,home)</onleft>
+				<onleft>SetFocus(9050)</onleft>
 				<onright>5</onright>
 				<onup>3</onup>
 				<ondown>3</ondown>
-				<pagecontrol>61</pagecontrol>
 			</control>
-			<control type="scrollbar" id="61">
-				<left>65</left>
-				<top>32</top>
-				<width>14</width>
-				<height>720</height>
-				<onleft>SetProperty(MediaMenu,True,home)</onleft>
-				<onleft>SetFocus(9050)</onleft>
-				<onright>3</onright>
-				<ondown>61</ondown>
-				<onup>61</onup>
-				<showonepage>false</showonepage>
-				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
-			</control>
-			<control type="image">
-				<description>separator image</description>
-				<left>82</left>
-				<top>595</top>
-				<width>356</width>
-				<height>60</height>
-				<texture border="1">separator2.png</texture>
-				<visible>!Container(3).HasNext</visible>
-			</control>
+			<include>SettingsSkinLogo</include>
+
+			<!-- Right side -->
 			<include>SystemRightPanel</include>
-			<control type="image">
-				<description>separator image</description>
-				<left>522</left>
-				<top>640</top>
-				<width>1316</width>
-				<height>40</height>
-				<texture border="1">separator2.png</texture>
-				<visible>!Container(5).HasNext</visible>
-			</control>
-			<control type="textbox" id="6">
-				<description>description area</description>
-				<left>552</left>
-				<top>680</top>
-				<width>1256</width>
-				<height>90</height>
-				<font>font14_textbox</font>
-				<textcolor>grey2</textcolor>
-				<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
-				<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="0" tween="sine" easing="inout">Hidden</animation>
-				<visible>ControlGroup(5).HasFocus()</visible>
-			</control>
+			<!-- Control area -->
 			<control type="grouplist" id="5">
-				<description>control area</description>
-				<left>522</left>
-				<top>80</top>
-				<width>1316</width>
+				<left>531</left>
+				<top>61</top>
+				<width>1330</width>
 				<height>600</height>
-				<pagecontrol>60</pagecontrol>
 				<onleft>3</onleft>
 				<onright>60</onright>
 				<onup>5</onup>
 				<ondown>5</ondown>
+				<pagecontrol>60</pagecontrol>
 			</control>
+			<!-- Scrollbar -->
 			<control type="scrollbar" id="60">
-				<left>1838</left>
-				<top>80</top>
-				<width>14</width>
+				<left>1860</left>
+				<top>61</top>
+				<width>10</width>
 				<height>600</height>
 				<onleft>5</onleft>
 				<onright>3</onright>
@@ -103,94 +70,104 @@
 				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
 				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
 			</control>
+			<!-- Description background-->
 			<control type="image">
-				<description>LOGO</description>
-				<left>82</left>
-				<top>695</top>
-				<height>120</height>
-				<width>356</width>
-				<aspectratio>keep</aspectratio>
-				<texture>aeon-nox-logo.png</texture>
+				<visible>ControlGroup(5).HasFocus()</visible>
+				<left>530</left>
+				<top>670</top>
+				<width>1340</width>
+				<height>110</height>
+				<texture border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texture>
+			</control>
+			<!-- Description -->
+			<control type="textbox" id="6">
+				<visible>ControlGroup(5).HasFocus()</visible>
+				<left>561</left>
+				<top>680</top>
+				<width>1300</width>
+				<height>90</height>
+				<font>font14_textbox</font>
+				<textcolor>grey2</textcolor>
+				<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+				<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="0" tween="sine" easing="inout">Hidden</animation>
 			</control>
 		</control>
+
+		<!-- Default Category Button -->
 		<control type="button" id="10">
-			<description>Default Category Button</description>
 			<height>60</height>
-			<width>356</width>
-			<textoffsetx>15</textoffsetx>
+			<width>358</width>
+			<textoffsetx>20</textoffsetx>
 			<align>right</align>
 			<font>font15</font>
-			<texturefocus border="3">listselect_fo.png</texturefocus>
-			<texturenofocus border="1">separator5.png</texturenofocus>
+			<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
 		</control>
+		<!-- Default Button -->
 		<control type="button" id="7">
-			<description>Default Button</description>
-			<width>1136</width>
+			<width>1330</width>
 			<height>60</height>
 			<font>font15</font>
 			<textcolor>grey2</textcolor>
 			<textoffsetx>30</textoffsetx>
 			<focusedcolor>white</focusedcolor>
-			<texturefocus border="3">listselect_fo.png</texturefocus>
-			<texturenofocus border="1">separator5.png</texturenofocus>
+			<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
 		</control>
+		<!-- Default RadioButton -->
 		<control type="radiobutton" id="8">
-			<description>Default RadioButton</description>
-			<width>1316</width>
+			<width>1330</width>
 			<height>60</height>
 			<font>font15</font>
 			<textcolor>grey2</textcolor>
 			<textoffsetx>30</textoffsetx>
 			<focusedcolor>white</focusedcolor>
-			<texturefocus border="3">listselect_fo.png</texturefocus>
-			<texturenofocus border="1">separator5.png</texturenofocus>
+			<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
 		</control>
+		<!-- Default SpinControlex -->
 		<control type="spincontrolex" id="9">
-			<description>Default SpinControlex</description>
-			<width>1316</width>
+			<width>1330</width>
 			<height>60</height>
 			<font>font15</font>
 			<textcolor>grey2</textcolor>
 			<textoffsetx>30</textoffsetx>
 			<focusedcolor>white</focusedcolor>
-			<texturefocus border="3">listselect_fo.png</texturefocus>
-			<texturenofocus border="1">separator5.png</texturenofocus>
+			<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
 			<reverse>true</reverse>
 			<spinposx>10</spinposx>
 		</control>
+		<!-- Default Slider -->
 		<control type="sliderex" id="13">
-			<description>Default Slider</description>
-			<width>1316</width>
+			<width>1330</width>
 			<height>60</height>
 			<font>font15</font>
 			<textcolor>grey2</textcolor>
 			<textoffsetx>30</textoffsetx>
 			<focusedcolor>white</focusedcolor>
-			<texturefocus border="3">listselect_fo.png</texturefocus>
-			<texturenofocus border="1">separator5.png</texturenofocus>
+			<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
 		</control>
+		<!-- separator image -->
 		<control type="image" id="11">
-			<description>separator image</description>
 			<height>2</height>
 			<texture border="0,0,0,2">separator2.png</texture>
 			<visible>no</visible>
 		</control>
+		<!-- Default Label -->
 		<control type="label" id="14">
-			<description>Default Label</description>
-			<width>1136</width>
-			<height>88</height>
+			<width>1330</width>
+			<height>60</height>
 			<font>font15</font>
 			<textcolor>themecolor</textcolor>
 			<textoffsetx>30</textoffsetx>
 		</control>
+		<!-- Fake Label so we can pass it value down to the one below -->
 		<control type="label" id="2">
-			<description>Fake Label so we can pass it value down to the one below</description>
 			<width>0</width>
 			<height>0</height>
 			<font />
 			<visible>false</visible>
 		</control>
-		<include>Topbar</include>
+
+		<!--  -->
 		<control type="group">
 			<left>-440</left>
 			<include>SideBladeLeft</include>

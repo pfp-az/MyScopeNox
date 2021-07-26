@@ -8,8 +8,10 @@
 	<include>DialogOpenCloseAnimation</include>
 	<controls>
 		<control type="group">
-			<left>502</left>
-			<top>293</top>
+			<centerleft>50%</centerleft>
+			<centertop>50%</centertop>
+			<height>500</height>
+			<width>900</width>
 			<!-- Fake Heading label. Not sure why the fake/real headings.  Perhaps becasue the heading has to be first but the text fo the heading ununknown till later -->
 			<control type="label" id="1">
 				<visible>false</visible>
@@ -18,11 +20,13 @@
 				<font />
 			</control>
 			<!-- Backround Image -->
-			<include content="BuildPanelBackground">
-				<param name="height" value="500" />
-				<param name="width" value="900" />
-				<param name="bordersize" value="5" />
-			</include>
+			<control type="image">
+				<top>0</top>
+				<left>0</left>
+				<width>900</width>
+				<height>500</height>
+				<texture border="6,6,6,6" colordiffuse="labelheader">background_5px_border.png</texture>
+			</control>
 			<!-- Heading Background -->
 			<control type="image">
 				<top>5</top>

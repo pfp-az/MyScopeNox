@@ -22,11 +22,13 @@
 			<centerleft>50%</centerleft>
 			<centertop>60%</centertop>
 			<!-- Backround image -->
-			<include content="BuildPanelBackground">
-				<param name="height" value="700" />
-				<param name="width" value="1380" />
-				<param name="bordersize" value="5" />
-			</include>
+			<control type="image">
+				<top>0</top>
+				<left>0</left>
+				<width>1380</width>
+				<height>700</height>
+				<texture border="6,6,6,6" colordiffuse="labelheader">background_5px_border.png</texture>
+			</control>
 			<!-- Heading Background -->
 			<control type="image">
 				<top>5</top>

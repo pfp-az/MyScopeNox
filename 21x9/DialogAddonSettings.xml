@@ -4,198 +4,202 @@
 <!-------------------------------------------------------------------------------------------------------------------------------->
 <window>
 	<defaultcontrol always="true">9</defaultcontrol>
-	<coordinates>
-		<system>1</system>
-		<left>122</left>
-		<top>254</top>
-		<origin x="443" y="254">String.IsEqual(Skin.AspectRatio,21:9)</origin>
-	</coordinates>
 	<include>DialogOpenCloseAnimation</include>
 	<controls>
-		<!-- Backround Image -->
-		<include content="BuildPanelBackground">
-			<param name="height" value="590" />
-			<param name="width" value="1650" />
-			<param name="bordersize" value="5" />
-		</include>
-		<!-- Heading Background -->
-		<control type="image">
-			<top>5</top>
-			<left>5</left>
-			<width>1640</width>
-			<height>60</height>
-			<texture border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texture>
-		</control>
-		<!-- Heading Label -->
-		<control type="label" id="2">
-			<top>15</top>
-			<left>5</left>
-			<width>1640</width>
-			<height>40</height>
-			<align>center</align>
-			<textcolor>dialogheader</textcolor>
-			<font>font15_title</font>
-		</control>
-
-		<!-- left group -->
 		<control type="group">
-			<left>25</left>
-			<top>85</top>
-			<!-- Background for left group -->
+			<centerleft>50%</centerleft>
+			<centertop>50%</centertop>
+			<height>590</height>
+			<width>1650</width>
+			<!-- Backround Image -->
 			<control type="image">
-				<left>0</left>
 				<top>0</top>
-				<width>300</width>
-				<height>480</height>
-				<texture border="2,2,2,2" colordiffuse="labelheader">background_1px_border.png</texture>
+				<left>0</left>
+				<width>1650</width>
+				<height>590</height>
+				<texture border="6,6,6,6" colordiffuse="labelheader">background_5px_border.png</texture>
 			</control>
-			<!-- Button Area -->
-			<control type="grouplist" id="3">
-				<width>300</width>
-				<height>480</height>
-				<onleft>9001</onleft>
-				<onright>5</onright>
-				<onup>3</onup>
-				<ondown>3</ondown>
-				<scrolltime>0</scrolltime>
+			<!-- Heading Background -->
+			<control type="image">
+				<top>5</top>
+				<left>5</left>
+				<width>1640</width>
+				<height>60</height>
+				<texture border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texture>
 			</control>
-		</control>
+			<!-- Heading Label -->
+			<control type="label" id="2">
+				<top>15</top>
+				<left>5</left>
+				<width>1640</width>
+				<height>40</height>
+				<align>center</align>
+				<textcolor>dialogheader</textcolor>
+				<font>font15_title</font>
+			</control>
 
-		<!-- middle group -->
-		<control type="group">
-			<left>345</left>
-			<top>85</top>
-			<!-- Background for middle group -->
-			<control type="image">
-				<left>0</left>
-				<top>0</top>
+			<!-- left group -->
+			<control type="group">
+				<left>25</left>
+				<top>85</top>
+				<!-- Background for left group -->
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>300</width>
+					<height>480</height>
+					<texture border="2,2,2,2" colordiffuse="labelheader">background_1px_border.png</texture>
+				</control>
+				<!-- Button Area -->
+				<control type="grouplist" id="3">
+					<width>300</width>
+					<height>480</height>
+					<onleft>9001</onleft>
+					<onright>5</onright>
+					<onup>3</onup>
+					<ondown>3</ondown>
+					<scrolltime>0</scrolltime>
+				</control>
+			</control>
+
+			<!-- middle group -->
+			<control type="group">
+				<left>345</left>
+				<top>85</top>
+				<!-- Background for middle group -->
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>960</width>
+					<height>480</height>
+					<texture border="2,2,2,2" colordiffuse="labelheader">background_1px_border.png</texture>
+				</control>
+				<!-- Control Area -->
+				<control type="grouplist" id="5">
+					<width>958</width>
+					<height>478</height>
+					<pagecontrol>30</pagecontrol>
+					<onleft>3</onleft>
+					<onright>30</onright>
+					<onup>5</onup>
+					<ondown>5</ondown>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+				</control>
+				<!-- Scrollbar -->
+				<control type="scrollbar" id="30">
+					<left>960</left>
+					<width>10</width>
+					<height>480</height>
+					<texturesliderbackground />
+					<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
+					<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
+					<onleft>5</onleft>
+					<onright>9001</onright>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+				</control>
+			</control>
+
+			<!-- right group -->
+			<control type="group">
+				<left>1325</left>
+				<top>85</top>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>300</width>
+					<height>480</height>
+					<texture border="2,2,2,2" colordiffuse="labelheader">background_1px_border.png</texture>
+				</control>
+				<!-- Buttons Group -->
+				<control type="grouplist" id="9001">
+					<left>1</left>
+					<top>1</top>
+					<width>298</width>
+					<height>478</height>
+					<onleft>5</onleft>
+					<onright>3</onright>
+					<onup>9001</onup>
+					<ondown>9001</ondown>
+					<!-- Image -->
+					<control type="image" id="2000">
+						<width>298</width>
+						<height>298</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$INFO[System.AddonIcon(Window.Property(Addon.ID))]</texture>
+					</control>
+					<!-- OK Button -->
+					<control type="button" id="28">
+						<width>298</width>
+						<label>186</label>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texturenofocus>
+					</control>
+					<!-- Cancel Button -->
+					<control type="button" id="29">
+						<width>298</width>
+						<label>222</label>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texturenofocus>
+					</control>
+					<!-- Defaults Button -->
+					<control type="button" id="30">
+						<width>298</width>
+						<label>409</label>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texturenofocus>
+					</control>
+				</control>
+			</control>
+
+			<!-- Default Category Button -->
+			<control type="button" id="10">
+				<height>60</height>
+				<width>310</width>
+				<align>right</align>
+				<font>font14</font>
+				<textoffsetx>20</textoffsetx>
+				<textcolor>grey2</textcolor>
+				<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+				<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texturenofocus>
+			</control>
+			<!-- Default Button -->
+			<control type="button" id="7">
 				<width>960</width>
-				<height>480</height>
-				<texture border="2,2,2,2" colordiffuse="labelheader">background_1px_border.png</texture>
+				<height>60</height>
 			</control>
-			<!-- Control Area -->
-			<control type="grouplist" id="5">
-				<width>958</width>
-				<height>478</height>
-				<pagecontrol>30</pagecontrol>
-				<onleft>3</onleft>
-				<onright>30</onright>
-				<onup>5</onup>
-				<ondown>5</ondown>
-				<scrolltime tween="cubic" easing="out">500</scrolltime>
+			<!-- Default RadioButton -->
+			<control type="radiobutton" id="8">
+				<width>960</width>
+				<height>60</height>
+				<textwidth>880</textwidth>
 			</control>
-			<!-- Scrollbar -->
-			<control type="scrollbar" id="30">
-				<left>960</left>
-				<width>10</width>
-				<height>480</height>
-				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
-				<onleft>5</onleft>
-				<onright>9001</onright>
-				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
+			<!-- Default spincontrolex  -->
+			<control type="spincontrolex" id="9">
+				<width>960</width>
+				<height>60</height>
+				<reverse>true</reverse>
 			</control>
-		</control>
-
-		<!-- right group -->
-		<control type="group">
-			<left>1325</left>
-			<top>85</top>
-			<control type="image">
-				<left>0</left>
-				<top>0</top>
-				<width>300</width>
-				<height>480</height>
-				<texture border="2,2,2,2" colordiffuse="labelheader">background_1px_border.png</texture>
+			<!-- Default Label -->
+			<control type="label" id="14">
+				<width>960</width>
+				<height>60</height>
+				<font>font14_title</font>
+				<label />
+				<textcolor>labelheader</textcolor>
+				<textoffsetx>15</textoffsetx>
 			</control>
-			<!-- Buttons Group -->
-			<control type="grouplist" id="9001">
-				<left>1</left>
-				<top>1</top>
-				<width>298</width>
-				<height>478</height>
-				<onleft>5</onleft>
-				<onright>3</onright>
-				<onup>9001</onup>
-				<ondown>9001</ondown>
-				<!-- Image -->
-				<control type="image" id="2000">
-					<width>298</width>
-					<height>298</height>
-					<aspectratio>scale</aspectratio>
-					<texture background="true">$INFO[System.AddonIcon(Window.Property(Addon.ID))]</texture>
-				</control>
-				<!-- OK Button -->
-				<control type="button" id="28">
-					<width>298</width>
-					<label>186</label>
-					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
-					<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texturenofocus>
-				</control>
-				<!-- Cancel Button -->
-				<control type="button" id="29">
-					<width>298</width>
-					<label>222</label>
-					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
-					<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texturenofocus>
-				</control>
-				<!-- Defaults Button -->
-				<control type="button" id="30">
-					<width>298</width>
-					<label>409</label>
-					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
-					<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texturenofocus>
-				</control>
+			<!-- Default Seperator -->
+			<control type="image" id="11">
+				<width>960</width>
+				<height>1</height>
+				<visible>false</visible>
 			</control>
-		</control>
-
-		<!-- Default Category Button -->
-		<control type="button" id="10">
-			<height>60</height>
-			<width>310</width>
-			<align>right</align>
-			<font>font14</font>
-			<textoffsetx>20</textoffsetx>
-			<textcolor>grey2</textcolor>
-		</control>
-		<!-- Default Button -->
-		<control type="button" id="7">
-			<width>960</width>
-			<height>60</height>
-		</control>
-		<!-- Default RadioButton -->
-		<control type="radiobutton" id="8">
-			<width>960</width>
-			<height>60</height>
-			<textwidth>880</textwidth>
-		</control>
-		<!-- Default spincontrolex  -->
-		<control type="spincontrolex" id="9">
-			<width>960</width>
-			<height>60</height>
-			<reverse>true</reverse>
-		</control>
-		<!-- Default Label -->
-		<control type="label" id="14">
-			<width>960</width>
-			<height>60</height>
-			<font>font14_title</font>
-			<label />
-			<textcolor>labelheader</textcolor>
-			<textoffsetx>15</textoffsetx>
-		</control>
-		<!-- Default Seperator -->
-		<control type="image" id="11">
-			<width>960</width>
-			<height>1</height>
-			<visible>false</visible>
-		</control>
-		<!-- Default Slider -->
-		<control type="sliderex" id="13">
-			<width>960</width>
-			<height>60</height>
+			<!-- Default Slider -->
+			<control type="sliderex" id="13">
+				<width>960</width>
+				<height>60</height>
+			</control>
 		</control>
 	</controls>
 </window>

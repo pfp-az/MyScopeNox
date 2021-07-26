@@ -14,15 +14,15 @@
 	<controls>
 		<control type="grouplist" id="90200">
 			<centerleft>50%</centerleft>
+			<align>center</align>
 			<width>450</width>
 			<height>1080</height>
 			<onleft>90200</onleft>
 			<onright>90200</onright>
 			<onup>90200</onup>
 			<ondown>90200</ondown>
-			<align>center</align>
 			<!-- Top Border -->
-			<control type="image">
+			<control type="image" id="90201">
 				<width>450</width>
 				<height>5</height>
 				<texture colordiffuse="labelheader">colors\white.png</texture>
@@ -168,7 +168,7 @@
 				<label>$LOCALIZE[31991]</label>
 			</control>
 			<!-- Button - No extra feautures -->
-			<control type="button" id="90299">
+			<control type="button" id="90298">
 				<visible>![Control.IsVisible(90202) | Control.IsVisible(90203) | Control.IsVisible(90204) | Control.IsVisible(90205) | Control.IsVisible(90206) | Control.IsVisible(90207) | Control.IsVisible(90208) | Control.IsVisible(90209) | Control.IsVisible(90210) | Control.IsVisible(90211) | Control.IsVisible(90212) | Control.IsVisible(90213) | Control.IsVisible(90214)]</visible>
 				<width>450</width>
 				<align>center</align>
@@ -178,7 +178,7 @@
 				<label>$LOCALIZE[31075]</label>
 			</control>
 			<!-- Bottom Border -->
-			<control type="image">
+			<control type="image" id="90299">
 				<width>450</width>
 				<height>5</height>
 				<texture colordiffuse="labelheader">colors\white.png</texture>

@@ -4,6 +4,7 @@
 		<param name="windowOpen">True</param>
 		<param name="windowClose">True</param>
 		<definition>
+			<!-- Background -->
 			<control type="group">
 				<depth>MinDepth</depth>
 				<animation effect="fade" time="600" condition="$PARAM[windowOpen]">WindowOpen</animation>
@@ -20,6 +21,7 @@
 				<include condition="!Skin.HasSetting(Disable.ShowBackgroundVis)+ !Window.IsActive(TVChannels) + !Window.IsActive(RadioChannels)">BackgroundVisualization</include>
 				<include condition="!Skin.HasSetting(Disable.ShowBackgroundVideo)+ !Window.IsActive(TVChannels) + !Window.IsActive(RadioChannels)">BackgroundVideo</include>
 			</control>
+			<!-- ??? -->
 			<control type="group">
 				<visible>![Window.IsActive(home) | Window.IsActive(startup) | [Window.IsVisible(TVGuide) + Player.HasVideo]] | Window.IsActive(script-globalsearch-main.xml)</visible>
 				<include content="WindowOpenCloseAnimation">
@@ -32,21 +34,21 @@
 				<animation effect="slide" start="0,0" end="0,80" time="720" tween="cubic" easing="inout" condition="![[Control.IsVisible(52) + !Window.IsActive(systeminfo)] | Control.IsVisible(53) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(500) | Control.IsVisible(57)]">Conditional</animation>
 				<animation effect="slide" start="0,0" end="0,-20" time="720" tween="cubic" easing="inout" condition="[Control.IsVisible(58) | Control.IsVisible(510)]">Conditional</animation>
 				<control type="image">
+					<visible>![Control.IsVisible(59) | Control.IsVisible(56) | Control.IsVisible(57)]</visible>
 					<bottom>206</bottom>
 					<width>696</width>
 					<height>914</height>
 					<texture border="1">vignette.png</texture>
-					<visible>![Control.IsVisible(59) | Control.IsVisible(56) | Control.IsVisible(57)]</visible>
 					<animation effect="slide" tween="cubic" time="720" start="-696" end="0,0">VisibleChange</animation>
 				</control>
 				<control type="image">
+					<visible>![Control.IsVisible(59) | Control.IsVisible(56) | Control.IsVisible(57)]</visible>
 					<right>0</right>
 					<bottom>206</bottom>
 					<width>696</width>
 					<height>914</height>
 					<texture flipx="true" border="1">vignette.png</texture>
 					<animation effect="slide" tween="cubic" time="720" start="696" end="0,0">VisibleChange</animation>
-					<visible>![Control.IsVisible(59) | Control.IsVisible(56) | Control.IsVisible(57)]</visible>
 				</control>
 				<control type="image">
 					<bottom>0</bottom>
@@ -55,16 +57,18 @@
 					<texture>floor.png</texture>
 				</control>
 			</control>
+			<!-- ??? -->
 			<control type="image">
+				<visible>Control.IsVisible(503)</visible>
 				<width>100%</width>
 				<height>1130</height>
 				<texture border="0,0,0,50">topbar.png</texture>
-				<visible>Control.IsVisible(503)</visible>
 			</control>
+			<!-- ??? -->
 			<control type="image">
+				<visible>Control.IsVisible(59)</visible>
 				<include>FullscreenDimensions</include>
 				<texture border="1">logo_back.png</texture>
-				<visible>Control.IsVisible(59)</visible>
 				<include>ViewAnimation</include>
 			</control>
 		</definition>

@@ -33,7 +33,7 @@
 				<width>533</width>
 				<height>800</height>
 				<aspectratio aligny="top">scale</aspectratio>
-				<texture background="true" fallback="black.png">$VAR[PosterVar]</texture>
+				<texture background="true" fallback="colors\black.png">$VAR[PosterVar]</texture>
 			</control>
 		</control>
 		<!-- Right Side - everything else -->
@@ -59,7 +59,7 @@
 				</include>
 				<!-- Fanart not available -->
 				<include content="ConditionalTextureBackground" condition="String.IsEmpty(ListItem.Art(fanart))">
-					<param name="texture" value="black.png" />
+					<param name="texture" value="colors\black.png" />
 				</include>
 			</control>
 			<!-- Right panel overlay -->
@@ -69,7 +69,7 @@
 				<top>140</top> <!-- Need to define here due to animation on control-->
 				<width>1387</width>
 				<height>800</height>
-				<texture colordiffuse="D9FFFFFF">colors/black.png</texture>
+				<texture>colors\black-trans\85.png</texture>
 				<!--<texture border="4">dialogs/info/info_rightpaneltop.png</texture>-->
 			</control>
 			<!-- Info -->
@@ -609,11 +609,13 @@
 				<effect type="zoom" start="100" end="130" center="CenterWidth,CenterHeight" time="200" tween="cubic" easing="in" />
 			</animation>
 			<!-- Backround Image -->
-			<include content="BuildPanelBackground">
-				<param name="height" value="720" />
-				<param name="width" value="1100" />
-				<param name="bordersize" value="5" />
-			</include>
+			<control type="image">
+				<top>0</top>
+				<left>0</left>
+				<width>1100</width>
+				<height>720</height>
+				<texture border="6,6,6,6" colordiffuse="labelheader">background_5px_border.png</texture>
+			</control>
 			<!-- Heading Background -->
 			<control type="image">
 				<top>5</top>

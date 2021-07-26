@@ -8,13 +8,13 @@
 	<controls>
 		<control type="grouplist" id="9000">
 			<centerleft>50%</centerleft>
+			<align>center</align>
 			<width>450</width>
 			<height>100%</height>
 			<onleft>9000</onleft>
 			<onright>9000</onright>
 			<onup>9000</onup>
 			<ondown>9000</ondown>
-			<align>center</align>
 			<control type="image" id="1">
 				<width>450</width>
 				<height>5</height>

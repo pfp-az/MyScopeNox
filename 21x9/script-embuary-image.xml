@@ -4,10 +4,8 @@
 <!-------------------------------------------------------------------------------------------------------------------------------->
 <window>
 	<controls>
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>colors\TMDB-primary.png</texture>  <!-- If black is used projector may autozoom on fanart images -->
-		</control>
+
+		<!-- List with all fanart available -->
 		<control type="list" id="1">
 			<width>1920</width>
 			<height>1080</height>
@@ -16,6 +14,12 @@
 			<pagecontrol>2</pagecontrol>
 			<itemlayout/>
 			<focusedlayout width="1920" height="1080"/>
+		</control>
+
+		<!-- Background -->
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture>colors\TMDB-primary.png</texture>  <!-- If black is used projector may autozoom on fanart images -->
 		</control>
 
 		<!-- Image -->

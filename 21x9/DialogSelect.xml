@@ -9,18 +9,25 @@
 		<control type="group">
 			<left>457</left>
 			<top>240</top>
+
 			<!-- Backround Image, narrow variation -->
-			<include content="BuildPanelBackground" condition="Control.IsVisible(3) + ![Control.IsVisible(5) | Control.IsVisible(7)]">
-				<param name="height" value="610" />
-				<param name="width" value="692" />
-				<param name="bordersize" value="5" />
-			</include>
+			<control type="image">
+				<visible>Control.IsVisible(3) + ![Control.IsVisible(5) | Control.IsVisible(7)]</visible>
+				<top>0</top>
+				<left>0</left>
+				<width>692</width>
+				<height>610</height>
+				<texture border="6,6,6,6" colordiffuse="labelheader">background_5px_border.png</texture>
+			</control>
 			<!-- Backround Image, wide variation -->
-			<include content="BuildPanelBackground" condition="[Control.IsVisible(5) | Control.IsVisible(7)] | Control.isVisible(6)">
-				<param name="height" value="610" />
-				<param name="width" value="1050" />
-				<param name="bordersize" value="5" />
-			</include>
+			<control type="image">
+				<visible>[Control.IsVisible(5) | Control.IsVisible(7)] | Control.isVisible(6)</visible>
+				<top>0</top>
+				<left>0</left>
+				<width>1050</width>
+				<height>610</height>
+				<texture border="6,6,6,6" colordiffuse="labelheader">background_5px_border.png</texture>
+			</control>
 			<!-- Heading Background -->
 			<control type="image">
 				<top>5</top>
