@@ -598,6 +598,7 @@
 
 	<!-- A value used in the topbar to let the user know where they are -->  
 	<variable name="BreadcrumbsVar">
+		<value condition="Window.IsActive(service-LibreELEC-Settings-mainWindow.xml)">$ADDON[service.libreelec.settings 600]</value>
 		<value condition="Window.IsActive(videos) + Container.Filtered">$VAR[BreadcrumbsFillerVar]$INFO[Container.FolderName]$INFO[Control.GetLabel(10),[COLOR grey3] | ,: $LOCALIZE[587][/COLOR]]</value>
 		<value condition="Window.IsActive(videos) + !String.IsEqual(Control.GetLabel(10),$LOCALIZE[16100])">$VAR[BreadcrumbsFillerVar]$INFO[Container.FolderName]$INFO[Control.GetLabel(10),[COLOR grey3] | ,[/COLOR]]</value>
 		<value condition="Window.IsActive(videos)">$VAR[BreadcrumbsFillerVar]$INFO[Container.FolderName]</value>

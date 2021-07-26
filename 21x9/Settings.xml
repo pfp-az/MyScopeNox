@@ -120,14 +120,15 @@
 						<icon />
 					</item>
 					<item>
-						<label>10511</label>
-						<property name="description">31405</property>
-						<onclick>ActivateWindow(SystemInfo)</onclick>
+						<visible>System.HasAddon(service.libreelec.settings)</visible>
+						<label>LibreELEC</label>
+						<onclick>RunAddOn(service.libreelec.settings)</onclick>
 						<icon />
 					</item>
 					<item>
-						<label>LibreELEC</label>
-						<onclick>ActivateWindow(3033)</onclick>
+						<label>10511</label>
+						<property name="description">31405</property>
+						<onclick>ActivateWindow(SystemInfo)</onclick>
 						<icon />
 					</item>
 				</content>

@@ -82,7 +82,7 @@
 			<include>SystemRightPanel</include>
 			<!-- Control area -->
             <control type="group" id="9000">
-				<!-- ??? -->
+				<!-- System / Updates / Network / Services -->
                 <control type="list" id="1100">
                     <visible>String.IsEqual(Container(1000).ListItem.Property(listTyp), 1100)</visible>
 					<left>531</left>
@@ -93,8 +93,21 @@
                     <onright>60</onright>
                     <scrolltime tween="quadratic" easing="out">200</scrolltime>
                     <pagecontrol>60</pagecontrol>
-                    <itemlayout height="90">
-                        <!-- entry name and text value -->
+                    <itemlayout height="60">
+                        <!-- Section Name -->
+                        <control type="group">
+                            <visible>String.IsEqual(ListItem.Property(Typ), separator)</visible>
+                            <control type="label">
+                                <visible>true</visible>
+								<width>1330</width>
+								<height>60</height>
+                                <font>font15_title</font>
+                                <textcolor>themecolor</textcolor>
+                                <textoffsetx>30</textoffsetx>
+                                <info>ListItem.Label</info>
+                            </control>
+                        </control>
+                        <!-- Setting Name and Text Value -->
                         <control type="group">
                             <visible>!String.IsEqual(ListItem.Property(Typ), separator)</visible>
                             <control type="label">
@@ -116,7 +129,29 @@
                                 <info>ListItem.Property(value)</info>
                             </control>
                         </control>
-                        <!-- section name / seperator -->
+                        <!-- Boolean value -->
+                        <control type="group">
+                            <visible>String.IsEqual(ListItem.Property(Typ), bool)</visible>
+                            <control type="image">
+                                <visible>String.IsEqual(ListItem.Property(value), 0) | String.IsEqual(ListItem.Property(value), false) | IsEmpty(ListItem.Property(value))</visible>
+                                <left>1232</left>
+                                <top>0</top>
+                                <width>64</width>
+                                <height>64</height>
+                                <texture>android/btn_radio_off_holo_dark.png</texture>
+                            </control>
+                            <control type="image">
+                                <visible>String.IsEqual(ListItem.Property(value), 1) | String.IsEqual(ListItem.Property(value), true)</visible>
+                                <left>1232</left>
+                                <top>0</top>
+                                <width>64</width>
+                                <height>64</height>
+                                <texture>android/btn_radio_on_holo_dark.png</texture>
+                            </control>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="60">
+                        <!-- Section Name -->
                         <control type="group">
                             <visible>String.IsEqual(ListItem.Property(Typ), separator)</visible>
                             <control type="label">
@@ -129,29 +164,7 @@
                                 <info>ListItem.Label</info>
                             </control>
                         </control>
-                        <!-- boolean value -->
-                        <control type="group">
-                            <visible>String.IsEqual(ListItem.Property(Typ), bool)</visible>
-                            <control type="image">
-                                <visible>String.IsEqual(ListItem.Property(value), 0) | String.IsEqual(ListItem.Property(value), false) | IsEmpty(ListItem.Property(value))</visible>
-                                <left>1232</left>
-                                <top>13</top>
-                                <width>64</width>
-                                <height>64</height>
-                                <texture>android/btn_radio_off_holo_dark.png</texture>
-                            </control>
-                            <control type="image">
-                                <visible>String.IsEqual(ListItem.Property(value), 1) | String.IsEqual(ListItem.Property(value), true)</visible>
-                                <left>1232</left>
-                                <top>13</top>
-                                <width>64</width>
-                                <height>64</height>
-                                <texture>android/btn_radio_on_holo_dark.png</texture>
-                            </control>
-                        </control>
-                    </itemlayout>
-                    <focusedlayout height="90">
-                        <!-- entry name and text value -->
+                        <!-- Setting Name and Text Value - NOT Focused-->
                         <control type="group">
                             <visible>!String.IsEqual(ListItem.Property(Typ), separator) + !Control.HasFocus(1100)</visible>
                             <control type="label">
@@ -173,12 +186,13 @@
                                <info>ListItem.Property(value)</info>
                             </control>
                         </control>
+                        <!-- Setting Name and Text Value - Focused -->
                         <control type="group">
                             <visible>!String.IsEqual(ListItem.Property(Typ), separator) + Control.HasFocus(1100)</visible>
                             <control type="image">
 								<width>1330</width>
 								<height>60</height>
-								<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+								<texture border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texture>
                             </control>
                             <control type="label">
 								<width>1330</width>
@@ -199,31 +213,13 @@
                                 <info>ListItem.Property(value)</info>
                             </control>
                         </control>
-                        <!-- section name / seperator -->
-                        <control type="group">
-                            <visible>String.IsEqual(ListItem.Property(Typ), separator)</visible>
-                            <control type="image">
-								<width>1330</width>
-								<height>60</height>
-								<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
-                            </control>
-                            <control type="label">
-                                <visible>true</visible>
-								<width>1330</width>
-								<height>60</height>
-                                <font>font15_title</font>
-                                <textcolor>themecolor</textcolor>
-                                <textoffsetx>30</textoffsetx>
-                                <info>ListItem.Label</info>
-                            </control>
-                        </control>
-                        <!-- boolean value -->
+                        <!-- Boolean value -->
                         <control type="group">
                             <visible>String.IsEqual(ListItem.Property(Typ), bool)</visible>
                             <control type="image">
                                 <visible>String.IsEqual(ListItem.Property(value), 0) | String.IsEqual(ListItem.Property(value), false) | IsEmpty(ListItem.Property(value))</visible>
                                 <left>1232</left>
-                                <top>13</top>
+                                <top>0</top>
                                 <width>64</width>
                                 <height>64</height>
                                 <texture>android/btn_radio_off_holo_dark.png</texture>
@@ -231,7 +227,7 @@
                             <control type="image">
                                 <visible>String.IsEqual(ListItem.Property(value), 1) | String.IsEqual(ListItem.Property(value), true)</visible>
                                 <left>1232</left>
-                                <top>13</top>
+                                <top>0</top>
                                 <width>64</width>
                                 <height>64</height>
                                 <texture>android/btn_radio_on_holo_dark.png</texture>
@@ -239,6 +235,9 @@
                         </control>
                     </focusedlayout>
                 </control>
+
+
+
 				<!-- Connections ??? -->
                 <control type="list" id="1200">
                     <visible>String.IsEqual(Container(1000).ListItem.Property(listTyp), 1200)</visible>
@@ -559,7 +558,7 @@
                         </control>
                     </focusedlayout>
                 </control>
-				<!-- ??? -->
+				<!-- Bluetooth (disabled) ??? -->
                 <control type="label" id="1301">
 					<visible>String.IsEqual(Container(1000).ListItem.Property(listTyp), 1300) + String.IsEqual(Container(1300).NumItems, 0)</visible>
 					<left>522</left>
@@ -972,7 +971,7 @@
                         </control>
                     </focusedlayout>
                 </control>
-				<!-- ??? -->
+				<!-- About ??? -->
                 <control type="group" id="1900">
                    <control type="grouplist">
 						<left>531</left>
@@ -1111,6 +1110,7 @@
                 <onup>9000</onup>
             </control>
         </control>
+
         <!-- simple list ( 1100 ) up / down -->
         <control type="button" id="1090">
             <include>HiddenObject</include>
@@ -1118,6 +1118,7 @@
         <control type="button" id="1091">
             <include>HiddenObject</include>
         </control>
+
         <!-- network list ( 1200 ) up / down -->
         <control type="button" id="1092">
             <include>HiddenObject</include>
@@ -1125,6 +1126,7 @@
         <control type="button" id="1093">
             <include>HiddenObject</include>
         </control>
+
         <!-- bluetooth list ( 1300 ) up / down -->
         <control type="button" id="1092">
             <include>HiddenObject</include>
