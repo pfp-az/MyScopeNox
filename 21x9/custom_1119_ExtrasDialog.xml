@@ -25,7 +25,7 @@
 			<control type="image" id="90201">
 				<width>450</width>
 				<height>5</height>
-				<texture colordiffuse="labelheader">colors\white.png</texture>
+				<texture colordiffuse="labelheader">colors/white.png</texture>
 			</control>
 			<!-- Button - Cinema Experience -->
 			<control type="button" id="90202">
@@ -181,7 +181,7 @@
 			<control type="image" id="90299">
 				<width>450</width>
 				<height>5</height>
-				<texture colordiffuse="labelheader">colors\white.png</texture>
+				<texture colordiffuse="labelheader">colors/white.png</texture>
 			</control>
 		</control>
 	</controls>

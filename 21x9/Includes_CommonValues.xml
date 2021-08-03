@@ -86,8 +86,8 @@
 	<include name="Objects_SingleKeyOff">
 		<width>80</width>
 		<height>80</height>
-		<texturefocus border="4">button_middle_focus.png</texturefocus>
-		<texturenofocus border="4">thumbs/panel_border.png</texturenofocus>
+		<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
+		<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors/white-trans/10.png</texturenofocus>
 		<include>Objects_KeyOffVars</include>
 	</include>
 	<include name="ShowCaseInfoPanelButtonsValues">

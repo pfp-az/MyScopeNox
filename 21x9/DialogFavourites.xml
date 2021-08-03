@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<!--  This is a pop up window displaying the favorites list												                        -->
+<!-------------------------------------------------------------------------------------------------------------------------------->
 <window>
 	<defaultcontrol always="true">450</defaultcontrol>
 	<include>DialogOpenCloseAnimation</include>
@@ -6,59 +9,52 @@
 		<control type="group">
 			<centerleft>50%</centerleft>
 			<centertop>50%</centertop>
-			<width>1128</width>
-			<height>540</height>
+			<width>1160</width>
+			<height>550</height>
+
+			<!-- Backround Image -->
 			<control type="image">
-				<width>1128</width>
-				<height>540</height>
-				<texture border="40">dialogs/default/bg.png</texture>
+				<top>0</top>
+				<left>0</left>
+				<width>1160</width>
+				<height>550</height>
+				<texture border="6,6,6,6" colordiffuse="labelheader">background/5px_border.png</texture>
 			</control>
+			<!-- Heading Background -->
 			<control type="image">
-				<left>676</left>
-				<top>86</top>
-				<width>422</width>
-				<height>422</height>
-				<aspectratio>keep</aspectratio>
-				<texture>$INFO[Container(450).ListItem.Icon]</texture>
-				<bordertexture border="5">dialogs/default/inner.png</bordertexture>
-				<bordersize>1</bordersize>
+				<top>6</top>
+				<left>6</left>
+				<width>1150</width>
+				<height>60</height>
+				<texture border="0,0,0,0" colordiffuse="labelheader">colors/white-trans/10.png</texture>
 			</control>
-			<control type="label" id="1">
-				<left>30</left>
-				<top>32</top>
-				<width>1068</width>
+			<!-- Heading Label -->
+			<control type="label">
+				<top>16</top>
+				<left>6</left>
+				<width>1150</width>
 				<height>40</height>
-				<font>font15_title</font>
-				<label>$LOCALIZE[1036]</label>
 				<align>center</align>
 				<textcolor>dialogheader</textcolor>
+				<font>font15_title</font>
+				<label>$LOCALIZE[1036]</label>
 			</control>
-			<control type="image">
-				<left>30</left>
-				<top>86</top>
-				<width>632</width>
-				<height>422</height>
-				<texture border="5">dialogs/default/inner.png</texture>
-			</control>
+
+			<!-- Create the list -->
 			<control type="list" id="450">
-				<left>30</left>
-				<top>88</top>
-				<width>630</width>
-				<height>420</height>
+				<left>6</left>
+				<top>66</top>
+				<width>700</width>
+				<height>480</height>
 				<onup>450</onup>
 				<ondown>450</ondown>
 				<onleft>60</onleft>
 				<onright>60</onright>
 				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="quadratic" easing="out">200</scrolltime>
-				<itemlayout height="60" width="630">
-					<control type="image">
-						<width>630</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
-					</control>
+				<itemlayout height="60" width="700">
 					<control type="label">
-						<width>630</width>
+						<width>700</width>
 						<height>60</height>
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
@@ -67,8 +63,7 @@
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
-						<left>630</left>
-						<width>630</width>
+						<width>700</width>
 						<height>60</height>
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
@@ -78,16 +73,16 @@
 						<label>$INFO[ListItem.Label2]</label>
 					</control>
 				</itemlayout>
-				<focusedlayout height="60" width="630">
+				<focusedlayout height="60" width="700">
 					<control type="image">
-						<width>630</width>
-						<height>60</height>
-						<texture border="5">listselect_fo.png</texture>
 						<visible>Control.HasFocus(450)</visible>
+						<width>700</width>
+						<height>60</height>
+						<texture border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texture>
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="label">
-						<width>630</width>
+						<width>700</width>
 						<height>60</height>
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
@@ -96,8 +91,7 @@
 						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(450)">Conditional</animation>
 					</control>
 					<control type="label">
-						<left>630</left>
-						<width>630</width>
+						<width>700</width>
 						<height>60</height>
 						<font>font14</font>
 						<textoffsetx>15</textoffsetx>
@@ -109,20 +103,33 @@
 					</control>
 				</focusedlayout>
 			</control>
+			<!-- Scrollbar -->
 			<control type="scrollbar" id="60">
-				<left>662</left>
-				<top>88</top>
-				<height>420</height>
-				<width>14</width>
+				<left>706</left>
+				<top>67</top>
+				<height>478</height>
+				<width>8</width>
 				<onleft>450</onleft>
 				<onright>450</onright>
 				<ondown>60</ondown>
 				<onup>60</onup>
 				<showonepage>false</showonepage>
-				<texturesliderbackground></texturesliderbackground>
-				<texturesliderbar colordiffuse="55ffffff" border="4">scrollbar/texturesliderbar3.png</texturesliderbar>
-				<texturesliderbarfocus border="4">scrollbar/texturesliderbar3.png</texturesliderbarfocus>
+				<texturesliderbackground>colors/grey/40.png</texturesliderbackground>
+				<texturesliderbar>colors/grey/d0.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="labelheader">colors/white.png</texturesliderbarfocus>
+				<animation effect="slide" start="0" end="157" time="0" tween="quadratic" condition="Control.IsVisible(3) + ![Control.IsVisible(5) | Control.IsVisible(7)]">Conditional</animation>
 			</control>
+
+			<!-- Image -->
+			<control type="image">
+				<left>726</left>
+				<top>86</top>
+				<width>420</width>
+				<height>420</height>
+				<aspectratio>keep</aspectratio>
+				<texture>$INFO[Container(450).ListItem.Icon]</texture>
+			</control>
+
 		</control>
 	</controls>
 </window>

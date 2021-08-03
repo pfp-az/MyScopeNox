@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-------------------------------------------------------------------------------------------------------------------------------->
-<!-- This is the settings page or skin specific settings											                            -->
+<!-- This is the settings page for skin specific settings											                            -->
 <!-------------------------------------------------------------------------------------------------------------------------------->
 <window>
 	<defaultcontrol always="true">9000</defaultcontrol>
@@ -28,12 +28,12 @@
 			<!-- Left side -->
 			<include>SystemLeftPanel</include>
 			<!-- Areas -->
-			<control type="panel" id="9000">
+			<control type="list" id="9000">
 				<visible>!Window.IsActive(1121)</visible>
 				<left>81</left>
 				<top>61</top>
 				<width>358</width>
-				<height>610</height>
+				<height>600</height>
 				<onleft>noop</onleft>
 				<onright>9010</onright>
 				<onup>9000</onup>
@@ -52,10 +52,10 @@
 				</itemlayout>
 				<focusedlayout height="60" width="358">
 					<control type="image">
-						<visible>Control.HasFocus(9000)</visible>
 						<width>358</width>
 						<height>60</height>
-						<texture border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texture>
+						<texture border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texture>
+						<animation effect="fade" start="100" end="40" time="100" tween="sine" easing="inout" condition="!Control.HasFocus(9000)">Conditional</animation>
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="label">
@@ -67,7 +67,6 @@
 						<selectedcolor>selected</selectedcolor>
 						<align>right</align>
 						<label>$INFO[ListItem.Label]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(9000)">Conditional</animation>
 					</control>
 				</focusedlayout>
 				<content>
@@ -118,13 +117,13 @@
 				<visible>!Window.IsActive(1121)</visible>
 				<left>531</left>
 				<top>61</top>
-				<width>1340</width>
+				<width>1338</width>
 				<height>600</height>
 				<include>SettingsFadeAnimation</include>
 				<!-- Home Window -->
 				<control type="grouplist" id="9001">
-					<width>1340</width>
-					<height>590</height>
+					<width>1338</width>
+					<height>600</height>
 					<itemgap>0</itemgap>
 					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
@@ -133,83 +132,90 @@
 					<ondown>9001</ondown>
 					<visible>Container(9000).HasFocus(1)</visible>
 					<control type="button" id="100">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31911</label>
 						<onclick>ActivateWindow(1121)</onclick>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="button" id="101">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31913</label>
 						<label2>[COLOR themecolor]$VAR[lowermainmenuVar][/COLOR]</label2>
 						<onclick>Skin.ToggleSetting(lowermainmenu)</onclick>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="radiobutton" id="106">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31082</label>
 						<onclick>Skin.ToggleSetting(Detach.RSS)</onclick>
 						<selected>!Skin.HasSetting(Detach.RSS)</selected>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 						<enable>system.getbool(lookandfeel.enablerssfeeds)</enable>
 					</control>
 					<control type="radiobutton" id="102">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>20083</label>
 						<onclick>Skin.ToggleSetting(Disable.Musicinfo)</onclick>
 						<selected>!Skin.HasSetting(Disable.Musicinfo)</selected>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="radiobutton" id="103">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>20176</label>
 						<onclick>Skin.ToggleSetting(Disable.Videoinfo)</onclick>
 						<selected>!Skin.HasSetting(Disable.Videoinfo)</selected>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="button" id="104">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31928</label>
 						<label2>[COLOR labelheader]$VAR[MainMenuLayoutVar][/COLOR]</label2>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 						<onclick condition="!Skin.HasSetting(biggergap) + !Skin.HasSetting(mainmenuicons)">Skin.SetBool(mainmenuicons)</onclick>
 						<onclick condition="Skin.HasSetting(mainmenuicons)">Skin.SetBool(biggergap)</onclick>
 						<onclick condition="Skin.HasSetting(mainmenuicons)">Skin.Reset(mainmenuicons)</onclick>
 						<onclick condition="Skin.HasSetting(biggergap)">Skin.Reset(biggergap)</onclick>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
 					</control>
 					<control type="radiobutton" id="105">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>$LOCALIZE[31160]</label>
 						<onclick>Skin.ToggleSetting(Disable.FanartTitle)</onclick>
 						<selected>!Skin.HasSetting(Disable.FanartTitle)</selected>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 				</control>
 				<!-- General -->
 				<control type="grouplist" id="9002">
-					<width>1340</width>
-					<height>590</height>
+					<width>1338</width>
+					<height>600</height>
 					<itemgap>0</itemgap>
 					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
@@ -218,32 +224,36 @@
 					<ondown>9002</ondown>
 					<visible>Container(9000).HasFocus(2)</visible>
 					<control type="radiobutton" id="200">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>20189</label>
 						<onclick>Skin.ToggleSetting(Enable.AutoScroll)</onclick>
 						<selected>Skin.HasSetting(Enable.AutoScroll)</selected>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="radiobutton" id="203">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>$LOCALIZE[31170]</label>
 						<onclick>Skin.ToggleSetting(Disable.Netflix.Pause)</onclick>
 						<selected>!Skin.HasSetting(Disable.Netflix.Pause)</selected>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="button" id="206">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31972</label>
 						<label2>[COLOR labelheader]$VAR[NetflixVar][/COLOR]</label2>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 						<onclick condition="!Skin.HasSetting(netflix2secs) + !Skin.HasSetting(netflix5secs) + !Skin.HasSetting(netflix10secs)">Skin.SetBool(netflix2secs)</onclick>
 						<onclick condition="Skin.HasSetting(netflix2secs)">Skin.SetBool(netflix5secs)</onclick>
 						<onclick condition="Skin.HasSetting(netflix2secs)">Skin.Reset(netflix2secs)</onclick>
@@ -251,53 +261,56 @@
 						<onclick condition="Skin.HasSetting(netflix5secs)">Skin.Reset(netflix5secs)</onclick>					
 						<onclick condition="Skin.HasSetting(netflix10secs)">Skin.SetBool(netflix2secs)</onclick>
 						<onclick condition="Skin.HasSetting(netflix10secs)">Skin.Reset(netflix10secs)</onclick>					
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
 					</control>
 					<control type="button" id="204">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31931</label>
 						<label2>[COLOR themecolor]$VAR[VideoPlotLocalizeVar][/COLOR]</label2>
 						<onclick>Skin.ToggleSetting(VideoInfoPlotToggle)</onclick>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="radiobutton" id="201">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31124</label>
 						<onclick>Skin.ToggleSetting(Disable.ShowBackgroundVideo)</onclick>
 						<selected>!Skin.HasSetting(Disable.ShowBackgroundVideo)</selected>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="radiobutton" id="202">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31125</label>
 						<onclick>Skin.ToggleSetting(Disable.ShowBackgroundVis)</onclick>
 						<selected>!Skin.HasSetting(Disable.ShowBackgroundVis)</selected>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="radiobutton" id="207">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31983</label>
 						<onclick>Skin.ToggleSetting(ColorMediaFlags)</onclick>
 						<selected>Skin.HasSetting(ColorMediaFlags)</selected>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 				</control>
 				<!-- Extras -->
 				<control type="grouplist" id="9003">
-					<width>1340</width>
-					<height>590</height>
+					<width>1338</width>
+					<height>600</height>
 					<itemgap>0</itemgap>
 					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
@@ -306,41 +319,44 @@
 					<ondown>9003</ondown>
 					<visible>Container(9000).HasFocus(3)</visible>
 					<control type="button" id="306">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>$LOCALIZE[31150]</label>
 						<label2>[COLOR labelheader]$INFO[Skin.String(StudioLogos.name)][/COLOR]</label2>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 						<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,property=StudioLogos&amp;type=resource.images.studios)</onclick>
 						<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
 					</control>
 					<control type="radiobutton" id="305">
 						<visible>System.HasAddon(script.tv.show.next.aired)</visible>
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31083</label>
 						<onclick>Skin.ToggleSetting(Disable.NextAired)</onclick>
 						<selected>!Skin.HasSetting(Disable.NextAired)</selected>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="radiobutton" id="307">
 						<visible>!System.HasAddon(script.tv.show.next.aired)</visible>
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31083</label>
 						<onclick>InstallAddon(script.tv.show.next.aired)</onclick>
 						<selected>false</selected>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="radiobutton" id="304">
 						<visible>System.HasAddon(plugin.program.autocompletion)</visible>
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
@@ -348,53 +364,58 @@
 						<onclick condition="System.HasAddon(plugin.program.autocompletion)">Skin.ToggleSetting(Disable.Autocomplete)</onclick>
 						<onclick condition="!System.HasAddon(plugin.program.autocompletion)">InstallAddon(plugin.program.autocompletion)</onclick>
 						<selected>Skin.HasSetting(Disable.Autocomplete) | !System.HasAddon(plugin.program.autocompletion)</selected>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="button" id="300">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31015</label>
 						<label2>[COLOR labelheader]$INFO[Skin.String(VideoGenreFanartPath)][/COLOR]</label2>
 						<onclick>Skin.SetPath(VideoGenreFanartPath)</onclick>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="button" id="302">
 						<visible>!String.IsEmpty(Skin.String(VideoGenreFanartPath))</visible>
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>- $LOCALIZE[10035]</label>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 						<onclick>Skin.Reset(VideoGenreFanartPath)</onclick>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
 					</control>
 					<control type="button" id="301">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31017</label>
 						<label2>[COLOR labelheader]$INFO[Skin.String(MusicGenreFanartPath)][/COLOR]</label2>
 						<onclick>Skin.SetPath(MusicGenreFanartPath)</onclick>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="button" id="303">
 						<visible>!String.IsEmpty(Skin.String(MusicGenreFanartPath))</visible>
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>- $LOCALIZE[10035]</label>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 						<onclick>Skin.Reset(MusicGenreFanartPath)</onclick>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
 					</control>
 				</control>
 				<!-- Advanced -->
 				<control type="grouplist" id="9004">
-					<width>1340</width>
-					<height>590</height>
+					<width>1338</width>
+					<height>600</height>
 					<itemgap>0</itemgap>
 					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
@@ -403,69 +424,75 @@
 					<ondown>9004</ondown>
 					<visible>Container(9000).HasFocus(4)</visible>
 					<control type="button" id="401">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31939</label>
 						<label2>[COLOR themecolor]$VAR[InfoPanelDelayLocalizeVar][/COLOR]</label2>
 						<onclick>$VAR[InfoPanelDelayOnClickVar]</onclick>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="radiobutton" id="402">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31941</label>
 						<onclick>Skin.ToggleSetting(KioskMode.Enabled)</onclick>
 						<selected>Skin.HasSetting(KioskMode.Enabled)</selected>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="button" id="403">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31915</label>
 						<label2>[COLOR themecolor]$VAR[HorizontalListNavVar][/COLOR]</label2>
 						<onclick>Skin.ToggleSetting(HorizontalListNav)</onclick>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="button" id="404">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31943</label>
 						<onclick>ActivateWindow(1127)</onclick>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="button" id="405">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31094</label>
 						<label2>[COLOR themecolor]$VAR[SlimListSettingVar][/COLOR]</label2>
 						<onclick>Skin.ToggleSetting(Enable.SlimList)</onclick>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="radiobutton" id="406">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31961</label>
 						<onclick>Skin.ToggleSetting(Enable.HideRatings)</onclick>
 						<selected>Skin.HasSetting(Enable.HideRatings)</selected>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 				</control>
 				<!-- Media Info -->
 				<control type="grouplist" id="9005">
-					<width>1340</width>
-					<height>590</height>
+					<width>1338</width>
+					<height>600</height>
 					<itemgap>0</itemgap>
 					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
@@ -474,40 +501,43 @@
 					<ondown>9005</ondown>
 					<visible>Container(9000).HasFocus(5)</visible>
 					<control type="radiobutton" id="501">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31977</label>
 						<onclick>Skin.ToggleSetting(Disable.AspectRatioFromFileNameandPath)</onclick>
 						<selected>Skin.HasSetting(Disable.AspectRatioFromFileNameandPath)</selected>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="radiobutton" id="502">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31979</label>
 						<onclick>Skin.ToggleSetting(Disable.AudioCodecFromFileNameandPath)</onclick>
 						<selected>Skin.HasSetting(Disable.AudioCodecFromFileNameandPath)</selected>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 					<control type="radiobutton" id="503">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31981</label>
 						<onclick>Skin.ToggleSetting(Disable.AudioChannelsFromFileNameandPath)</onclick>
 						<selected>Skin.HasSetting(Disable.AudioChannelsFromFileNameandPath)</selected>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 				</control>
 				<!-- Scope Settings -->
 				<control type="grouplist" id="9006">
-					<width>1340</width>
-					<height>590</height>
+					<width>1338</width>
+					<height>600</height>
 					<itemgap>0</itemgap>
 					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
@@ -516,53 +546,57 @@
 					<ondown>9006</ondown>
 					<visible>Container(9000).HasFocus(6)</visible>
 					<control type="button" id="601">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31966</label>
 						<label2>[COLOR themecolor]$VAR[scopeFormat235Var][/COLOR]</label2>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 						<onclick>Skin.ToggleSetting(scopeFormat235)</onclick>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
 					</control>
 					<control type="button" id="602">
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31970</label>
 						<label2>[COLOR themecolor]$VAR[rememberScopeMaskSettingVar][/COLOR]</label2>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 						<onclick>Skin.ToggleSetting(rememberScopeMaskSetting)</onclick>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
 					</control>
 					<control type="radiobutton" id="603">
 						<visible>System.HasAddon(script.scopenox.tools)</visible>
-						<width>1340</width>
+						<width>1338</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<label>31968</label>
 						<onclick>Skin.ToggleSetting(showZoomButtons)</onclick>
 						<selected>Skin.HasSetting(showZoomButtons)</selected>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+						<texturenofocus></texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					</control>
 				</control>
 			</control>
 			<!-- Description background-->
 			<control type="image">
 				<visible>ControlGroup(9001).HasFocus() | ControlGroup(9002).HasFocus() | ControlGroup(9003).HasFocus() | ControlGroup(9004).HasFocus() | ControlGroup(9005).HasFocus() | ControlGroup(9006).HasFocus()</visible>
-				<left>530</left>
-				<top>670</top>
-				<width>1340</width>
-				<height>110</height>
-				<texture border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texture>
+				<left>531</left>
+				<top>660</top>
+				<width>1338</width>
+				<height>120</height>
+				<texture border="0,0,0,0" colordiffuse="labelheader">colors/white-trans/10.png</texture>
 			</control>
 			<!-- Description -->
 			<control type="textbox">
 				<visible>ControlGroup(9001).HasFocus() | ControlGroup(9002).HasFocus() | ControlGroup(9003).HasFocus() | ControlGroup(9004).HasFocus() | ControlGroup(9005).HasFocus() | ControlGroup(9006).HasFocus()</visible>
 				<left>561</left>
-				<top>680</top>
+				<top>670</top>
 				<width>1300</width>
+				<height>100</height>
 				<font>font14_textbox</font>
 				<textcolor>grey2</textcolor>
 				<label>$VAR[SkinSettingsDescriptionVar]</label>

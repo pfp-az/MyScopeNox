@@ -1,63 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<!--  This is a pop up window.  It's a file browser														                        -->
+<!-------------------------------------------------------------------------------------------------------------------------------->
 <window>
 	<defaultcontrol always="true">450</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<include>DialogOpenCloseAnimation</include>
 	<controls>
-		<!-- Background -->
+
 		<control type="group">
 			<width>1570</width>
-			<height>662</height>
+			<height>730</height>
 			<centerleft>50%</centerleft>
 			<centertop>50%</centertop>
+
+			<!-- Backround Image -->
 			<control type="image">
+				<top>0</top>
+				<left>0</left>
 				<width>1570</width>
-				<height>662</height>
-				<texture border="40">dialogs/default/bg.png</texture>
+				<height>730</height>
+				<texture border="6,6,6,6" colordiffuse="labelheader">background/5px_border.png</texture>
 			</control>
-			<!-- Header label --> 
+			<!-- Heading Background -->
+			<control type="image">
+				<top>6</top>
+				<left>6</left>
+				<width>1560</width>
+				<height>60</height>
+				<texture border="0,0,0,0" colordiffuse="labelheader">colors/white-trans/10.png</texture>
+			</control>
+			<!-- Heading Label -->
 			<control type="label" id="411">
 				<label>1023</label>
-				<left>30</left>
-				<top>32</top>
-				<width>1506</width>
+				<top>16</top>
+				<left>6</left>
+				<width>1560</width>
 				<height>40</height>
-				<textoffsetx>15</textoffsetx>
-				<font>font15_title</font>
-				<label>$LOCALIZE[13406]</label>
 				<align>center</align>
 				<textcolor>dialogheader</textcolor>
+				<font>font15_title</font>
+				<label>$LOCALIZE[13406]</label>
 				<animation effect="fade" start="100" end="0" time="0" delay="30000" condition="True">Conditional</animation>
 			</control>
-			<!-- Path label --> 
+			<!-- Path Label -->
 			<control type="label" id="412">
-				<description>Path label</description>
 				<label>1023</label>
-				<left>30</left>
-				<top>32</top>
-				<width>1506</width>
+				<top>16</top>
+				<left>6</left>
+				<width>1560</width>
 				<height>40</height>
-				<textoffsetx>15</textoffsetx>
-				<font>font15_title</font>
-				<label>$LOCALIZE[13406]</label>
 				<align>center</align>
 				<textcolor>dialogheader</textcolor>
+				<font>font15_title</font>
+				<label>$LOCALIZE[13406]</label>
 				<animation effect="fade" start="0" end="100" time="250" delay="3000" condition="True">Conditional</animation>
 			</control>
+
+			<!-- The files -->
 			<control type="group">
-				<left>30</left>
-				<top>86</top>
-				<control type="image">
-					<width>962</width>
-					<height>542</height>
-					<texture border="5">dialogs/default/inner.png</texture>
-				</control>
-				<!-- The list of files (list view)-->
+				<left>6</left>
+				<top>65</top>
+				<width>960</width>
+				<height>660</height>
+				<!-- List view -->
 				<control type="list" id="450">
-					<left>1</left>
-					<top>1</top>
-					<width>960</width>
-					<height>540</height>
 					<onleft>9000</onleft>
 					<onright>60</onright>
 					<onup>450</onup>
@@ -78,10 +85,10 @@
 					</itemlayout>
 					<focusedlayout height="60" width="960">
 						<control type="image">
-							<width>960</width>
-							<height>62</height>
-							<texture border="5">listselect_fo.png</texture>
 							<visible>Control.HasFocus(450)</visible>
+							<width>960</width>
+							<height>60</height>
+							<texture border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texture>
 							<include>VisibleFadeAnimation</include>
 						</control>
 						<control type="label">
@@ -94,12 +101,8 @@
 						</control>
 					</focusedlayout>
 				</control>
-				<!-- The list of files (icon view)-->
+				<!-- Icon view-->
 				<control type="panel" id="451">
-					<left>1</left>
-					<top>1</top>
-					<width>960</width>
-					<height>540</height>
 					<onleft>9000</onleft>
 					<onright>60</onright>
 					<onup>451</onup>
@@ -108,21 +111,24 @@
 					<viewtype>icon</viewtype>
 					<scrolltime tween="quadratic" easing="out">300</scrolltime>
 					<itemlayout height="180" width="320">
+						<!-- Icon-->
 						<control type="image">
 							<width>320</width>
 							<height>180</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
+							<bordertexture>colors/black.png</bordertexture>
 							<bordersize>2</bordersize>
 						</control>
+						<!-- Slightly dim unfocused items-->
 						<control type="image">
 							<width>320</width>
 							<height>180</height>
 							<aspectratio>scale</aspectratio>
-							<texture border="1" colordiffuse="44FFFFFF">black.png</texture>
+							<texture border="1" colordiffuse="44FFFFFF">colors/black.png</texture>
 							<bordersize>2</bordersize>
 						</control>
+						<!-- Overlay for label -->
 						<control type="image">
 							<top>120</top>
 							<width>320</width>
@@ -131,6 +137,7 @@
 							<bordersize>2</bordersize>
 							<colordiffuse>88ffffff</colordiffuse>
 						</control>
+						<!-- Label-->
 						<control type="label">
 							<top>120</top>
 							<width>320</width>
@@ -143,22 +150,25 @@
 						</control>
 					</itemlayout>
 					<focusedlayout height="180" width="320">
+						<!-- Icon-->
 						<control type="image">
 							<width>320</width>
 							<height>180</height>
 							<aspectratio>keep</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
+							<bordertexture>colors/black.png</bordertexture>
 							<bordersize>2</bordersize>
 						</control>
+						<!-- Slightly dim unfocused items-->
 						<control type="image">
 							<width>320</width>
 							<height>180</height>
 							<aspectratio>scale</aspectratio>
-							<texture border="1" colordiffuse="44FFFFFF">black.png</texture>
+							<texture border="1" colordiffuse="44FFFFFF">colors/black.png</texture>
 							<bordersize>2</bordersize>
 							<include>FocusFadeOutAnimation</include>
 						</control>
+						<!-- Overlay for label -->
 						<control type="image">
 							<top>120</top>
 							<width>320</width>
@@ -167,6 +177,7 @@
 							<bordersize>2</bordersize>
 							<colordiffuse>88ffffff</colordiffuse>
 						</control>
+						<!-- Label-->
 						<control type="label">
 							<top>120</top>
 							<width>320</width>
@@ -178,6 +189,7 @@
 							<animation effect="fade" end="100" start="66" time="200" tween="sine" easing="inout">Focus</animation>
 							<animation effect="fade" start="100" end="66" time="200" tween="sine" easing="inout">UnFocus</animation>
 						</control>
+						<!-- Focused-->
 						<control type="image">
 							<width>320</width>
 							<height>180</height>
@@ -190,77 +202,81 @@
 				<control type="scrollbar" id="60">
 					<left>961</left>
 					<top>1</top>
-					<width>14</width>
-					<height>540</height>
-					<texturesliderbackground />
-					<texturesliderbar colordiffuse="55ffffff" border="4">scrollbar/texturesliderbar3.png</texturesliderbar>
-					<texturesliderbarfocus border="4">scrollbar/texturesliderbar3.png</texturesliderbarfocus>
+					<width>8</width>
+					<height>658</height>
+					<texturesliderbackground>colors/grey/40.png</texturesliderbackground>
+					<texturesliderbar>colors/grey/d0.png</texturesliderbar>
+					<texturesliderbarfocus colordiffuse="labelheader">colors/white.png</texturesliderbarfocus>
 					<onleft>450</onleft>
 					<onright>9000</onright>
 					<showonepage>false</showonepage>
 					<orientation>vertical</orientation>
 				</control>
 			</control>
+
+			<!-- Right side -->
 			<control type="group">
 				<left>1006</left>
 				<top>72</top>
+				
+				<!-- Preview -->
 				<control type="image">
+					<visible>!String.Contains(Control.GetLabel(416),*)</visible>
 					<width>534</width>
-					<height>300</height>
+					<height>340</height>
 					<aspectratio>keep</aspectratio>
 					<fadetime>300</fadetime>
 					<texture background="true">$INFO[ListItem.Icon]</texture>
-					<bordertexture border="5">dialogs/default/inner.png</bordertexture>
-					<bordersize>1</bordersize>
-					<visible>!String.Contains(Control.GetLabel(416),*)</visible>
 				</control>
 				<control type="image">
+					<visible>String.Contains(Control.GetLabel(416),*)</visible>
 					<width>534</width>
-					<height>300</height>
+					<height>340</height>
 					<fadetime>300</fadetime>
 					<aspectratio>keep</aspectratio>
 					<texture background="true" flipx="true">$INFO[ListItem.Icon]</texture>
-					<bordertexture border="5">dialogs/default/inner.png</bordertexture>
-					<bordersize>1</bordersize>
-					<visible>String.Contains(Control.GetLabel(416),*)</visible>
 				</control>
-				<control type="image">
-					<top>314</top>
-					<width>536</width>
-					<height>242</height>
-					<texture border="5">dialogs/default/inner.png</texture>
-				</control>
+
 				<!-- Buttons -->
 				<control type="grouplist" id="9000">
 					<left>1</left>
-					<top>316</top>
+					<top>360</top>
 					<width>534</width>
-					<height>240</height>
+					<height>280</height>
 					<orientation>vertical</orientation>
 					<onleft>60</onleft>
 					<onright>450</onright>
 					<onup>9000</onup>
 					<ondown>9000</ondown>
+					<itemgap>10</itemgap>
+					<!-- OK Button -->
 					<control type="button" id="413">
-						<description>OK button</description>
 						<width>534</width>
 						<label>186</label>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
+						<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors/white-trans/10.png</texturenofocus>
 					</control>
+					<!-- Cancel Button -->
 					<control type="button" id="414">
-						<description>Cancel button</description>
+						<width>534</width>
 						<label>222</label>
-						<width>534</width>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
+						<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors/white-trans/10.png</texturenofocus>
 					</control>
+					<!-- Create Folder Button -->
 					<control type="button" id="415">
-						<description>Create folder button</description>
-						<label>119</label>
 						<width>534</width>
+						<label>119</label>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
+						<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors/white-trans/10.png</texturenofocus>
 					</control>
+					<!-- Flip Image Button -->
 					<control type="radiobutton" id="416">
-						<description>Flip Image button</description>
 						<radioposx>460</radioposx>
 						<width>534</width>
 						<label>749</label>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
+						<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors/white-trans/10.png</texturenofocus>
 					</control>
 				</control>
 			</control>

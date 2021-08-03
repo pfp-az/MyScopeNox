@@ -19,7 +19,7 @@
 		<!-- Background -->
 		<control type="image">
 			<include>FullscreenDimensions</include>
-			<texture>colors\TMDB-primary.png</texture>  <!-- If black is used projector may autozoom on fanart images -->
+			<texture>colors/tmdb-primary.png</texture>  <!-- If black is used projector may autozoom on fanart images -->
 		</control>
 
 		<!-- Image -->

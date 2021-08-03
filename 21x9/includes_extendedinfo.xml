@@ -39,7 +39,7 @@
 						<centertop>50%</centertop>
 						<aspectratio>scale</aspectratio>
 						<texture background="true" fallback="DefaultPicture.png">$INFO[ListItem.Icon]</texture>
-						<bordertexture border="2">thumbs\panel_border3.png</bordertexture>
+						<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
 						<bordersize>2</bordersize>
 					</control>
 				</control>
@@ -54,7 +54,7 @@
 					</include>
 					<aspectratio>scale</aspectratio>
 					<texture background="true" fallback="DefaultActor.png">$INFO[ListItem.Icon]</texture>
-					<bordertexture border="2">thumbs\panel_border3.png</bordertexture>
+					<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
 					<bordersize>2</bordersize>
 				</control>
 				<!-- Image and placeholder for video -->
@@ -68,14 +68,14 @@
 					</include>
 					<aspectratio>scale</aspectratio>
 					<texture background="true" fallback="DefaultMovies.png">$VAR[PosterVar]</texture>
-					<bordertexture border="2">thumbs\panel_border3.png</bordertexture>
+					<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
 					<bordersize>2</bordersize>
 				</control>
 				<!-- Black background for text -->
 				<control type="image"> 
 					<top>80r</top>
 					<height>80</height>
-					<texture>colors\black.png</texture>
+					<texture>colors/black.png</texture>
 					<bordersize>2</bordersize>
 				</control>
 				<!-- Overlay -->
@@ -84,13 +84,13 @@
 					<right>0</right>
 					<width>60</width>
 					<height>60</height>
-					<texture>overlays\enabled.png</texture>
+					<texture>overlays/enabled.png</texture>
 					<bordersize>2</bordersize>
 				</control>
 				<!-- Slightly dim unfocused images -->
 				<control type="image"> 
 					<aspectratio>scale</aspectratio>
-					<texture border="1" colordiffuse="44FFFFFF">colors\black.png</texture>
+					<texture border="1" colordiffuse="44FFFFFF">colors/black.png</texture>
 					<bordersize>2</bordersize>
 					<include condition="$PARAM[focused]">FocusFadeOutAnimation</include>
 				</control>
@@ -128,7 +128,7 @@
 				<!-- Focused border -->
 				<control type="image"> 
 					<visible>$PARAM[focused]</visible>
-					<texture border="10">thumbs/thumbnail_focused.png</texture>
+					<texture border="8,8,8,8" colordiffuse="labelheader">thumbnail_7px_border.png</texture>
 					<include>FocusFadeInAnimation</include>
 				</control>
 			</control>
@@ -219,6 +219,7 @@
 					<width>0</width>>  <!-- Don't understand why necessary -->
 					<height>$PARAM[totalheight]</height> <!-- Don't understand why necessary in all 3 places -->
 					<texturenofocus></texturenofocus>
+					<texturefocus colordiffuse="labelheader">focus/300high.png</texturefocus>
 					<onup>9000</onup>
 					<ondown>SetFocus(90050)</ondown>
 					<onclick>SetProperty(TextViewerHeader,$INFO[ListItem.Label,[B],[/B]],Home)</onclick>
@@ -475,6 +476,7 @@
 					<width>0</width>>  <!-- Don't understand why necessary -->
 					<height>$PARAM[totalheight]</height> <!-- Don't understand why necessary in all 3 places -->
 					<texturenofocus></texturenofocus>
+					<texturefocus colordiffuse="labelheader">focus/300high.png</texturefocus>
 					<onup>9000</onup>
 					<ondown>SetFocus(10052)</ondown>
 					<onclick>SetProperty(TextViewerHeader,$INFO[Container(10051).ListItem.Label,[B],[/B]],Home)</onclick>
@@ -511,6 +513,7 @@
 				<width>0</width>>  <!-- Don't understand why necessary -->
 				<height>$PARAM[totalheight]</height> <!-- Don't understand why necessary in all 3 places -->
 				<texturenofocus></texturenofocus>
+				<texturefocus colordiffuse="labelheader">focus/300high.png</texturefocus>
 				<onup>9000</onup>
 				<ondown>10052</ondown>
 				<onclick>SetProperty(TextViewerHeader,$ESCINFO[Container(10051).ListItem.Label,[B],[/B]],Home)</onclick>

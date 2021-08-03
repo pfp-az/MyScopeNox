@@ -7,39 +7,31 @@
 	<include>DialogOpenCloseAnimation</include>
 	<controls>
 		<control type="group">
-			<left>457</left>
-			<top>240</top>
+			<centerleft>50%</centerleft>
+			<centertop>50%</centertop>
+			<width>1050</width>
+			<height>610</height>
 
-			<!-- Backround Image, narrow variation -->
+			<!-- Backround Image -->
 			<control type="image">
-				<visible>Control.IsVisible(3) + ![Control.IsVisible(5) | Control.IsVisible(7)]</visible>
-				<top>0</top>
-				<left>0</left>
-				<width>692</width>
-				<height>610</height>
-				<texture border="6,6,6,6" colordiffuse="labelheader">background_5px_border.png</texture>
-			</control>
-			<!-- Backround Image, wide variation -->
-			<control type="image">
-				<visible>[Control.IsVisible(5) | Control.IsVisible(7)] | Control.isVisible(6)</visible>
 				<top>0</top>
 				<left>0</left>
 				<width>1050</width>
 				<height>610</height>
-				<texture border="6,6,6,6" colordiffuse="labelheader">background_5px_border.png</texture>
+				<texture border="6,6,6,6" colordiffuse="labelheader">background/5px_border.png</texture>
 			</control>
 			<!-- Heading Background -->
 			<control type="image">
-				<top>5</top>
-				<left>5</left>
+				<top>6</top>
+				<left>6</left>
 				<width>1040</width>
 				<height>60</height>
-				<texture border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texture>
+				<texture border="0,0,0,0" colordiffuse="labelheader">colors/white-trans/10.png</texture>
 			</control>
 			<!-- Heading Label -->
 			<control type="label">
-				<top>15</top>
-				<left>5</left>
+				<top>16</top>
+				<left>6</left>
 				<width>1040</width>
 				<height>40</height>
 				<align>center</align>
@@ -51,35 +43,31 @@
 			<!-- A group for images, only id6 -->
 			<control type="group">
 				<visible>Control.IsVisible(6)</visible>
-				<top>75</top>
-				<left>725</left>
+				<top>76</top>
+				<left>730</left>
 				<!-- Icon -->
 				<control type="image">
 					<visible>Control.IsVisible(6) + String.IsEmpty(Container(6).ListItem.Art(poster))</visible>
 					<width>300</width>
 					<height>332</height>
-					<aspectratio aligny="top">keep</aspectratio>
+					<aspectratio aligny="center">keep</aspectratio>
 					<texture>$INFO[Container(6).ListItem.Icon]</texture>
-					<bordertexture border="5">dialogs/default/inner.png</bordertexture>
-					<bordersize>1</bordersize>
 				</control>
 				<!-- Poster -->
 				<control type="image">
 					<visible>Control.IsVisible(6) + !String.IsEmpty(Container(6).ListItem.Art(poster))</visible>
 					<width>300</width>
 					<height>332</height>
-					<aspectratio aligny="top">keep</aspectratio>
+					<aspectratio aligny="center">keep</aspectratio>
 					<texture>$INFO[Container(6).ListItem.Art(poster)]</texture>
-					<bordertexture border="5">dialogs/default/inner.png</bordertexture>
-					<bordersize>1</bordersize>
 				</control>
 			</control>
 
 			<!-- Create the list -->
 			<control type="group" id="9000">
 				<control type="list" id="3">
-					<top>65</top>
-					<left>5</left>
+					<top>66</top>
+					<left>6</left>
 					<width>705</width>
 					<height>540</height>
 					<onup>3</onup>
@@ -116,7 +104,7 @@
 							<width>705</width>
 							<height>60</height>
 							<include>VisibleFadeAnimation</include>
-						<texture border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texture>
+							<texture border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texture>
 						</control>
 						<control type="label">
 							<width>705</width>
@@ -144,7 +132,7 @@
 				</control>
 				<control type="list" id="6">
 					<top>65</top>
-					<left>5</left>
+					<left>6</left>
 					<width>705</width>
 					<height>540</height>
 					<onup>6</onup>
@@ -180,7 +168,7 @@
 							<width>705</width>
 							<height>60</height>
 							<include>VisibleFadeAnimation</include>
-						<texture border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texture>
+						<texture border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texture>
 						</control>
 						<control type="label">
 							<width>705</width>
@@ -209,6 +197,7 @@
 
 			<!-- A group for buttons -->
 			<control type="grouplist" id="9001">
+				<animation effect="slide" start="0,0" end="0,-343" time="700" condition="!Control.isVisible(6)">Conditional</animation>
 				<left>730</left>
 				<top>429</top>
 				<height>134</height>
@@ -221,33 +210,33 @@
 				<control type="button" id="5">
 					<width>300</width>
 					<label>186</label>
-					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
-					<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texturenofocus>
+					<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
+					<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors/white-trans/10.png</texturenofocus>
 				</control>
 				<!-- Cancel -->
 				<control type="button" id="7">
 					<description>Cancel button</description>
 					<width>300</width>
 					<label />
-					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
-					<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texturenofocus>
+					<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
+					<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors/white-trans/10.png</texturenofocus>
 				</control>
 			</control>
 
 			<!-- Scrollbar -->
 			<control type="scrollbar" id="60">
-				<left>710</left>
-				<top>65</top>
-				<height>540</height>
-				<width>10</width>
+				<left>706</left>
+				<top>67</top>
+				<height>538</height>
+				<width>8</width>
 				<onleft>6</onleft>
 				<onright>9001</onright>
 				<ondown>60</ondown>
 				<onup>60</onup>
 				<showonepage>false</showonepage>
-				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="4">scrollbar/texturesliderbar3.png</texturesliderbar>
-				<texturesliderbarfocus border="4">scrollbar/texturesliderbar3.png</texturesliderbarfocus>
+				<texturesliderbackground>colors/grey/40.png</texturesliderbackground>
+				<texturesliderbar>colors/grey/d0.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="labelheader">colors/white.png</texturesliderbarfocus>
 				<animation effect="slide" start="0" end="157" time="0" tween="quadratic" condition="Control.IsVisible(3) + ![Control.IsVisible(5) | Control.IsVisible(7)]">Conditional</animation>
 			</control>
 		</control>

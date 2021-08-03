@@ -111,7 +111,7 @@
 						<control type="image">
 							<width>156</width>
 							<height>234</height>
-							<texture border="10">thumbs/thumbnail_focused.png</texture>
+							<texture border="8,8,8,8" colordiffuse="labelheader">thumbnail_7px_border.png</texture>
 							<include>FocusFadeInAnimation</include>
 						</control>
 					</control>
@@ -363,7 +363,7 @@
 					<control type="image">
 						<width>180</width>
 						<height>180</height>
-						<texture border="10">thumbs/thumbnail_focused.png</texture>
+						<texture border="8,8,8,8" colordiffuse="labelheader">thumbnail_7px_border.png</texture>
 						<include>FocusFadeInAnimation</include>
 					</control>
 				</focusedlayout>
@@ -435,7 +435,7 @@
 					<control type="image">
 						<width>180</width>
 						<height>180</height>
-						<texture border="10">thumbs/thumbnail_focused.png</texture>
+						<texture border="8,8,8,8" colordiffuse="labelheader">thumbnail_7px_border.png</texture>
 						<include>FocusFadeInAnimation</include>
 					</control>
 				</focusedlayout>
@@ -621,7 +621,7 @@
 					<control type="image">
 						<width>180</width>
 						<height>180</height>
-						<texture border="10">thumbs/thumbnail_focused.png</texture>
+						<texture border="8,8,8,8" colordiffuse="labelheader">thumbnail_7px_border.png</texture>
 						<include>FocusFadeInAnimation</include>
 					</control>
 				</focusedlayout>

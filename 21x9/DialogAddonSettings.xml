@@ -17,7 +17,7 @@
 				<left>0</left>
 				<width>1650</width>
 				<height>590</height>
-				<texture border="6,6,6,6" colordiffuse="labelheader">background_5px_border.png</texture>
+				<texture border="6,6,6,6" colordiffuse="labelheader">background/5px_border.png</texture>
 			</control>
 			<!-- Heading Background -->
 			<control type="image">
@@ -25,7 +25,7 @@
 				<left>5</left>
 				<width>1640</width>
 				<height>60</height>
-				<texture border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texture>
+				<texture border="0,0,0,0" colordiffuse="labelheader">colors/white-trans/10.png</texture>
 			</control>
 			<!-- Heading Label -->
 			<control type="label" id="2">
@@ -48,7 +48,7 @@
 					<top>0</top>
 					<width>300</width>
 					<height>480</height>
-					<texture border="2,2,2,2" colordiffuse="labelheader">background_1px_border.png</texture>
+					<texture border="2,2,2,2" colordiffuse="labelheader">background/1px_border.png</texture>
 				</control>
 				<!-- Button Area -->
 				<control type="grouplist" id="3">
@@ -72,11 +72,13 @@
 					<top>0</top>
 					<width>960</width>
 					<height>480</height>
-					<texture border="2,2,2,2" colordiffuse="labelheader">background_1px_border.png</texture>
+					<texture border="2,2,2,2" colordiffuse="labelheader">background/1px_border.png</texture>
 				</control>
 				<!-- Control Area -->
 				<control type="grouplist" id="5">
-					<width>958</width>
+					<left>1</left>
+					<top>1</top>
+					<width>950</width>
 					<height>478</height>
 					<pagecontrol>30</pagecontrol>
 					<onleft>3</onleft>
@@ -87,12 +89,13 @@
 				</control>
 				<!-- Scrollbar -->
 				<control type="scrollbar" id="30">
-					<left>960</left>
-					<width>10</width>
-					<height>480</height>
-					<texturesliderbackground />
-					<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-					<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
+					<top>2</top>
+					<left>950</left>
+					<width>8</width>
+					<height>476</height>
+					<texturesliderbackground>colors/grey/40.png</texturesliderbackground>
+					<texturesliderbar>colors/grey/d0.png</texturesliderbar>
+					<texturesliderbarfocus colordiffuse="labelheader">colors/white.png</texturesliderbarfocus>
 					<onleft>5</onleft>
 					<onright>9001</onright>
 					<showonepage>false</showonepage>
@@ -109,7 +112,7 @@
 					<top>0</top>
 					<width>300</width>
 					<height>480</height>
-					<texture border="2,2,2,2" colordiffuse="labelheader">background_1px_border.png</texture>
+					<texture border="2,2,2,2" colordiffuse="labelheader">background/1px_border.png</texture>
 				</control>
 				<!-- Buttons Group -->
 				<control type="grouplist" id="9001">
@@ -132,22 +135,22 @@
 					<control type="button" id="28">
 						<width>298</width>
 						<label>186</label>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
-						<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
+						<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors/white-trans/10.png</texturenofocus>
 					</control>
 					<!-- Cancel Button -->
 					<control type="button" id="29">
 						<width>298</width>
 						<label>222</label>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
-						<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
+						<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors/white-trans/10.png</texturenofocus>
 					</control>
 					<!-- Defaults Button -->
 					<control type="button" id="30">
 						<width>298</width>
 						<label>409</label>
-						<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
-						<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texturenofocus>
+						<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
+						<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors/white-trans/10.png</texturenofocus>
 					</control>
 				</control>
 			</control>
@@ -160,25 +163,27 @@
 				<font>font14</font>
 				<textoffsetx>20</textoffsetx>
 				<textcolor>grey2</textcolor>
-				<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
-				<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texturenofocus>
+				<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 			</control>
 			<!-- Default Button -->
 			<control type="button" id="7">
 				<width>960</width>
 				<height>60</height>
+				<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 			</control>
 			<!-- Default RadioButton -->
 			<control type="radiobutton" id="8">
 				<width>960</width>
 				<height>60</height>
 				<textwidth>880</textwidth>
+				<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 			</control>
 			<!-- Default spincontrolex  -->
 			<control type="spincontrolex" id="9">
 				<width>960</width>
 				<height>60</height>
 				<reverse>true</reverse>
+				<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 			</control>
 			<!-- Default Label -->
 			<control type="label" id="14">
@@ -188,17 +193,20 @@
 				<label />
 				<textcolor>labelheader</textcolor>
 				<textoffsetx>15</textoffsetx>
+				<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 			</control>
 			<!-- Default Seperator -->
 			<control type="image" id="11">
 				<width>960</width>
 				<height>1</height>
 				<visible>false</visible>
+				<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 			</control>
 			<!-- Default Slider -->
 			<control type="sliderex" id="13">
 				<width>960</width>
 				<height>60</height>
+				<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 			</control>
 		</control>
 	</controls>

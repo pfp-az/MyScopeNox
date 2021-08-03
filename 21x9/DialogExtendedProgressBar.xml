@@ -1,63 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<!--  This is a popup progress bar.  Notable use is updating the library							                            -->
+<!-------------------------------------------------------------------------------------------------------------------------------->
 <window>
-	<coordinates>
-		<left>560</left>
-		<top>200</top>
-		<origin x="880" y="30">String.IsEqual(Skin.AspectRatio,21:9)</origin>
-	</coordinates>
 	<include>DialogPopupAnimation</include>
 	<controls>
+
 		<control type="group">
 			<visible>!Window.IsActive(fullscreenvideo) + !Window.IsActive(visualisation)</visible>
+			<height>130</height>
+			<top>200</top>
+			<width>800</width>
+			<centerleft>50%</centerleft>
+			<!-- Backround Image -->
 			<control type="image">
-				<description>background image</description>
-				<left>0</left>
 				<top>0</top>
+				<left>0</left>
 				<width>800</width>
-				<height>166</height>
-				<texture border="40">dialogs/default/bg.png</texture>
+				<height>130</height>
+				<texture border="6,6,6,6" colordiffuse="labelheader">background/5px_border.png</texture>
 			</control>
+			<!-- Heading Background -->
 			<control type="image">
-				<left>30</left>
-				<top>32</top>
-				<width>740</width>
-				<height>102</height>
-				<texture border="5">dialogs/default/inner.png</texture>
+				<top>6</top>
+				<left>6</left>
+				<width>790</width>
+				<height>60</height>
+				<texture border="0,0,0,0" colordiffuse="labelheader">colors/white-trans/10.png</texture>
 			</control>
-			<control type="progress" id="32">
-				<description>progress control</description>
-				<left>32</left>
-				<top>33</top>
-				<width>738</width>
-				<height>100</height>
-				<texturebg border="2">osd/texturebg2.png</texturebg>
-				<lefttexture />
-				<midtexture border="2">osd/midtexture.png</midtexture>
-				<righttexture />
-				<overlaytexture />
-				<colordiffuse>44FFFFFF</colordiffuse>
-			</control>
+			<!-- Heading Label -->
 			<control type="label">
-				<description>Header Label</description>
-				<top>32</top>
-				<width>800</width>
-				<height>50</height>
-				<font>font13</font>
+				<top>15</top>
+				<left>9</left>
+				<width>790</width>
+				<height>40</height>
+				<align>center</align>
 				<textcolor>dialogheader</textcolor>
-				<textoffsetx>50</textoffsetx>
+				<font>font13_title</font>
 				<label>$INFO[Control.GetLabel(30)]$INFO[Control.GetLabel(32),: ,%]</label>
 			</control>
+			<!-- Progress Bar -->
+			<control type="progress" id="32">
+				<left>16</left>
+				<top>76</top>
+				<width>770</width>
+				<height>40</height>
+				<texturebg>focus/40high_background.png</texturebg>
+				<lefttexture></lefttexture>
+				<midtexture colordiffuse="labelheader">focus/40high.png</midtexture>
+				<righttexture></righttexture>
+				<overlaytexture />
+			</control>
+			<!-- Label -->
 			<control type="label" id="31">
-				<description>Title Label</description>
-				<top>82</top>
-				<width>800</width>
-				<height>50</height>
+				<top>66</top>
+				<width>790</width>
+				<height>59</height>
 				<font>font13</font>
 				<textcolor>grey2</textcolor>
-				<textoffsetx>50</textoffsetx>
+				<textoffsetx>30</textoffsetx>
 			</control>
+			<!-- Originally tagged as Header Label, not sure why necessary -->
 			<control type="label" id="30">
-				<description>Header Label</description>
 				<include>HiddenObject</include>
 			</control>
 		</control>

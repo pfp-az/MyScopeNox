@@ -1,42 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<!--  This is a pop up context menu		      																					-->
+<!--  It's not possible to define a fixed offset for this specific dialog.    													-->
+<!--  Kodi will automatically center the context menu on top of the container							                        -->
+<!-------------------------------------------------------------------------------------------------------------------------------->
 <window>
 	<defaultcontrol always="true">996</defaultcontrol>
-	<animation type="WindowOpen" reversible="false">
-		<effect type="zoom" start="150" end="100" center="auto" time="300" tween="cubic" easing="out" />
-		<effect type="fade" end="100" time="150" />
-	</animation>
-	<animation type="WindowClose" reversible="false">
-		<effect type="fade" start="100" end="0" time="100" delay="100" />
-		<effect type="zoom" start="100" end="130" center="auto" time="200" tween="cubic" easing="in" />
-	</animation>
-	<coordinates>
-		<system>1</system>
-		<left>0</left>
-		<top>0</top>
-	</coordinates>
+	<include>DialogOpenCloseAnimation</include>
 	<controls>
 		<control type="grouplist" id="996">
-			<description>grouplist for context buttons</description>
-			<left>30</left>
-			<width>510</width>
-			<height min="60" max="1080">auto</height>
-			<include condition="Window.IsActive(programs) + !String.IsEmpty(Window(Home).Property(Progams.Games))">AdvancedLauncherTrailerButton</include>
-		</control>
-		<control type="image" id="999">
-			<description>background image</description>
-			<top>-34</top>
-			<width>510</width>
-			<height>1147</height>
-			<texture border="36">dialog_context.png</texture>
-		</control>
-		<control type="button" id="1000">
-			<description>button template</description>
 			<width>450</width>
-			<height>60</height>
-			<font>font14</font>
-			<textoffsetx>15</textoffsetx>
-			<texturefocus border="5">button_middle_focus.png</texturefocus>
-			<texturenofocus border="5">button_middle3.png</texturenofocus>
+			<height min="70" max="670">auto</height>
+			<include condition="Window.IsActive(programs) + !String.IsEmpty(Window(Home).Property(Progams.Games))">AdvancedLauncherTrailerButton</include>
+
+			<!-- Height adjustment for each button present.  50% of button height -->
+			<!-- Not sure why it's necessary but it works so not going to question it -->
+            <animation effect="slide" end="0,-30" time="0" condition="Control.IsVisible(1001)">Conditional</animation>
+            <animation effect="slide" end="0,-30" time="0" condition="Control.IsVisible(1002)">Conditional</animation>
+            <animation effect="slide" end="0,-30" time="0" condition="Control.IsVisible(1003)">Conditional</animation>
+            <animation effect="slide" end="0,-30" time="0" condition="Control.IsVisible(1004)">Conditional</animation>
+            <animation effect="slide" end="0,-30" time="0" condition="Control.IsVisible(1005)">Conditional</animation>
+            <animation effect="slide" end="0,-30" time="0" condition="Control.IsVisible(1006)">Conditional</animation>
+            <animation effect="slide" end="0,-30" time="0" condition="Control.IsVisible(1007)">Conditional</animation>
+            <animation effect="slide" end="0,-30" time="0" condition="Control.IsVisible(1008)">Conditional</animation>
+            <animation effect="slide" end="0,-30" time="0" condition="Control.IsVisible(1009)">Conditional</animation>
+            <animation effect="slide" end="0,-30" time="0" condition="Control.IsVisible(1010)">Conditional</animation>
+            <animation effect="slide" end="0,-30" time="0" condition="Control.IsVisible(1011)">Conditional</animation>
+            <animation effect="slide" end="0,-30" time="0" condition="Control.IsVisible(1012)">Conditional</animation>
+
+			<!-- Top Border -->
+			<control type="image" id="1">
+				<width>450</width>
+				<height>5</height>
+				<texture colordiffuse="labelheader">colors/white.png</texture>
+			</control>
+
+			<!-- Button Template -->
+			<control type="button" id="1000">
+				<width>450</width>
+				<height>60</height>
+				<font>font14</font>
+				<textoffsetx>15</textoffsetx>
+				<texturefocus border="12,0,12,0" colordiffuse="labelheader">list_item_focus.png</texturefocus>
+				<texturenofocus border="12,0,12,0" colordiffuse="labelheader">list_item_nofocus.png</texturenofocus>
+			</control>
+
+			<!-- Bottom Border -->
+			<control type="image" id="2">
+				<width>450</width>
+				<height>5</height>
+				<texture colordiffuse="labelheader">colors/white.png</texture>
+			</control>
 		</control>
+
 	</controls>
 </window>

@@ -15,10 +15,11 @@
 			<onright>9000</onright>
 			<onup>9000</onup>
 			<ondown>9000</ondown>
+			<!-- Top Border -->
 			<control type="image" id="1">
 				<width>450</width>
 				<height>5</height>
-				<texture colordiffuse="labelheader">colors\white.png</texture>
+				<texture colordiffuse="labelheader">colors/white.png</texture>
 			</control>
 			<!-- Exit Button -->
 			<control type="button" id="2">
@@ -173,7 +174,7 @@
 			<control type="image" id="16">
 				<width>450</width>
 				<height>5</height>
-				<texture colordiffuse="labelheader">colors\white.png</texture>
+				<texture colordiffuse="labelheader">colors/white.png</texture>
 			</control>
 		</control>
 	</controls>

@@ -14,7 +14,7 @@
 			<animation effect="slide" start="0,0" end="0,-10" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 			<width>1920</width>
 			<height>140</height>
-			<texture>black.png</texture>
+			<texture>colors/black.png</texture>
 		</control>
 		<!-- Bottom -->
 		<control type="image" zorder="0">
@@ -23,7 +23,7 @@
 			<animation effect="slide" start="0,0" end="0,10" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 			<width>1920</width>
 			<height>140</height>
-			<texture>black.png</texture>
+			<texture>colors/black.png</texture>
 		</control>
     </controls>
 </window>

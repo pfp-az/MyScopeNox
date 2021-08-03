@@ -654,7 +654,7 @@
 		<control type="image">
 			<left>82</left>
 			<top>680</top>
-			<width>356</width>
+			<width>358</width>
 			<height>120</height>
 			<aspectratio>keep</aspectratio>
 			<texture>aeon-nox-logo.png</texture>
@@ -668,7 +668,7 @@
 			<left>80</left>
 			<width>360</width>
 			<height>720</height>
-			<texture border="2,2,2,2" colordiffuse="labelheader">background_1px_border.png</texture>
+			<texture border="2,2,2,2" colordiffuse="labelheader">background/1px_border.png</texture>
 		</control>
 	</include>
 
@@ -679,7 +679,7 @@
 			<left>530</left>
 			<width>1340</width>
 			<height>720</height>
-			<texture border="2,2,2,2" colordiffuse="labelheader">background_1px_border.png</texture>
+			<texture border="2,2,2,2" colordiffuse="labelheader">background/1px_border.png</texture>
 		</control>
 	</include>
 

@@ -32,7 +32,7 @@
 				<left>81</left>
 				<top>61</top>
 				<width>358</width>
-				<height>610</height>
+				<height>600</height>
 				<onleft>SetProperty(MediaMenu,True,home)</onleft>
 				<onleft>SetFocus(9050)</onleft>
 				<onright>5</onright>
@@ -47,7 +47,7 @@
 			<control type="grouplist" id="5">
 				<left>531</left>
 				<top>61</top>
-				<width>1330</width>
+				<width>1338</width>
 				<height>600</height>
 				<onleft>3</onleft>
 				<onright>60</onright>
@@ -58,33 +58,34 @@
 			<!-- Scrollbar -->
 			<control type="scrollbar" id="60">
 				<left>1860</left>
-				<top>61</top>
-				<width>10</width>
-				<height>600</height>
+				<top>62</top>
+				<width>8</width>
+				<height>598</height>
 				<onleft>5</onleft>
 				<onright>3</onright>
 				<ondown>60</ondown>
 				<onup>60</onup>
 				<showonepage>false</showonepage>
-				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
+				<texturesliderbackground>colors/grey/40.png</texturesliderbackground>
+				<texturesliderbar>colors/grey/d0.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="labelheader">colors/white.png</texturesliderbarfocus>
 			</control>
 			<!-- Description background-->
 			<control type="image">
 				<visible>ControlGroup(5).HasFocus()</visible>
-				<left>530</left>
-				<top>670</top>
-				<width>1340</width>
-				<height>110</height>
-				<texture border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texture>
+				<left>531</left>
+				<top>660</top>
+				<width>1338</width>
+				<height>120</height>
+				<texture border="0,0,0,0" colordiffuse="labelheader">colors/white-trans/10.png</texture>
 			</control>
 			<!-- Description -->
 			<control type="textbox" id="6">
 				<visible>ControlGroup(5).HasFocus()</visible>
 				<left>561</left>
-				<top>680</top>
+				<top>670</top>
 				<width>1300</width>
+				<height>100</height>
 				<font>font14_textbox</font>
 				<textcolor>grey2</textcolor>
 				<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
@@ -100,59 +101,64 @@
 			<textoffsetx>20</textoffsetx>
 			<align>right</align>
 			<font>font15</font>
-			<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+			<texturenofocus></texturenofocus>
+			<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 		</control>
 		<!-- Default Button -->
 		<control type="button" id="7">
-			<width>1330</width>
+			<width>1338</width>
 			<height>60</height>
 			<font>font15</font>
 			<textcolor>grey2</textcolor>
 			<textoffsetx>30</textoffsetx>
 			<focusedcolor>white</focusedcolor>
-			<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+			<texturenofocus></texturenofocus>
+			<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 		</control>
 		<!-- Default RadioButton -->
 		<control type="radiobutton" id="8">
-			<width>1330</width>
+			<width>1338</width>
 			<height>60</height>
 			<font>font15</font>
 			<textcolor>grey2</textcolor>
 			<textoffsetx>30</textoffsetx>
 			<focusedcolor>white</focusedcolor>
-			<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+			<texturenofocus></texturenofocus>
+			<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 		</control>
 		<!-- Default SpinControlex -->
 		<control type="spincontrolex" id="9">
-			<width>1330</width>
+			<width>1338</width>
 			<height>60</height>
 			<font>font15</font>
 			<textcolor>grey2</textcolor>
 			<textoffsetx>30</textoffsetx>
 			<focusedcolor>white</focusedcolor>
-			<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+			<texturenofocus></texturenofocus>
+			<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 			<reverse>true</reverse>
 			<spinposx>10</spinposx>
 		</control>
 		<!-- Default Slider -->
 		<control type="sliderex" id="13">
-			<width>1330</width>
+			<width>1338</width>
 			<height>60</height>
 			<font>font15</font>
 			<textcolor>grey2</textcolor>
 			<textoffsetx>30</textoffsetx>
 			<focusedcolor>white</focusedcolor>
-			<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+			<texturenofocus></texturenofocus>
+			<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 		</control>
 		<!-- separator image -->
 		<control type="image" id="11">
-			<height>2</height>
-			<texture border="0,0,0,2">separator2.png</texture>
 			<visible>no</visible>
+			<height></height>
+			<texture></texture>
 		</control>
 		<!-- Default Label -->
 		<control type="label" id="14">
-			<width>1330</width>
+			<width>1338</width>
 			<height>60</height>
 			<font>font15</font>
 			<textcolor>themecolor</textcolor>

@@ -26,8 +26,8 @@
 				<top>0</top>
 				<left>0</left>
 				<width>1380</width>
-				<height>700</height>
-				<texture border="6,6,6,6" colordiffuse="labelheader">background_5px_border.png</texture>
+				<height>670</height>
+				<texture border="6,6,6,6" colordiffuse="labelheader">background/5px_border.png</texture>
 			</control>
 			<!-- Heading Background -->
 			<control type="image">
@@ -50,9 +50,8 @@
 			</control>
 			<!-- The text we came here to see -->
 			<control type="textbox">
-				<description>textarea</description>
 				<left>50</left>
-				<top>75</top>
+				<top>66</top>
 				<width>1280</width>
 				<height>600</height>
 				<font>font_30_ls_13</font>
@@ -63,15 +62,15 @@
 			<!-- Scrollbar -->
 			<control type="scrollbar" id="61">
 				<left>1365</left>
-				<top>65</top>
+				<top>67</top>
 				<width>10</width>
-				<height>635</height>
+				<height>598</height>
 				<ondown>61</ondown>
 				<onup>61</onup>
 				<showonepage>false</showonepage>
-				<texturesliderbackground />
-				<texturesliderbar border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
+				<texturesliderbackground>colors/grey/40.png</texturesliderbackground>
+				<texturesliderbar>colors/grey/d0.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="labelheader">colors/white.png</texturesliderbarfocus>
 				<orientation>vertical</orientation>
 			</control>
 		</control>

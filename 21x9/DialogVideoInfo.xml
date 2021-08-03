@@ -309,7 +309,7 @@
 							<control type="image">
 								<visible>Control.HasFocus(300)</visible>
 								<include>VisibleFadeAnimation</include>
-								<texture colordiffuse="$VAR[HighlightBarColor]" border="4">listselect_fo.png</texture>
+								<texture colordiffuse="labelheader">focus/42high.png</texture>
 							</control>
 							<control type="label">
 								<include>ButtonInfo</include>
@@ -459,6 +459,7 @@
 						<control type="button" id="8">
 							<width>65</width>
 							<texturenofocus></texturenofocus>
+							<texturefocus colordiffuse="labelheader">focus/45high.png</texturefocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
@@ -468,9 +469,10 @@
 							<visible>!String.IsEmpty(ListItem.Cast)</visible>
 							<width>65</width>
 							<texturenofocus></texturenofocus>
+							<texturefocus colordiffuse="labelheader">focus/45high.png</texturefocus>
 							<font>IconMediumMD</font>
-							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
+							<include>ButtonInfoDialogsCommonValues</include>
 							<onclick condition="!System.HasAddon(script.embuary.info)">SetFocus(50)</onclick>
 							<onclick condition="System.HasAddon(script.embuary.info)">SetFocus(90050)</onclick>
 						</control>
@@ -478,6 +480,7 @@
 						<control type="button" id="208">
 							<width>65</width>
 							<texturenofocus></texturenofocus>
+							<texturefocus colordiffuse="labelheader">focus/45high.png</texturefocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
@@ -492,6 +495,7 @@
 						<control type="button" id="7">
 							<width>65</width>
 							<texturenofocus></texturenofocus>
+							<texturefocus colordiffuse="labelheader">focus/45high.png</texturefocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
@@ -500,6 +504,7 @@
 						<control type="button" id="10">
 							<width>65</width>
 							<texturenofocus></texturenofocus>
+							<texturefocus colordiffuse="labelheader">focus/45high.png</texturefocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
@@ -510,6 +515,7 @@
 							<visible>String.IsEqual(ListItem.DBType,movie)</visible>
 							<width>65</width>
 							<texturenofocus></texturenofocus>
+							<texturefocus colordiffuse="labelheader">focus/45high.png</texturefocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
@@ -520,6 +526,7 @@
 							<visible>!String.IsEqual(ListItem.DBType,movie)</visible>
 							<width>65</width>
 							<texturenofocus></texturenofocus>
+							<texturefocus colordiffuse="labelheader">focus/45high.png</texturefocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
@@ -530,6 +537,7 @@
 						<control type="button" id="209">
 							<width>65</width>
 							<texturenofocus></texturenofocus>
+							<texturefocus colordiffuse="labelheader">focus/45high.png</texturefocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
@@ -540,6 +548,7 @@
 						<control type="button" id="6">
 							<width>65</width>
 							<texturenofocus></texturenofocus>
+							<texturefocus colordiffuse="labelheader">focus/45high.png</texturefocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
@@ -550,6 +559,7 @@
 							<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
 							<width>65</width>
 							<texturenofocus></texturenofocus>
+							<texturefocus colordiffuse="labelheader">focus/45high.png</texturefocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
@@ -596,7 +606,7 @@
 		<!-- Infopanel popup -->
 		<control type="group">
 			<width>1122</width>
-			<height>720</height>
+			<height>680</height>
 			<centerleft>50%</centerleft>
 			<centertop>50%</centertop>
 			<visible>!String.IsEmpty(Window.Property(Extra.Info))</visible>
@@ -613,8 +623,8 @@
 				<top>0</top>
 				<left>0</left>
 				<width>1100</width>
-				<height>720</height>
-				<texture border="6,6,6,6" colordiffuse="labelheader">background_5px_border.png</texture>
+				<height>671</height>
+				<texture border="6,6,6,6" colordiffuse="labelheader">background/5px_border.png</texture>
 			</control>
 			<!-- Heading Background -->
 			<control type="image">
@@ -637,7 +647,7 @@
 			</control>
 			<control type="list" id="9002">
 				<left>5</left>
-				<top>70</top>
+				<top>66</top>
 				<width>1080</width>
 				<height>600</height>
 				<onup>9002</onup>
@@ -675,7 +685,7 @@
 						<width>1080</width>
 						<height>60</height>
 						<include>VisibleFadeAnimation</include>
-						<texture border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texture>
+						<texture border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texture>
 					</control>
 					<control type="label">
 						<width>1080</width>
@@ -1012,17 +1022,17 @@
 			</control>
 			<control type="scrollbar" id="60">
 				<left>1085</left>
-				<top>70</top>
-				<height>600</height>
-				<width>10</width>
+				<top>67</top>
+				<height>598</height>
+				<width>8</width>
 				<onleft>9002</onleft>
 				<onright>9002</onright>
 				<ondown>60</ondown>
 				<onup>60</onup>
 				<showonepage>false</showonepage>
-				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="4">scrollbar/texturesliderbar3.png</texturesliderbar>
-				<texturesliderbarfocus border="4">scrollbar/texturesliderbar3.png</texturesliderbarfocus>
+				<texturesliderbackground>colors/grey/40.png</texturesliderbackground>
+				<texturesliderbar>colors/grey/d0.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="labelheader">colors/white.png</texturesliderbarfocus>
 				<animation effect="slide" start="0" end="157" time="0" tween="quadratic" condition="Control.IsVisible(3) + !Control.IsVisible(5)">Conditional</animation>
 			</control>
 		</control>

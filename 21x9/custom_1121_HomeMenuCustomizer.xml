@@ -10,8 +10,8 @@
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
 	<controls>
 		<include content="CommonBackground">
-			<param name="windowOpen" value="!Window.Previous(SkinSettings.xml)" />
-			<param name="windowClose" value="!Window.Next(SkinSettings.xml)" />
+			<param name="windowOpen" value="!Window.Previous(skinsettings)" />
+			<param name="windowClose" value="!Window.Next(skinsettings)" />
 		</include>
 
 		<include>Topbar</include>
@@ -20,18 +20,18 @@
 			<top>140</top>
 			<left>0</left>
 			<include content="WindowOpenCloseAnimation">
-				<param name="windowOpen" value="!Window.Previous(SkinSettings.xml)" />
-				<param name="windowClose" value="!Window.Next(SkinSettings.xml)" />
+				<param name="windowOpen" value="!Window.Previous(skinsettings)" />
+				<param name="windowClose" value="!Window.Next(skinsettings)" />
 			</include>
 
 			<!-- Left side -->
 			<include>SystemLeftPanel</include>
 			<!-- Areas -->
-			<control type="panel" id="90000">
-				<left>81</left>
+			<control type="list" id="90000">
+				<left>90</left>
 				<top>61</top>
-				<width>358</width>
-				<height>610</height>
+				<width>348</width>
+				<height>600</height>
 				<onleft>61</onleft>
 				<onright>90001</onright>
 				<onup>90000</onup>
@@ -54,8 +54,9 @@
 					<control type="image">
 						<width>358</width>
 						<height>60</height>
-						<texture border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texture>
-						<animation effect="fade" start="100" end="40" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(90000)">Conditional</animation>
+						<texture border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texture>
+						<animation effect="fade" start="100" end="40" time="100" tween="sine" easing="inout" condition="!Control.HasFocus(90000)">Conditional</animation>
+						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="label">
 						<width>358</width>
@@ -66,7 +67,6 @@
 						<textcolor>white</textcolor>
 						<selectedcolor>selected</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
-						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(90000)">Conditional</animation>
 					</control>
 				</focusedlayout>
 				<content>
@@ -93,18 +93,18 @@
 			</control>
 			<!-- Scrollbar -->
 			<control type="scrollbar" id="61">
-				<left>70</left>
-				<top>60</top>
-				<width>10</width>
-				<height>610</height>
+				<left>82</left>
+				<top>62</top>
+				<width>8</width>
+				<height>598</height>
 				<onleft>90000</onleft>
 				<onright>90000</onright>
 				<ondown>61</ondown>
 				<onup>61</onup>
 				<showonepage>false</showonepage>
-				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
+				<texturesliderbackground>colors/grey/40.png</texturesliderbackground>
+				<texturesliderbar>colors/grey/d0.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="labelheader">colors/white.png</texturesliderbarfocus>
 			</control>
 			<include>SettingsSkinLogo</include>
 
@@ -114,7 +114,7 @@
 			<control type="grouplist" id="90001">
 				<left>531</left>
 				<top>61</top>
-				<width>1340</width>
+				<width>1338</width>
 				<height>600</height>
 				<pagecontrol>60</pagecontrol>
 				<onleft>90000</onleft>
@@ -124,17 +124,13 @@
 				<pagecontrol>60</pagecontrol>
 				<!-- Enable/Disable Button -->
 				<control type="radiobutton" id="90010">
-					<include content="ConditionalWidth" condition="Control.IsVisible(60)">
-						<param name="width" value="1330" />
-					</include>
-					<include content="ConditionalWidth" condition="!Control.IsVisible(60)">
-						<param name="width" value="1340" />
-					</include>
+					<width>1338</width>
 					<height>60</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$LOCALIZE[305]</label>
-					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+					<texturenofocus></texturenofocus>
+					<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					<onfocus condition="String.IsEmpty(Container(90000).ListItem.Property(Disable))">ClearProperty(Nox.Disable,Home)</onfocus>
 					<onfocus condition="!String.IsEmpty(Container(90000).ListItem.Property(Disable))">SetProperty(Nox.Disable,True,home)</onfocus>
 					<onclick condition="String.IsEmpty(Container(90000).ListItem.Property(Disable))">SetProperty(Nox.Disable,True,home)</onclick>
@@ -146,34 +142,26 @@
 				</control>
 				<!-- Edit Label Button -->
 				<control type="button" id="90011">
-					<include content="ConditionalWidth" condition="Control.IsVisible(60)">
-						<param name="width" value="1330" />
-					</include>
-					<include content="ConditionalWidth" condition="!Control.IsVisible(60)">
-						<param name="width" value="1340" />
-					</include>
+					<width>1338</width>
 					<height>60</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$LOCALIZE[13334]</label>
 					<label2>$INFO[Container(90000).ListItem.Label,[COLOR labelheader],[/COLOR]]</label2>
-					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+					<texturenofocus></texturenofocus>
+					<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					<onclick>Skin.SetString($INFO[Container(90000).ListItem.Property(Item),,HomeItem.Label])</onclick>
 				</control>
 				<!-- Background Button -->
 				<control type="button" id="90012">
-					<include content="ConditionalWidth" condition="Control.IsVisible(60)">
-						<param name="width" value="1330" />
-					</include>
-					<include content="ConditionalWidth" condition="!Control.IsVisible(60)">
-						<param name="width" value="1340" />
-					</include>
+					<width>1338</width>
 					<height>60</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$LOCALIZE[31027]</label>
 					<label2>$VAR[BackgroundLabel2Var,[COLOR labelheader],[/COLOR]]</label2>
-					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+					<texturenofocus></texturenofocus>
+					<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					<onfocus>Skin.Reset(ItemToEdit.MultiFanart)</onfocus>
 					<onfocus>Skin.Reset(ItemToEdit.BGType)</onfocus>
 					<onclick>SetProperty(Nox.Temp,$INFO[Container(90000).ListItem.Property(Item),,HomeItem.MultiFanart],home)</onclick>
@@ -183,18 +171,14 @@
 				<!-- Default select action Button -->
 				<control type="button" id="90013">
 					<visible>!System.HasAddon(script.skinshortcuts)</visible>
-					<include content="ConditionalWidth" condition="Control.IsVisible(60)">
-						<param name="width" value="1330" />
-					</include>
-					<include content="ConditionalWidth" condition="!Control.IsVisible(60)">
-						<param name="width" value="1340" />
-					</include>
+					<width>1338</width>
 					<height>60</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$LOCALIZE[22079]</label>
 					<label2>$INFO[Container(90000).ListItem.Property(Path),[COLOR labelheader],[/COLOR]]</label2>
-					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+					<texturenofocus></texturenofocus>
+					<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					<onfocus>Skin.Reset(ItemToEdit.Path)</onfocus>
 					<onfocus>Skin.Reset(ItemToEdit.Label)</onfocus>
 					<onclick>SetProperty(Nox.Path,$INFO[Container(90000).ListItem.Property(Item),,HomeItem.Path],home)</onclick>
@@ -204,34 +188,26 @@
 				<!-- Default select action Button -->
 				<control type="button" id="90021">
 					<visible>System.HasAddon(script.skinshortcuts)</visible>
-					<include content="ConditionalWidth" condition="Control.IsVisible(60)">
-						<param name="width" value="1330" />
-					</include>
-					<include content="ConditionalWidth" condition="!Control.IsVisible(60)">
-						<param name="width" value="1340" />
-					</include>
+					<width>1338</width>
 					<height>60</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$LOCALIZE[22079]</label>
 					<label2>$INFO[Container(90000).ListItem.Property(Path),[COLOR labelheader],[/COLOR]]</label2>
-					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+					<texturenofocus></texturenofocus>
+					<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					<onclick>RunScript(script.skinshortcuts,type=shortcuts&amp;custom=True&amp;showNone=True&amp;skinLabel=$INFO[Container(90000).ListItem.Property(Item),,HomeItem.Label]&amp;skinAction=$INFO[Container(90000).ListItem.Property(Item),,HomeItem.Path])</onclick>
 				</control>
 				<!-- Widget Button -->
 				<control type="button" id="90014">
-					<include content="ConditionalWidth" condition="Control.IsVisible(60)">
-						<param name="width" value="1330" />
-					</include>
-					<include content="ConditionalWidth" condition="!Control.IsVisible(60)">
-						<param name="width" value="1340" />
-					</include>
+					<width>1338</width>
 					<height>60</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$LOCALIZE[31041]</label>
 					<label2>$INFO[Container(90000).ListItem.Property(WidgetLabel),[COLOR labelheader],[/COLOR]]</label2>
-					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+					<texturenofocus></texturenofocus>
+					<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					<onfocus>Skin.Reset(ItemToEdit.Widget)</onfocus>
 					<onfocus>Skin.Reset(ItemToEdit.WidgetLabel)</onfocus>
 					<onfocus>Skin.Reset(ItemToEdit.WidgetType)</onfocus>
@@ -243,51 +219,39 @@
 				<!-- Icon Button -->
 				<control type="button" id="90015">
 					<visible>Skin.HasSetting(mainmenuicons)</visible>
-					<include content="ConditionalWidth" condition="Control.IsVisible(60)">
-						<param name="width" value="1330" />
-					</include>
-					<include content="ConditionalWidth" condition="!Control.IsVisible(60)">
-						<param name="width" value="1340" />
-					</include>
+					<width>1338</width>
 					<height>60</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$LOCALIZE[31047]</label>
 					<label2 />
-					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
-					<onclick>Skin.SetFile($INFO[Container(90000).ListItem.Property(Item),,HomeItem.Icon],.png|.jpg|.bmp,special://skin/images/icons/)</onclick>
+					<texturenofocus></texturenofocus>
+					<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
+					<onclick>Skin.SetImage($INFO[Container(90000).ListItem.Property(Item),,HomeItem.Icon],special://skin/images/icons)</onclick>
 				</control>
 				<!-- Infoline Button -->
 				<control type="button" id="90016">
-					<include content="ConditionalWidth" condition="Control.IsVisible(60)">
-						<param name="width" value="1330" />
-					</include>
-					<include content="ConditionalWidth" condition="!Control.IsVisible(60)">
-						<param name="width" value="1340" />
-					</include>
+					<width>1338</width>
 					<height>60</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$LOCALIZE[31049]</label>
 					<label2>$VAR[InfoLineLabelVar,[COLOR labelheader],[/COLOR]]</label2>
-					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+					<texturenofocus></texturenofocus>
+					<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					<onfocus>Skin.Reset(ItemToEdit.InfoLine)</onfocus>
 					<onclick>SetProperty(Nox.InfoLine,$INFO[Container(90000).ListItem.Property(Item),,HomeItem.InfoLine],home)</onclick>
 					<onclick>ActivateWindow(1125)</onclick>
 				</control>
 				<!-- Move Item Button -->
 				<control type="button" id="90017">
-					<include content="ConditionalWidth" condition="Control.IsVisible(60)">
-						<param name="width" value="1330" />
-					</include>
-					<include content="ConditionalWidth" condition="!Control.IsVisible(60)">
-						<param name="width" value="1340" />
-					</include>
+					<width>1338</width>
 					<height>60</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$LOCALIZE[31073]</label>
-					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+					<texturenofocus></texturenofocus>
+					<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					<onclick>SetProperty(ItemToEdit.Label,$INFO[Container(90000).ListItem.Label],home)</onclick>
 					<onclick>SetProperty(ItemToEdit.Path,$INFO[Container(90000).ListItem.Property(Path)],home)</onclick>
 					<onclick>SetProperty(ItemToEdit.MultiFanart,$INFO[Container(90000).ListItem.Thumb],home)</onclick>
@@ -313,32 +277,24 @@
 				<!-- Manage SubMenu Button -->
 				<control type="button" id="90018">
 					<visible>System.HasAddon(script.skinshortcuts)</visible>
-					<include content="ConditionalWidth" condition="Control.IsVisible(60)">
-						<param name="width" value="1330" />
-					</include>
-					<include content="ConditionalWidth" condition="!Control.IsVisible(60)">
-						<param name="width" value="1340" />
-					</include>
+					<width>1338</width>
 					<height>60</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$LOCALIZE[31080]</label>
-					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+					<texturenofocus></texturenofocus>
+					<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=$INFO[Container(90000).ListItem.Property(submenuVisibility)])</onclick>
 				</control>
 				<!-- Reset Button -->
 				<control type="button" id="90020">
-					<include content="ConditionalWidth" condition="Control.IsVisible(60)">
-						<param name="width" value="1330" />
-					</include>
-					<include content="ConditionalWidth" condition="!Control.IsVisible(60)">
-						<param name="width" value="1340" />
-					</include>
+					<width>1338</width>
 					<height>60</height>
 					<textoffsetx>30</textoffsetx>
 					<font>font15</font>
 					<label>$LOCALIZE[10035]</label>
-					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+					<texturenofocus></texturenofocus>
+					<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					<onclick>Skin.Reset($INFO[Container(90000).ListItem.Property(Item),,HomeItem.Label])</onclick>
 					<onclick>Skin.Reset($INFO[Container(90000).ListItem.Property(Item),,HomeItem.Path])</onclick>
 					<onclick>Skin.Reset($INFO[Container(90000).ListItem.Property(Item),,HomeItem.MultiFanart])</onclick>
@@ -353,43 +309,44 @@
 			</control>
 			<!-- Icon Image (outside of grouplist) -->
 			<control type="image">
+				<visible>Skin.HasSetting(mainmenuicons)</visible>
 				<left>1729</left>
 				<top>360</top>
 				<width>60</width>
 				<height>60</height>
 				<texture background="true">$INFO[Container(90000).ListItem.ActualIcon]</texture>
-				<visible>Skin.HasSetting(mainmenuicons)</visible>
 				<animation effect="fade" start="100" end="70" time="100" tween="sine" easing="inout" condition="!Control.HasFocus(90015)">Conditional</animation>
 			</control>
 			<!-- Scrollbar -->
 			<control type="scrollbar" id="60">
 				<left>1860</left>
-				<top>61</top>
-				<width>10</width>
-				<height>600</height>
+				<top>62</top>
+				<width>8</width>
+				<height>598</height>
 				<onleft>90001</onleft>
 				<onright>90000</onright>
 				<ondown>60</ondown>
 				<onup>60</onup>
 				<showonepage>false</showonepage>
-				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
+				<texturesliderbackground>colors/grey/40.png</texturesliderbackground>
+				<texturesliderbar>colors/grey/d0.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="labelheader">colors/white.png</texturesliderbarfocus>
 			</control>
 			<!-- Description background-->
 			<control type="image">
 				<visible>ControlGroup(90001).HasFocus()</visible>
-				<left>530</left>
-				<top>670</top>
-				<width>1340</width>
-				<height>110</height>
+				<left>531</left>
+				<top>660</top>
+				<width>1338</width>
+				<height>120</height>
 				<texture border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texture>
 			</control>
 			<!-- Description -->
 			<control type="textbox">
 				<left>561</left>
-				<top>680</top>
+				<top>670</top>
 				<width>1300</width>
+				<height>100</height>
 				<font>font15_textbox</font>
 				<textcolor>grey2</textcolor>
 				<label>$VAR[SkinSettingsDescriptionVar]</label>

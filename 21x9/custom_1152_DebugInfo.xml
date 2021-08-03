@@ -245,6 +245,10 @@
 						<visible>Window.IsVisible(defaults.xml)</visible>
 					</item>
 					<item>
+						<label>AddonBrowser.xml</label>
+						<visible>Window.IsVisible(AddonBrowser.xml)</visible>
+					</item>
+					<item>
 						<label>DialogAddonInfo.xml</label>
 						<visible>Window.IsVisible(DialogAddonInfo.xml)</visible>
 					</item>

@@ -25,7 +25,7 @@
 				<left>0</left>
 				<width>900</width>
 				<height>500</height>
-				<texture border="6,6,6,6" colordiffuse="labelheader">background_5px_border.png</texture>
+				<texture border="6,6,6,6" colordiffuse="labelheader">background/5px_border.png</texture>
 			</control>
 			<!-- Heading Background -->
 			<control type="image">
@@ -62,7 +62,7 @@
 				<top>85</top>
 				<width>850</width>
 				<height>300</height>
-				<texture border="2,2,2,2" colordiffuse="labelheader">background_1px_border.png</texture>
+				<texture border="2,2,2,2" colordiffuse="labelheader">background/1px_border.png</texture>
 			</control>
 			<!-- Message -->
 			<control type="textbox" id="9">
@@ -96,7 +96,7 @@
 					<onright>10</onright>
 					<onup>11</onup>
 					<ondown>11</ondown>
-					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+					<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texturenofocus>
 				</control>
 				<!-- No button / Cancel button -->
@@ -112,7 +112,7 @@
 					<onright>11</onright>
 					<onup>10</onup>
 					<ondown>10</ondown>
-					<texturefocus border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texturefocus>
+					<texturefocus border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texturefocus>
 					<texturenofocus border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texturenofocus>
 				</control>
 			</control>

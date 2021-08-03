@@ -46,7 +46,7 @@
 				<top>140</top> <!-- Need to define here due to animation on control-->
 				<width>1387</width>
 				<height>800</height>
-				<texture>colors\TMDB-primary.png</texture>
+				<texture>colors/tmdb-primary.png</texture>
 			</control>
 			<!-- Info -->
 			<control type="group">
@@ -85,7 +85,7 @@
 						<width>190</width>
 						<height>81</height>
 						<aspectratio>keep</aspectratio>
-						<texture background="true">logos\TMDB\TMDB-primary-short.png</texture>
+						<texture background="true">logos/TMDB/TMDB-primary-short.png</texture>
 					</control>
 				</control>
 				<!-- Seperator -->
@@ -200,6 +200,7 @@
 							<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
 							<width>65</width>
 							<texturenofocus></texturenofocus>
+							<texturefocus colordiffuse="labelheader">focus/45high.png</texturefocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>

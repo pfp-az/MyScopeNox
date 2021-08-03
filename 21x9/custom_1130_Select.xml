@@ -29,7 +29,7 @@
 				<left>0</left>
 				<width>650</width>
 				<height>600</height>
-				<texture border="6,6,6,6" colordiffuse="labelheader">background_5px_border.png</texture>
+				<texture border="6,6,6,6" colordiffuse="labelheader">background/5px_border.png</texture>
 			</control>
 			<!-- Heading Background -->
 			<control type="image">
@@ -37,7 +37,7 @@
 				<left>5</left>
 				<width>640</width>
 				<height>60</height>
-				<texture border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texture>
+				<texture border="0,0,0,0" colordiffuse="labelheader">colors/white-trans/10.png</texture>
 			</control>
 			<!-- Heading Label -->
 			<control type="label">
@@ -79,7 +79,7 @@
 						<width>640</width>
 						<height>60</height>
 						<include>VisibleFadeAnimation</include>
-						<texture border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texture>
+						<texture border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texture>
 					</control>
 					<control type="label">
 						<width>640</width>

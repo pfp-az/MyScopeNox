@@ -11,8 +11,8 @@
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
 	<controls>
 		<include content="CommonBackground">
-			<param name="windowOpen" value="![Window.Previous(SettingsCategory.xml) | Window.Previous(systeminfo) | Window.Previous(profiles)]" />
-			<param name="windowClose" value="![Window.Next(SettingsCategory.xml) | Window.Next(systeminfo) | Window.Next(profiles)]" />
+			<param name="windowOpen" value="![Window.Previous(SettingsCategory.xml) | Window.Previous(systeminfo) | Window.Previous(profiles) | Window.Previous(service-LibreELEC-Settings-mainWindow.xml)]" />
+			<param name="windowClose" value="![Window.Next(SettingsCategory.xml) | Window.Next(systeminfo) | Window.Next(profiles) | Window.Next(service-LibreELEC-Settings-mainWindow.xml)]" />
 		</include>
 
 		<include>Topbar</include>
@@ -21,8 +21,8 @@
 			<top>140</top>
 			<left>0</left>
 			<include content="WindowOpenCloseAnimation">
-				<param name="windowOpen" value="![Window.Previous(SettingsCategory.xml) | Window.Previous(systeminfo) | Window.Previous(profiles)]" />
-				<param name="windowClose" value="![Window.Next(SettingsCategory.xml) | Window.Next(systeminfo) | Window.Next(profiles)]" />
+				<param name="windowOpen" value="![Window.Previous(SettingsCategory.xml) | Window.Previous(systeminfo) | Window.Previous(profiles) | Window.Previous(service-LibreELEC-Settings-mainWindow.xml)]" />
+				<param name="windowClose" value="![Window.Next(SettingsCategory.xml) | Window.Next(systeminfo) | Window.Next(profiles) | Window.Next(service-LibreELEC-Settings-mainWindow.xml)]" />
 			</include>
 
 			<!-- Left side -->
@@ -32,7 +32,7 @@
 				<left>81</left>
 				<top>61</top>
 				<width>358</width>
-				<height>610</height>
+				<height>600</height>
 				<onleft>SetProperty(MediaMenu,True,home)</onleft>
 				<onleft>SetFocus(9050)</onleft>
 				<onright>noop</onright>
@@ -55,7 +55,7 @@
 						<visible>Control.HasFocus(9000)</visible>
 						<width>358</width>
 						<height>60</height>
-						<texture border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texture>
+						<texture border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texture>
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="label">

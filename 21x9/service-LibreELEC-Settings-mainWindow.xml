@@ -9,7 +9,10 @@
 	<onload>ClearProperty(MediaMenu,Home)</onload>
 	<onunload>ClearProperty(Window.HasSettings,Home)</onunload>
 	<controls>
-		<include content="CommonBackground"></include>
+		<include content="CommonBackground">
+			<param name="windowOpen" value="!Window.Previous(settings)" />
+			<param name="windowClose" value="!Window.Next(settings)" />
+		</include>
 
 		<include>Topbar</include>
  
@@ -17,8 +20,8 @@
 			<top>140</top>
 			<left>0</left>
 			<include content="WindowOpenCloseAnimation">
-				<param name="windowOpen" value="!Window.Previous(SkinSettings.xml)" />
-				<param name="windowClose" value="!Window.Next(SkinSettings.xml)" />
+				<param name="windowOpen" value="!Window.Previous(settings)" />
+				<param name="windowClose" value="!Window.Next(settings)" />
 			</include>
 
 			<!-- Left side -->
@@ -28,7 +31,7 @@
 				<left>81</left>
 				<top>61</top>
 				<width>358</width>
-				<height>610</height>
+				<height>600</height>
                 <onleft>9000</onleft>
                 <onright>9000</onright>
                 <onup>1000</onup>
@@ -52,7 +55,7 @@
 						<visible>Control.HasFocus(1000)</visible>
 						<width>358</width>
                         <height>60</height>
-						<texture border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texture>
+						<texture border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texture>
                         <include>VisibleFadeAnimation</include>
                     </control>
                     <control type="label">
@@ -75,7 +78,7 @@
 				<width>358</width>
 				<height>120</height>
 				<aspectratio>keep</aspectratio>
-				<texture>libreelec\Logo.png</texture>
+				<texture>libreelec/Logo.png</texture>
 			</control>
 
 			<!-- Right side -->
@@ -87,7 +90,7 @@
                     <visible>String.IsEqual(Container(1000).ListItem.Property(listTyp), 1100)</visible>
 					<left>531</left>
 					<top>61</top>
-					<width>1340</width>
+					<width>1338</width>
 					<height>600</height>
                     <onleft>1000</onleft>
                     <onright>60</onright>
@@ -156,7 +159,7 @@
                             <visible>String.IsEqual(ListItem.Property(Typ), separator)</visible>
                             <control type="label">
                                 <visible>true</visible>
-								<width>1330</width>
+								<width>1338</width>
 								<height>60</height>
                                 <font>font15_title</font>
                                 <textcolor>themecolor</textcolor>
@@ -168,7 +171,7 @@
                         <control type="group">
                             <visible>!String.IsEqual(ListItem.Property(Typ), separator) + !Control.HasFocus(1100)</visible>
                             <control type="label">
-								<width>1330</width>
+								<width>1338</width>
 								<height>60</height>
                                 <font>font15</font>
                                 <textcolor>grey2</textcolor>
@@ -177,7 +180,7 @@
                             </control>
                             <control type="label">
                                 <visible>!String.IsEqual(ListItem.Property(Typ), bool) + !String.IsEqual(ListItem.Property(Typ), button)</visible>
-								<width>1330</width>
+								<width>1338</width>
 								<height>60</height>
 								<font>font15</font>
                                 <align>right</align>
@@ -190,9 +193,9 @@
                         <control type="group">
                             <visible>!String.IsEqual(ListItem.Property(Typ), separator) + Control.HasFocus(1100)</visible>
                             <control type="image">
-								<width>1330</width>
+								<width>1338</width>
 								<height>60</height>
-								<texture border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texture>
+								<texture border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texture>
                             </control>
                             <control type="label">
 								<width>1330</width>
@@ -204,7 +207,7 @@
                             </control>
                             <control type="label">
                                 <visible>!String.IsEqual(ListItem.Property(Typ), bool) + !String.IsEqual(ListItem.Property(Typ), button)</visible>
-								<width>1330</width>
+								<width>1338</width>
 								<height>60</height>
                                 <font>font15</font>
                                 <align>right</align>
@@ -236,20 +239,18 @@
                     </focusedlayout>
                 </control>
 
-
-
-				<!-- Connections ??? -->
+				<!-- Connections -->
                 <control type="list" id="1200">
                     <visible>String.IsEqual(Container(1000).ListItem.Property(listTyp), 1200)</visible>
 					<left>531</left>
 					<top>61</top>
-					<width>1340</width>
+					<width>1338</width>
 					<height>600</height>
                     <onleft>1000</onleft>
                     <onright>60</onright>
                     <pagecontrol>60</pagecontrol>
                     <scrolltime tween="quadratic" easing="out">200</scrolltime>
-                    <itemlayout height="60">
+                    <itemlayout height="90">
                         <!-- Icon ethernet -->
                         <control type="image">
                             <visible>String.IsEqual(ListItem.Property(netType), ethernet)</visible>
@@ -365,12 +366,12 @@
                             <texture>libreelec/icons/Key.png</texture>
                         </control>
                     </itemlayout>
-                    <focusedlayout height="60">
+                    <focusedlayout height="90">
                         <control type="image">
 							<visible>Control.HasFocus(1200)</visible>
-							<width>1330</width>
+							<width>1338</width>
 							<height>60</height>
-							<texture border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texture>
+							<texture border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texture>
                         </control>
                         <!-- Icon ethernet -->
                         <control type="image">
@@ -558,7 +559,8 @@
                         </control>
                     </focusedlayout>
                 </control>
-				<!-- Bluetooth (disabled) ??? -->
+
+				<!-- Bluetooth (disabled) -->
                 <control type="label" id="1301">
 					<visible>String.IsEqual(Container(1000).ListItem.Property(listTyp), 1300) + String.IsEqual(Container(1300).NumItems, 0)</visible>
 					<left>522</left>
@@ -570,18 +572,19 @@
                     <font>font48</font>
                     <info />
                 </control>
-				<!-- Bluetooth ??? -->
+
+				<!-- Bluetooth -->
                 <control type="list" id="1300">
                     <visible>String.IsEqual(Container(1000).ListItem.Property(listTyp), 1300)</visible>
 					<left>531</left>
 					<top>61</top>
-					<width>1340</width>
+					<width>1338</width>
 					<height>600</height>
                     <onleft>1000</onleft>
                     <onright>60</onright>
                     <pagecontrol>60</pagecontrol>
                     <scrolltime tween="quadratic" easing="out">200</scrolltime>
-                    <itemlayout height="60">
+                    <itemlayout height="90">
                         <!-- default -->
                         <control type="image">
                             <visible>String.IsEqual(ListItem.Property(Icon), default)</visible>
@@ -754,12 +757,12 @@
                             <texture>libreelec/icons/Key.png</texture>
                         </control>
                     </itemlayout>
-                    <focusedlayout height="60">
+                    <focusedlayout height="90">
                         <control type="image">
                             <visible>Control.HasFocus(1300)</visible>
-							<width>1330</width>
+							<width>1338</width>
 							<height>60</height>
-							<texture border="0,0,0,0" colordiffuse="labelheader">button_focus.png</texture>
+							<texture border="0,0,0,0" colordiffuse="labelheader">focus/60high.png</texture>
                         </control>
                         <!-- default -->
                         <control type="image">
@@ -971,12 +974,13 @@
                         </control>
                     </focusedlayout>
                 </control>
-				<!-- About ??? -->
+
+				<!-- About -->
                 <control type="group" id="1900">
                    <control type="grouplist">
 						<left>531</left>
 						<top>61</top>
-						<width>1340</width>
+						<width>1338</width>
 						<height>600</height>
                         <itemgap>30</itemgap>
                         <pagecontrol>60</pagecontrol>
@@ -1049,36 +1053,38 @@
                     </control>
                 </control>
             </control>
+
 			<!-- Scrollbar -->
             <control type="scrollbar" id="60">
 				<left>1860</left>
-				<top>61</top>
-				<width>10</width>
-				<height>600</height>
+				<top>62</top>
+				<width>8</width>
+				<height>598</height>
                 <onleft>9000</onleft>
                 <onright>1500</onright>
                 <ondown>60</ondown>
                 <onup>60</onup>
                 <showonepage>false</showonepage>
-                <texturesliderbackground />
-                <texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-                <texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
+				<texturesliderbackground>colors/grey/40.png</texturesliderbackground>
+				<texturesliderbar>colors/grey/d0.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="labelheader">colors/white.png</texturesliderbarfocus>
             </control>
  			<!-- Description background-->
 			<control type="image">
 				<visible>ControlGroup(9000).HasFocus()</visible>
-				<left>530</left>
-				<top>670</top>
-				<width>1340</width>
-				<height>110</height>
+				<left>531</left>
+				<top>660</top>
+				<width>1338</width>
+				<height>120</height>
 				<texture border="0,0,0,0" colordiffuse="labelheader">colors\white-trans\10.png</texture>
 			</control>
 			<!-- Description -->
            <control type="textbox" id="1400">
                 <visible>ControlGroup(9000).HasFocus()</visible>
 				<left>561</left>
-				<top>680</top>
+				<top>670</top>
 				<width>1300</width>
+				<height>100</height>
                 <font>font15_textbox</font>
                 <textcolor>grey2</textcolor>
                 <label>$INFO[Window.Property(InfoText)]</label>
@@ -1088,7 +1094,7 @@
             </control>
 
 
-            <!-- Main Menu (left) -->
+            <!-- Main Menu (left) ??? -->
             <control type="button" id="1501">
                 <left>1100</left>
                 <top>810</top>
