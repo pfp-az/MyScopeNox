@@ -24,7 +24,7 @@
 			<!-- ??? -->
 			<control type="group">
 				<visible>![Window.IsActive(home) | Window.IsActive(startup) | [Window.IsVisible(TVGuide) + Player.HasVideo]] | Window.IsActive(script-globalsearch-main.xml)</visible>
-				<visible>![Control.IsVisible(59) | Control.IsVisible(501) | Control.IsVisible(502) | Control.IsVisible(503)]</visible>
+				<visible>![Control.IsVisible(501) | Control.IsVisible(502) | Control.IsVisible(503)]</visible>
 				<!-- Added this next line becasue I think this is being applied to the settings pages inadvertently -->
 				<visible>![Window.IsActive(Settings.xml) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(SkinSettings.xml) | Window.IsActive(SettingsProfile.xml) | Window.IsActive(SettingsSystemInfo.xml) | Window.IsActive(custom_1121_HomeMenuCustomizer.xml) | Window.IsActive(service-LibreELEC-Settings-mainWindow.xml)]</visible>
 				<include content="WindowOpenCloseAnimation">
@@ -33,41 +33,31 @@
 				</include>
 				<depth>MinDepth</depth>
 				<include>ViewAnimation</include>
-				<animation effect="slide" start="0,0" end="0,80" time="720" tween="cubic" easing="inout" condition="![[Control.IsVisible(52) + !Window.IsActive(systeminfo)] | Control.IsVisible(53) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(500) | Control.IsVisible(57)]">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,-20" time="720" tween="cubic" easing="inout" condition="[Control.IsVisible(58) | Control.IsVisible(510)]">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,80" time="720" tween="cubic" easing="inout" condition="![[!Window.IsActive(systeminfo)] | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(57) | Control.IsVisible(500)]">Conditional</animation>
+
+				<!-- Dim the fanart -->
 				<control type="image">
-					<visible>![Control.IsVisible(59) | Control.IsVisible(56) | Control.IsVisible(57)]</visible>
-					<bottom>206</bottom>
-					<width>696</width>
-					<height>914</height>
-					<texture border="1">vignette.png</texture>
-					<animation effect="slide" tween="cubic" time="720" start="-696" end="0,0">VisibleChange</animation>
-				</control>
-				<control type="image">
-					<visible>![Control.IsVisible(59) | Control.IsVisible(56) | Control.IsVisible(57)]</visible>
-					<right>0</right>
-					<bottom>206</bottom>
-					<width>696</width>
-					<height>914</height>
-					<texture flipx="true" border="1">vignette.png</texture>
-					<animation effect="slide" tween="cubic" time="720" start="696" end="0,0">VisibleChange</animation>
-				</control>
-				<control type="image">
-					<bottom>0</bottom>
+					<top>0</top>
+					<left>0</left>
+					<height>100%</height>
 					<width>100%</width>
-					<height>680</height>
-					<texture>floor.png</texture>
+					<texture>colors/black-trans/50.png</texture>
+				</control>
+
+				<!-- Only for Shift, and Wall views -->
+				<!-- Background for bottom info bar -->
+				<control type="image">
+					<visible>Control.IsVisible(57) | Control.IsVisible(500)</visible>
+					<top>840</top>
+					<width>100%</width>
+					<height>110</height>
+					<texture>colors/black.png</texture>
 				</control>
 			</control>
-			<!-- Not sure why this is here so disabling it  
-			<control type="image">
-				<visible>Control.IsVisible(59)</visible>
-				<include>FullscreenDimensions</include>
-				<texture border="1">logo_back.png</texture>
-				<include>ViewAnimation</include>
-			</control>-->
+
 		</definition>
 	</include>
+
 	<include name="BackgroundVideo">
 		<control type="group">
 			<visible>![[Control.IsVisible(52) | Control.IsVisible(53)] + String.IsEqual(Control.GetLabel(4420),1)]</visible>

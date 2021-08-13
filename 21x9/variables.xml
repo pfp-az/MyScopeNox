@@ -2,8 +2,18 @@
 <!-------------------------------------------------------------------------------------------------------------------------------->
 <!-- This is a file of includes used to define variables used throughout the skin.                                              -->
 <!-------------------------------------------------------------------------------------------------------------------------------->
-
 <includes>
+
+	<variable name="BannerThumb">
+		<value condition="!String.IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
+		<value>$INFO[ListItem.Icon]</value>
+	</variable>
+
+	<variable name="PosterThumb">
+		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+		<value>$INFO[ListItem.Icon]</value>
+	</variable>
+
 	<variable name="GlobalBackgroundVar">
 		<value condition="!String.IsEmpty(ListItem.Art(extrafanart1)) + !Skin.HasSetting(Disable.Extrafanart) + !Skin.HasSetting(Disable.Fanart)">$INFO[Control.GetLabel(4410)]</value>
 		<value condition="!String.IsEmpty(Container.ListItem.Art(fanart)) + !Skin.HasSetting(Disable.Fanart)">$INFO[Container.ListItem.Art(fanart)]</value>

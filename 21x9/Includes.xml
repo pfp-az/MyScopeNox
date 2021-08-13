@@ -9,6 +9,7 @@
 	<include file="IncludesVideoLyrics.xml" />
 	<include file="Includes_CommonValues.xml" />
 	<include file="Includes_Animations.xml" />
+	<include file="includes_menu.xml" />
 	<include file="includes_extendedinfo.xml" />
 	<include file="Includes_Home.xml" />
 	<include file="Includes_LiveBG.xml" />
@@ -16,137 +17,30 @@
 	<include file="Includes_LiveTV_Views.xml" />
 	<include file="Includes_Backgrounds.xml" />
 	<include file="Includes_Widgets.xml" />
-	<include file="Includes_16x9.xml" condition="!String.IsEqual(Skin.AspectRatio,21:9)" />
-	<include file="Includes_21x9.xml" condition="String.IsEqual(Skin.AspectRatio,21:9)" />
 	<include file="View_50_List.xml" />
 	<include file="View_51_InfoWall.xml" />
-	<include file="View_52_Landscape.xml" condition="!String.IsEqual(Skin.AspectRatio,21:9)" />
-	<include file="View_53_ShowCase.xml" condition="!String.IsEqual(Skin.AspectRatio,21:9)" />
-	<include file="View_54_ShowCase.xml" condition="!String.IsEqual(Skin.AspectRatio,21:9)" />
-	<include file="View_52_Landscape_21x9.xml" condition="String.IsEqual(Skin.AspectRatio,21:9)" />
-	<include file="View_53_ShowCase_21x9.xml" condition="String.IsEqual(Skin.AspectRatio,21:9)" />
-	<include file="View_54_ShowCase_21x9.xml" condition="String.IsEqual(Skin.AspectRatio,21:9)" />
+	<include file="View_54_ShowCase.xml" />
 	<include file="View_55_TriPanel.xml" />
-	<include file="View_56_Posters.xml" />
 	<include file="View_57_Shift.xml" />
-	<include file="View_58_BannerWall.xml" />
-	<include file="View_59_Logo.xml" />
 	<include file="View_500_Wall.xml" />
 	<include file="View_501_LowList.xml" />
 	<include file="View_502_Episode.xml" />
 	<include file="View_503_Wall.xml" />
-	<include file="View_510_BigList.xml" />
 	<include file="script-skinshortcuts-includes.xml" />
-	<variable name="BannerThumb">
-		<value condition="!String.IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
-		<value>$INFO[ListItem.Icon]</value>
-	</variable>
-	<variable name="PosterThumb">
-		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
-		<value>$INFO[ListItem.Icon]</value>
-	</variable>
-	<!-- Media Menu -->
-	<include name="SideBladeLeft">
-		<animation effect="slide" start="440,0" end="0,0" time="400" tween="quadratic" easing="out" condition="String.IsEmpty(Window(home).Property(MediaMenu))">Conditional</animation>
-		<animation effect="slide" start="0,0" end="-440,0" time="400" tween="quadratic" easing="out">WindowClose</animation>
-		<animation effect="slide" start="0,0" end="0,-10" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
-		<!-- <top>44</top> -->
-		<control type="image">
-			<left>0</left>
-			<top>140</top>
-			<width>432</width>
-			<height>810</height>
-			<texture border="40">mediamenu_back.png</texture>
-		</control>
-		<control type="button" id="9051">
-			<include>HiddenObject</include>
-			<onfocus condition="String.IsEmpty(Window(Home).Property(MediaMenu))">SetProperty(MediaMenu,True,home)</onfocus>
-			<onfocus condition="String.IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(9050)</onfocus>
-			<onfocus condition="!String.IsEmpty(Window(Home).Property(MediaMenu))">ClearProperty(MediaMenu,Home)</onfocus>
-			<onfocus condition="!String.IsEmpty(Window(Home).Property(MediaMenu))">SetFocus(50)</onfocus>
-		</control>
-		<control type="button" id="8999">
-			<description>Close Window button</description>
-			<left>350</left>
-			<top>140</top>
-			<width>64</width>
-			<height>48</height>
-			<label></label>
-			<font>CloseButton</font>
-			<textcolor>grey</textcolor>
-			<focusedcolor>themecolor</focusedcolor>
-			<onclick>ClearProperty(MediaMenu,Home)</onclick>
-			<onclick>SetFocus(50)</onclick>
-			<texturefocus />
-			<texturenofocus />
-			<visible>system.getbool(input.enablemouse)</visible>
-		</control>
-		<control type="image">
-			<description>LOGO</description>
-			<left>0</left>
-			<top>140</top>
-			<width>400</width>
-			<height>120</height>
-			<aspectratio>keep</aspectratio>
-			<texture>aeon-nox-logo.png</texture>
-		</control>
+
+	<include name="FocusPosition4">
+		<focusposition>4</focusposition>
 	</include>
-	<include name="KioskModeButton">
-		<control type="button">
-			<description>Kiosk Mode button</description>
-			<include>ButtonCommonValues</include>
-			<label />
-			<onfocus>ClearProperty(MediaMenu,Home)</onfocus>
-			<onfocus>SetFocus(50)</onfocus>
-		</control>
+
+	<include name="FocusPosition2">
+		<focusposition>2</focusposition>
 	</include>
-	<include name="MediaMenuTop">
-		<left>0</left>
-		<top>215</top>
-		<width>400</width>
-		<height>720</height>
-		<onleft>9050</onleft>
-		<onright>ClearProperty(MediaMenu,Home)</onright>
-		<onright>50</onright>
-		<onup>9050</onup>
-		<ondown>9050</ondown>
-		<onback>ClearProperty(MediaMenu,Home)</onback>
-		<onback>50</onback>
-		<include condition="Skin.HasSetting(KioskMode.Enabled)">KioskModeButton</include>
-		<animation effect="fade" start="100" end="0" time="200" condition="Window.IsVisible(1129)" reversible="true">conditional</animation>
-		<control type="button" id="200">
-			<label>31006</label>
-			<textwidth>352</textwidth>
-			<font>font12_title</font>
-			<include>ButtonCommonValues</include>
-			<enable>no</enable>
-			<disabledcolor>themecolor</disabledcolor>
-		</control>
-		<control type="button" id="2000">
-			<description>View As button</description>
-			<textwidth>352</textwidth>
-			<include>ButtonCommonValues</include>
-			<label>$INFO[Container.Viewmode,$LOCALIZE[31100] ]</label>
-			<onclick>ActivateWindow(1129)</onclick>
-		</control>
-		<control type="button" id="3">
-			<description>Sort by button</description>
-			<include>ButtonCommonValues</include>
-			<label>103</label>
-		</control>
-		<control type="togglebutton" id="4">
-			<description>Sort asc</description>
-			<include>ButtonCommonValues</include>
-			<label>31051</label>
-			<altlabel>31050</altlabel>
-			<usealttexture>Container.SortDirection(Ascending)</usealttexture>
-		</control>
-		<control type="button" id="2001">
-			<include>ButtonCommonValues</include>
-			<label>$LOCALIZE[19190]</label>
-			<onclick>ActivateWindow(1128)</onclick>
-		</control>
+
+	<include name="HomeSubMenuPos">
+		<focusposition>2</focusposition>
+		<movement>2</movement>
 	</include>
+
 	<include name="PVRMediaMenu">
 		<control type="group">
 			<left>-440</left>
@@ -302,6 +196,7 @@
 			</control>
 		</control>
 	</include>
+
 	<include name="NoMediaMenu">
 		<top>225</top>
 		<width>400</width>
@@ -370,31 +265,6 @@
 			<visible>Player.HasMedia</visible>
 		</control>
 	</include>
-	<!-- Scroll Label -->
-	<include name="ScrollOffsetLabel">
-		<control type="group">
-			<visible>!Control.HasFocus(615)</visible>
-			<visible>Container.Scrolling + [String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556])]</visible>
-			<animation effect="slide" tween="cubic" easing="inout" time="400" start="160" end="0">VisibleChange</animation>
-			<right>-34</right>
-			<top>190</top>
-			<width>160</width>
-			<control type="image">
-				<width>160</width>
-				<height>160</height>
-				<texture border="35">listpanel_back.png</texture>
-			</control>
-			<control type="label">
-				<top>15</top>
-				<width>160</width>
-				<height>120</height>
-				<align>center</align>
-				<label>$INFO[ListItem.SortLetter]</label>
-				<textcolor>white</textcolor>
-				<font>font_MainMenu</font>
-			</control>
-		</control>
-	</include>
 
 	<!-- Context menu -->
 	<include name="AdvancedLauncherTrailerButton">
@@ -410,6 +280,7 @@
 			<visible>!String.IsEmpty(ListItem.Trailer)</visible>
 		</control>
 	</include>
+
 	<!-- Extras -->
 	<include name="PlayListStatsList">
 		<control type="list" id="43260">
@@ -424,6 +295,7 @@
 			<content>$VAR[PlaylistStatsContentVar]</content>
 		</control>
 	</include>
+
 	<include name="HomeSearchButton">
 		<control type="button" id="9027">
 			<label></label>
@@ -445,6 +317,7 @@
 			</animation>
 		</control>
 	</include>
+
 	<include name="ExtendedInfoAutoComplete">
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="300" condition="String.IsEmpty(Container(5000).ListItem.Label)">conditional</animation>
@@ -521,6 +394,33 @@
 <!-------------------------------------------------------------------------------------------------------------------------------->
 
 
+
+	<!-- Letter indicator when a media list is scrolling -->
+	<include name="ScrollOffsetLabel">
+		<control type="group">
+			<visible>!Control.HasFocus(615)</visible>
+			<visible>Container.Scrolling + [String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556])]</visible>
+			<animation effect="slide" tween="cubic" easing="inout" time="400" start="160" end="0">VisibleChange</animation>
+			<top>180</top>
+			<right>0</right>
+			<width>100</width>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture border="2,2,2,2" colordiffuse="labelheader">background/1px_border.png</texture>
+			</control>
+			<control type="label">
+				<top>0</top>
+				<width>100</width>
+				<height>100</height>
+				<align>center</align>
+				<label>$INFO[ListItem.SortLetter]</label>
+				<textcolor>white</textcolor>
+				<font>font_MainMenu</font>
+			</control>
+		</control>
+	</include>
+
 	<!-- Bar at the top of most screens -->
 	<include name="Topbar">
 		<control type="group">
@@ -533,7 +433,7 @@
 				<top>140</top>
 				<width>100%</width>
 				<height>40</height>
-				<texture border="1">colors\black-trans\80.png</texture>
+				<texture border="1">colors/black-trans/80.png</texture>
 			</control>
 			<!-- Current location -->
 			<control type="label">
@@ -1122,70 +1022,6 @@
 		<param name="texture" />
 		<definition>
 			<texture background="true">$PARAM[texture]</texture>
-		</definition>
-	</include>
-
-	<!-- Draws a box with border, a simple replacement for dedicated background images.  Should not be used any more -->
-	<include name="BuildPanelBackground">
-		<param name="height" />
-		<param name="width" />
-		<param name="topborder" default="true" />
-		<param name="bottomborder" default="true" />
-		<param name="rightborder" default="true" />
-		<param name="leftborder" default="true" />
-		<param name="bordersize" default="4" /> 
-		<param name="bordercolor" default="labelheader" />  <!-- Pass "color/trans.png" if you don't want a border -->
-		<param name="color" default="black" />
-		<param name="coloralpha" default="FF" />  <!-- Pass code for desired transparency - Examples: FF=100%, F2=95%, E6=90%, D9=85%, CC=80%, BF=75%, B3=70%, A6=65%, 99=60%, 8C=55%, 80=50% -->
-		<definition>
-			<control type="group">
-				<top>0</top>
-				<left>0</left>
-				<width>$PARAM[width]</width>
-				<height>$PARAM[height]</height>
-				<!-- background -->
-				<control type="image">
-					<width>$PARAM[width]</width>
-					<height>$PARAM[height]</height>
-					<texture colordiffuse="$PARAM[coloralpha]FFFFFF">colors/$PARAM[color].png</texture>
-				</control>
-				<!-- top border -->
-				<control type="image">
-					<visible>$PARAM[topborder]</visible>
-					<top>0</top>
-					<left>0</left>
-					<width>$PARAM[width]</width>
-					<height>$PARAM[bordersize]</height>
-					<texture colordiffuse="$PARAM[bordercolor]">colors/white.png</texture>
-				</control>
-				<!-- left border -->
-				<control type="image">
-					<visible>$PARAM[leftborder]</visible>
-					<top>0</top>
-					<left>0</left>
-					<width>$PARAM[bordersize]</width>
-					<height>$PARAM[height]</height>
-					<texture colordiffuse="$PARAM[bordercolor]">colors/white.png</texture>
-				</control>
-				<!-- right border -->
-				<control type="image">
-					<visible>$PARAM[rightborder]</visible>
-					<top>0</top>
-					<right>$PARAM[width]r</right>
-					<width>$PARAM[bordersize]</width>
-					<height>$PARAM[height]</height>
-					<texture colordiffuse="$PARAM[bordercolor]">colors/white.png</texture>
-				</control>
-				<!-- bottom border -->
-				<control type="image">
-					<visible>$PARAM[bottomborder]</visible>
-					<left>0</left>
-					<bottom>$PARAM[height]r</bottom>
-					<width>$PARAM[width]</width>
-					<height>$PARAM[bordersize]</height>
-					<texture colordiffuse="$PARAM[bordercolor]">colors/white.png</texture>
-				</control>
-			</control>
 		</definition>
 	</include>
 
