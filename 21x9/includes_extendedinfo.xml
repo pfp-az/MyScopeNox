@@ -365,7 +365,7 @@
 					<!-- Audio / Subtitle Language -->
 					<control type="grouplist">
 						<height>90</height>
-						<width>160</width>
+						<width>180</width>
 						<align>center</align>
 						<aligny>center</aligny>
 						<!-- Audio Language -->
@@ -406,11 +406,21 @@
 								<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.3))</visible>
 							</control>
 							<control type="image">
+								<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.4))</visible>
+								<visible>String.IsEmpty(ListItem.Property(AudioLanguage.5))</visible>
 								<width>30</width>
 								<height>30</height>
 								<include>MediaFlagValues</include>
 								<texture>flags/language/default/$INFO[ListItem.Property(AudioLanguage.4),,.png]</texture>
+							</control>
+							<control type="image">
 								<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.4))</visible>
+								<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.5))</visible>
+								<width>30</width>
+								<height>30</height>
+								<aspectratio>keep</aspectratio>
+								<colordiffuse>grey</colordiffuse>
+								<texture>flags/plus.png</texture>
 							</control>
 						</control>
 						<!-- Subtitle Language -->
@@ -451,11 +461,21 @@
 								<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.3))</visible>
 							</control>
 							<control type="image">
+								<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.4))</visible>
+								<visible>String.IsEmpty(ListItem.Property(SubtitleLanguage.5))</visible>
 								<width>30</width>
 								<height>30</height>
 								<include>MediaFlagValues</include>
 								<texture>flags/language/default/$INFO[ListItem.Property(SubtitleLanguage.4),,.png]</texture>
+							</control>
+							<control type="image">
 								<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.4))</visible>
+								<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.5))</visible>
+								<width>30</width>
+								<height>30</height>
+								<aspectratio>keep</aspectratio>
+								<colordiffuse>grey</colordiffuse>
+								<texture>flags/plus.png</texture>
 							</control>
 						</control>
 					</control>

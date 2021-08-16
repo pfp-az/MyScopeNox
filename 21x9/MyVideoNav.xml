@@ -92,41 +92,36 @@
 			<depth>MaxDepth</depth>
 			<include>WindowOpenCloseAnimation</include>
 			<control type="group">
-				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(files) | Container.Content(musicvideos)]</visible>
 				<!-- Title, Runtime and Genre -->
 				<control type="group">
-					<visible>[Control.IsVisible(57) | Control.IsVisible(500)]</visible>
 					<left>0</left>
-					<top>845</top>
+					<top>860</top>
 					<include>VisibleFadeAnimation</include>
 					<control type="label">
-						<left>0</left>
+						<left>30</left>
 						<top>0</top>
-						<width>1275</width>
-						<height>42</height>
-						<aligny>top</aligny>
+						<width>1225</width>
+						<height>50</height>
 						<align>left</align>
-						<font>font16_title_bold</font>
+						<font>font_34_upper_bold</font>
 						<scroll>true</scroll>
 						<label>$VAR[FloorLabelVar]</label>
-						<textoffsetx>30</textoffsetx>
 					</control>
 					<control type="label">
-						<left>0</left>
-						<top>50</top>
-						<width>1275</width>
-						<height>30</height>
+						<left>30</left>
+						<top>35</top>
+						<width>1225</width>
+						<height>45</height>
 						<align>left</align>
-						<font>font13_title</font>
+						<font>font_28</font>
 						<label>$VAR[FloorSubLabelVar]</label>
-						<textoffsetx>30</textoffsetx>
 					</control>
 				</control>
-				<!-- Only TV or Seasons -->
+				<!-- Only TV or Seasons (probably needs tweaking) -->
 				<control type="group">
 					<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
 					<left>1444</left>
-					<top>850</top>
+					<top>860</top>
 					<width>1840</width>
 					<height>90</height>
 					<include>VisibleFadeAnimation</include>
@@ -189,57 +184,19 @@
 					</control>
 				</control>
 				<!-- Not TV or Seasons -->
-				<control type="group">
+				<control type="grouplist">
 					<visible>![Container.Content(tvshows) | Container.Content(seasons)]</visible>
-					<left>1275</left>
-					<top>850</top>
-					<width>563</width>
-					<height>90</height>
+					<right>10</right>
+					<top>870</top>
+					<width>600</width>
+					<height>70</height>
+					<orientation>horizontal</orientation>
 					<include>VisibleFadeAnimation</include>
-					<!-- Video Codec -->
-					<control type="image">
-						<visible>!String.IsEmpty(ListItem.VideoCodec)</visible>
-						<left>0</left>
-						<include>MediaFlagVars</include>
-						<texture>flags/video/$VAR[MediaFlagsPath]/$VAR[SourceFlagVar].png</texture>
-						<include>VisibleFadeAnimation</include>
-					</control>
-					<!-- Resolution -->
-					<control type="image">
-						<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
-						<left>125</left>
-						<include>MediaFlagVars</include>
-						<texture>flags/resolution/$VAR[MediaFlagsPath]/$INFO[ListItem.VideoResolution].png</texture>
-						<include>VisibleFadeAnimation</include>
-					</control>
-					<!-- Aspect Ratio -->
-					<control type="image">
-						<left>250</left>
-						<include>MediaFlagVars</include>
-						<texture>flags/aspectratio/$VAR[MediaFlagsPath]/$VAR[AspectRatio].png</texture>
-						<include>VisibleFadeAnimation</include>
-					</control>  
-					<!-- Audio Codec -->
-					<control type="image">
-						<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
-						<left>375</left>
-						<include>MediaFlagVars</include>
-						<texture>flags/audio/$VAR[MediaFlagsPath]/$VAR[AudioCodecCustom].png</texture>
-						<include>VisibleFadeAnimation</include>
-					</control>
-					<!-- Audio Channels -->
-					<control type="image">
-						<visible>!String.IsEmpty(ListItem.AudioChannels)</visible>
-						<left>500</left>
-						<include>MediaFlagVars</include>
-						<texture>flags/channels/$VAR[MediaFlagsPath]/$VAR[AudioChannelCustom].png</texture>
-						<include>VisibleFadeAnimation</include>
-					</control>
+					<include>MediaInfoFlags</include>
 				</control>
 			</control>
 		</control>
 
-		<include>UpDownShadow</include>
 		<include>ScrollOffsetLabel</include>
 
 		<!-- Menu  -->

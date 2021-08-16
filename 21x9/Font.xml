@@ -7,7 +7,7 @@
 			<filename>MaterialIcons-Regular.ttf</filename>
 			<size>50</size>
 		</font>
-	
+
 	
 	<!-- Scope -->
 		<font>
@@ -251,6 +251,32 @@
 			<name>font_30</name>
 			<filename>RobotoCondensed-Regular.ttf</filename>
 			<size>30</size>
+		</font>
+		<font>
+			<name>font_32</name>
+			<filename>RobotoCondensed-Regular.ttf</filename>
+			<size>32</size>
+		</font>
+		<font>
+			<name>font_34</name>
+			<filename>RobotoCondensed-Regular.ttf</filename>
+			<size>34</size>
+		</font>
+		<font>
+			<name>font_36</name>
+			<filename>RobotoCondensed-Regular.ttf</filename>
+			<size>36</size>
+		</font>
+		<font>
+			<name>font_38</name>
+			<filename>RobotoCondensed-Regular.ttf</filename>
+			<size>38</size>
+		</font>
+		<font>
+			<name>font_34_upper_bold</name>
+			<filename>RobotoCondensed-Regular.ttf</filename>
+			<style>uppercase bold</style>
+			<size>34</size>
 		</font>
 		<font>
 			<name>font14_textbox_plot</name>

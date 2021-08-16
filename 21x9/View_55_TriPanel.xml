@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<!--  This is the TriPanel view.  There are includes for each type of tripanel (Video, Music and Games)				            -->
+<!-------------------------------------------------------------------------------------------------------------------------------->
 <includes>
 	<!-- Video TriPanel -->
 	<include name="VideoTriPanel">
@@ -419,7 +422,7 @@
 						<onup>95560</onup>
 						<ondown>95560</ondown>
 						<onleft>50</onleft>
-						<onright>62</onright>
+						<onright>noop</onright>
 						<showonepage>false</showonepage>
 						<texturesliderbackground>colors/grey/40.png</texturesliderbackground>
 						<texturesliderbar>colors/grey/d0.png</texturesliderbar>
@@ -618,7 +621,6 @@
 							<texture>flags/channels/$VAR[MediaFlagsPath]/$VAR[AudioChannelCustom].png</texture>
 						</control>
 					</control>
-
 
 				</control>
 

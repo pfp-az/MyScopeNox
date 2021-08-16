@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-------------------------------------------------------------------------------------------------------------------------------->
-<!--  This is the infowall view.  																					            -->
+<!--  This is the infowall view.  There are includes for each type of infowall (Video, Music and Addon) 																					            -->
 <!-------------------------------------------------------------------------------------------------------------------------------->
 <includes>
 
@@ -128,7 +128,7 @@
 				<width>8</width>
 				<height>702</height>
 				<onleft>51</onleft>
-				<onright>51</onright>
+				<onright>noop</onright>
 				<ondown>95160</ondown>
 				<onup>95160</onup>
 				<showonepage>false</showonepage>
@@ -167,67 +167,7 @@
 					<aligny>center</aligny>
 					<itemgap>0</itemgap>
 					<orientation>horizontal</orientation>
-
-					<!-- Invisible labels so that the IsEmpty can be called on VARs -->
-					<control type="label" id="9901">
-						<visible>false</visible>
-						<label>$VAR[AspectRatio]</label>
-					</control>
-					<control type="label" id="9902">
-						<visible>false</visible>
-						<label>$VAR[AudioChannelCustom]</label>
-					</control>
-					<control type="label" id="9903">
-						<visible>false</visible>
-						<label>$VAR[SourceFlagVar]</label>
-					</control>
-					<control type="label" id="9904">
-						<visible>false</visible>
-						<label>$VAR[AudioCodecCustom]</label>
-					</control>
-
-					<control type="image">
-						<visible>!IsEmpty(Control.GetLabel(9903))</visible>
-						<width>90</width>
-						<colordiffuse>grey</colordiffuse>
-						<include>MediaFlagVars</include>
-						<texture>flags/video/$VAR[MediaFlagsPath]/$VAR[SourceFlagVar].png</texture>
-					</control>
-					<control type="image">
-						<visible>!IsEmpty(ListItem.VideoResolution)</visible>
-						<width>90</width>
-						<colordiffuse>grey</colordiffuse>
-						<include>MediaFlagVars</include>
-						<texture>flags/resolution/$VAR[MediaFlagsPath]/$INFO[ListItem.VideoResolution].png</texture>
-					</control>
-					<control type="image">
-						<visible>!IsEmpty(Control.GetLabel(9901))</visible>
-						<width>90</width>
-						<colordiffuse>grey</colordiffuse>
-						<include>MediaFlagVars</include>
-						<texture>flags/aspectratio/$VAR[MediaFlagsPath]/$VAR[AspectRatio].png</texture>
-					</control>
-					<control type="image">
-						<visible>!IsEmpty(Control.GetLabel(9904))</visible>
-						<width>90</width>
-						<colordiffuse>grey</colordiffuse>
-						<include>MediaFlagVars</include>
-						<texture>flags/audio/$VAR[MediaFlagsPath]/$VAR[AudioCodecCustom].png</texture>
-					</control>
-					<control type="image">
-						<visible>!IsEmpty(Control.GetLabel(9902))</visible>
-						<width>90</width>
-						<colordiffuse>grey</colordiffuse>
-						<include>MediaFlagVars</include>
-						<texture>flags/channels/$VAR[MediaFlagsPath]/$VAR[AudioChannelCustom].png</texture>
-					</control>
-					<control type="image">
-						<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
-						<width>90</width>
-						<colordiffuse>grey</colordiffuse>
-						<include>MediaFlagVars</include>
-						<texture>flags/cc.png</texture>
-					</control>
+					<include>MediaInfoFlags</include>
 				</control>
 				<!-- Title -->
 				<control type="label">
@@ -710,4 +650,5 @@
 			</control>
 		</control>
 	</include>
+
 </includes>

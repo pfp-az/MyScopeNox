@@ -394,6 +394,167 @@
 <!-------------------------------------------------------------------------------------------------------------------------------->
 
 
+	<include name="MediaInfoFlags">
+		<!-- Invisible labels so that the IsEmpty can be called on VARs -->
+		<control type="label" id="9901">
+			<visible>false</visible>
+			<label>$VAR[AspectRatio]</label>
+		</control>
+		<control type="label" id="9902">
+			<visible>false</visible>
+			<label>$VAR[AudioChannelCustom]</label>
+		</control>
+		<control type="label" id="9903">
+			<visible>false</visible>
+			<label>$VAR[SourceFlagVar]</label>
+		</control>
+		<control type="label" id="9904">
+			<visible>false</visible>
+			<label>$VAR[AudioCodecCustom]</label>
+		</control>
+		<!-- Video Codec -->
+		<control type="image">
+			<visible>!IsEmpty(Control.GetLabel(9903))</visible>
+			<width>90</width>
+			<colordiffuse>grey</colordiffuse>
+			<include>MediaFlagVars</include>
+			<texture>flags/video/$VAR[MediaFlagsPath]/$VAR[SourceFlagVar].png</texture>
+		</control>
+		<!-- Resolution -->
+		<control type="image">
+			<visible>!IsEmpty(ListItem.VideoResolution)</visible>
+			<width>90</width>
+			<colordiffuse>grey</colordiffuse>
+			<include>MediaFlagVars</include>
+			<texture>flags/resolution/$VAR[MediaFlagsPath]/$INFO[ListItem.VideoResolution].png</texture>
+		</control>
+		<!-- Aspect Ratio -->
+		<control type="image">
+			<visible>!IsEmpty(Control.GetLabel(9901))</visible>
+			<width>90</width>
+			<colordiffuse>grey</colordiffuse>
+			<include>MediaFlagVars</include>
+			<texture>flags/aspectratio/$VAR[MediaFlagsPath]/$VAR[AspectRatio].png</texture>
+		</control>
+		<!-- Audio Codec -->
+		<control type="image">
+			<visible>!IsEmpty(Control.GetLabel(9904))</visible>
+			<width>90</width>
+			<colordiffuse>grey</colordiffuse>
+			<include>MediaFlagVars</include>
+			<texture>flags/audio/$VAR[MediaFlagsPath]/$VAR[AudioCodecCustom].png</texture>
+		</control>
+		<!-- Audio Channels -->
+		<control type="image">
+			<visible>!IsEmpty(Control.GetLabel(9902))</visible>
+			<width>90</width>
+			<colordiffuse>grey</colordiffuse>
+			<include>MediaFlagVars</include>
+			<texture>flags/channels/$VAR[MediaFlagsPath]/$VAR[AudioChannelCustom].png</texture>
+		</control>
+		<!-- Audio / Subtitle Language -->
+		<control type="grouplist">
+			<width>120</width>
+			<align>center</align>
+			<aligny>center</aligny>
+			<!-- Audio Language -->
+			<control type="grouplist">
+				<height>25</height>
+				<orientation>horizontal</orientation>
+				<control type="group">
+					<!-- gap -->
+					<width>20</width>
+				</control>
+				<control type="image">
+					<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1))</visible>
+					<width>25</width>
+					<height>25</height>
+					<aspectratio>keep</aspectratio>
+					<colordiffuse>grey</colordiffuse>
+					<texture>flags/audio.png</texture>
+				</control>
+				<control type="image">
+					<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1))</visible>
+					<width>25</width>
+					<height>25</height>
+					<include>MediaFlagValues</include>
+					<texture>flags/language/default/$INFO[ListItem.Property(AudioLanguage.1),,.png]</texture>
+				</control>
+				<control type="image">
+					<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.2))</visible>
+					<width>25</width>
+					<height>25</height>
+					<include>MediaFlagValues</include>
+					<texture>flags/language/default/$INFO[ListItem.Property(AudioLanguage.2),,.png]</texture>
+				</control>
+				<control type="image">
+					<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.3))</visible>
+					<visible>String.IsEmpty(ListItem.Property(AudioLanguage.4))</visible>
+					<width>25</width>
+					<height>25</height>
+					<include>MediaFlagValues</include>
+					<texture>flags/language/default/$INFO[ListItem.Property(AudioLanguage.3),,.png]</texture>
+				</control>
+				<control type="image">
+					<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.3))</visible>
+					<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.4))</visible>
+					<width>25</width>
+					<height>25</height>
+					<aspectratio>keep</aspectratio>
+					<colordiffuse>grey</colordiffuse>
+					<texture>flags/plus.png</texture>
+				</control>
+			</control>
+			<!-- Subtitle Language -->
+			<control type="grouplist">
+				<height>25</height>
+				<orientation>horizontal</orientation>
+				<control type="group">
+					<!-- gap -->
+					<width>20</width> 
+				</control>
+				<control type="image">
+					<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
+					<width>25</width>
+					<height>25</height>
+					<aspectratio>keep</aspectratio>
+					<colordiffuse>grey</colordiffuse>
+					<texture>flags/subtitles.png</texture>
+				</control>
+				<control type="image">
+					<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
+					<width>25</width>
+					<height>25</height>
+					<include>MediaFlagValues</include>
+					<texture>flags/language/default/$INFO[ListItem.Property(SubtitleLanguage.1),,.png]</texture>
+				</control>
+				<control type="image">
+					<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.2))</visible>
+					<width>25</width>
+					<height>25</height>
+					<include>MediaFlagValues</include>
+					<texture>flags/language/default/$INFO[ListItem.Property(SubtitleLanguage.2),,.png]</texture>
+				</control>
+				<control type="image">
+					<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.3))</visible>
+					<visible>String.IsEmpty(ListItem.Property(SubtitleLanguage.4))</visible>
+					<width>25</width>
+					<height>25</height>
+					<include>MediaFlagValues</include>
+					<texture>flags/language/default/$INFO[ListItem.Property(SubtitleLanguage.3),,.png]</texture>
+				</control>
+				<control type="image">
+					<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.3))</visible>
+					<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.4))</visible>
+					<width>25</width>
+					<height>25</height>
+					<aspectratio>keep</aspectratio>
+					<colordiffuse>grey</colordiffuse>
+					<texture>flags/plus.png</texture>
+				</control>
+			</control>
+		</control>
+	</include>
 
 	<!-- Letter indicator when a media list is scrolling -->
 	<include name="ScrollOffsetLabel">

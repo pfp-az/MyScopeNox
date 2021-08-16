@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-------------------------------------------------------------------------------------------------------------------------------->
-<!--  This is part of the menu.  It lists all the views avaialbe and allows the user to select which one to display             -->
+<!--  This is part of the menu.  It lists all the views available and allows the user to select which one to display            -->
 <!-------------------------------------------------------------------------------------------------------------------------------->
 <window id="1129" type="dialog">
 	<defaultcontrol always="true">9000</defaultcontrol>
@@ -160,7 +160,7 @@
 				<item>
 					<label>Wall</label>
 					<visible>Window.IsActive(videos) | Window.IsActive(music)</visible>
-					<visible>Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(albums) | Container.Content(addons)</visible>
+					<visible>Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(albums)</visible>
 					<onclick>Container.SetViewMode(503)</onclick>
 				</item>
 			</content>

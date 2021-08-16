@@ -1,106 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<!--  This is the Wall (fullscreen) view.  There is only one include												            -->
+<!-------------------------------------------------------------------------------------------------------------------------------->
 <includes>
+
 	<!-- Fullscreen Wall -->
 	<include name="View_503_Wall">
 		<control type="group">
 			<visible>Control.IsVisible(503)</visible>
 			<include>ViewAnimation</include>
+			<top>180</top>
+			<left>0</left>
+			<width>1920</width>
+			<height>760</height>
+
+			<!-- Backround Image -->
+			<control type="image">
+				<texture>colors/black.png</texture>
+			</control>
+
+			<!-- Posters -->
 			<control type="panel" id="503">
-				<top>165</top>
+				<visible>Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(albums)</visible>
+				<top>0</top>
+				<left>0</left>
 				<width>100%</width>
-				<height>770</height>
-				<onleft condition="Control.IsVisible(60)">60</onleft>
-				<onleft condition="!Control.IsVisible(60)">SetProperty(MediaMenu,True,home)</onleft>
-				<onleft condition="!Control.IsVisible(60)">SetFocus(9050)</onleft>
-				<!-- Only works if ParentFolder item is disabled -->
-				<onright>SetFocus(503,$INFO[Container(503).CurrentItem],absolute)</onright>
+				<height>760</height>
+				<onleft>SetProperty(MediaMenu,True,home)</onleft>
+				<onleft>SetFocus(9050)</onleft>
+				<onright>950360</onright>
 				<onup>503</onup>
 				<ondown>503</ondown>
-				<orientation>vertical</orientation>
-				<viewtype label="Wall">icon</viewtype>
-				<pagecontrol>60</pagecontrol>
+				<pagecontrol>950360</pagecontrol>
 				<preloaditems>2</preloaditems>
-				<scrolltime tween="quadratic">400</scrolltime>
-				<visible>Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(albums) | Container.Content(addons)</visible>
-				<itemlayout width="136" height="190" condition="![Container.Content(albums) | Container.Content(addons)]">
+				<scrolltime tween="quadratic" easing="out">300</scrolltime>
+				<itemlayout width="127" height="190" condition="!Container.Content(albums)">
 					<control type="group">
-						<top>10</top>
+						<!-- Poster -->
 						<control type="image">
-							<width>139</width>
-							<height>198</height>
-							<aspectratio scalediffuse="false">scale</aspectratio>
+							<width>127</width>
+							<height>190</height>
+							<aspectratio>scale</aspectratio>
 							<texture background="true">$VAR[PosterThumbVar]</texture>
-							<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
-							<bordersize>20</bordersize>
+							<bordertexture>colors/black.png</bordertexture>
+							<bordersize>2</bordersize>
 						</control>
+						<!-- Unwatched Overlay -->
 						<control type="image">
-							<left>86</left>
-							<top>19</top>
+							<left>90</left>
+							<top>1</top>
 							<width>40</width>
 							<height>40</height>
 							<texture>$VAR[OverlayVar]</texture>
 							<aspectratio align="center" aligny="top">keep</aspectratio>
 							<bordersize>1</bordersize>
 						</control>
+						<!-- ??? -->
 						<control type="group">
 							<left>30</left>
 							<top>45</top>
 							<include condition="Skin.HasSetting(Disable.UnwatchedIcon)">UnwatchedIcon</include>
 						</control>
+						<!-- Slightly Dim Unfocused Items -->
 						<control type="image">
-							<width>139</width>
-							<height>198</height>
-							<texture border="1" colordiffuse="66FFFFFF">black.png</texture>
-							<bordersize>20</bordersize>
+							<width>127</width>
+							<height>190</height>
+							<texture>colors/black-trans/25.png</texture>
+							<bordersize>2</bordersize>
+							<include>FocusFadeOutAnimation</include>
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="136" height="190" condition="![Container.Content(albums) | Container.Content(addons)]">
+				<focusedlayout width="127" height="190" condition="!Container.Content(albums)">
 					<control type="group">
-						<top>10</top>
+						<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto">Focus</animation>
+						<!-- Poster -->
 						<control type="image">
-							<width>139</width>
-							<height>198</height>
-							<aspectratio scalediffuse="false">scale</aspectratio>
+							<width>127</width>
+							<height>190</height>
+							<aspectratio>scale</aspectratio>
 							<texture background="true">$VAR[PosterThumbVar]</texture>
-							<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
-							<bordersize>20</bordersize>
+							<bordertexture>colors/black.png</bordertexture>
+							<bordersize>2</bordersize>
 						</control>
+						<!-- Unwatched Overlay -->
 						<control type="image">
-							<top>4</top>
-							<left>4</left>
-							<width>130</width>
-							<height>189</height>
-							<texture border="10">thumbs/thumbnail_focused.png</texture>
-							<bordersize>8</bordersize>
-							<animation effect="fade" start="100" end="0" time="200" reversible="false">UnFocus</animation>
-							<animation effect="fade" start="0" end="100" time="200" reversible="false">Focus</animation>
-						</control>
-						<control type="image">
-							<left>86</left>
-							<top>19</top>
+							<left>90</left>
+							<top>1</top>
 							<width>40</width>
 							<height>40</height>
 							<texture>$VAR[OverlayVar]</texture>
 							<aspectratio align="center" aligny="top">keep</aspectratio>
 							<bordersize>1</bordersize>
 						</control>
+						<!-- ??? -->
 						<control type="group">
 							<left>30</left>
 							<top>45</top>
 							<include condition="Skin.HasSetting(Disable.UnwatchedIcon)">UnwatchedIcon</include>
 						</control>
+						<!-- Slightly Dim Unfocused Items -->
 						<control type="image">
-							<width>139</width>
-							<height>198</height>
-							<texture border="1" colordiffuse="66FFFFFF">black.png</texture>
-							<animation effect="fade" start="100" end="0" time="200" reversible="false">Focus</animation>
-							<animation effect="fade" start="0" end="100" time="200" reversible="false">UnFocus</animation>
-							<bordersize>20</bordersize>
+							<width>127</width>
+							<height>190</height>
+							<texture>colors/black-trans/25.png</texture>
+							<include>FocusFadeOutAnimation</include>
+							<bordersize>2</bordersize>
+						</control>
+						<!-- Highlight Focused Item -->
+						<control type="image">
+							<width>127</width>
+							<height>190</height>
+							<texture border="8,8,8,8" colordiffuse="labelheader">thumbnail_7px_border.png</texture>
+							<bordersize>2</bordersize>
+							<include>FocusFadeInAnimation</include>
 						</control>
 					</control>
 				</focusedlayout>
-				<itemlayout width="136" height="136" condition="[Container.Content(albums) | Container.Content(addons)]">
+				<itemlayout width="136" height="136" condition="Container.Content(albums)">
 					<control type="group">
 						<top>60</top>
 						<control type="image">
@@ -129,8 +146,9 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="136" height="136" condition="[Container.Content(albums) | Container.Content(addons)]">
+				<focusedlayout width="136" height="136" condition="Container.Content(albums)">
 					<control type="group">
+						<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto">Focus</animation>
 						<top>60</top>
 						<control type="image">
 							<width>139</width>
@@ -171,129 +189,124 @@
 					</control>
 				</focusedlayout>
 			</control>
-			<control type="scrollbar" id="60">
-				<top>183</top>
-				<left>-4</left>
-				<width>14</width>
-				<height>745</height>
-				<onup>60</onup>
-				<ondown>60</ondown>
-				<onleft>SetProperty(MediaMenu,True,home)</onleft>
-				<onleft>SetFocus(9050)</onleft>
-				<onright>503</onright>
-				<texturesliderbackground />
-				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
-				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
+
+			<!-- Scrollbar -->
+			<control type="scrollbar" id="950360">
+				<top>1</top>
+				<left>1912</left>
+				<width>8</width>
+				<height>758</height>
+				<onup>950360</onup>
+				<ondown>950360</ondown>
+				<onleft>503</onleft>
+				<onright>noop</onright>
 				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
+				<texturesliderbackground>colors/grey/40.png</texturesliderbackground>
+				<texturesliderbar>colors/grey/d0.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="labelheader">colors/white.png</texturesliderbarfocus>
 			</control>
+
+			<!-- Infopanel -->
 			<control type="group">
-				<left>310</left>
 				<visible>!ListItem.IsParentFolder</visible>
 				<visible>[Container.Content(movies) | Container.Content(tvshows)]</visible>
-				<visible>Skin.HasSetting(503.InfoPanel) + Control.HasFocus(503) + System.IdleTime(5)</visible>
-				<animation effect="fade" time="100" delay="200">Visible</animation>
-				<animation effect="slide" end="0,460" time="300" tween="cubic" easing="inout" condition="Container(503).Row(1)">Conditional</animation>
-				<animation effect="slide" end="320,0" time="300" tween="cubic" easing="inout" condition="Container(503).Column(3)">Conditional</animation>
-				<animation effect="slide" end="320,0" time="300" tween="cubic" easing="inout" condition="Container(503).Column(5) | Container(503).Column(3) | Container(503).Column(2)">Conditional</animation>
-				<animation effect="slide" end="320,0" time="300" tween="cubic" easing="inout" condition="Container(503).Column(5) | Container(503).Column(4) | Container(503).Column(3) | Container(503).Column(2) | Container(503).Column(1)">Conditional</animation>
+				<visible>Skin.HasSetting(503.InfoPanel) + Control.HasFocus(503) + System.IdleTime(2)</visible>
+				<animation effect="fade" time="100" delay="100">Visible</animation>
+				<animation effect="slide" end="0,95" time="300" tween="cubic" easing="inout" condition="Container(503).Row(0)">Conditional</animation>
+				<animation effect="slide" end="0,285" time="300" tween="cubic" easing="inout" condition="Container(503).Row(1)">Conditional</animation>
+				<animation effect="slide" end="0,5" time="300" tween="cubic" easing="inout" condition="Container(503).Row(2)">Conditional</animation>
+				<animation effect="slide" end="0,195" time="300" tween="cubic" easing="inout" condition="Container(503).Row(3)">Conditional</animation>
+				<animation effect="slide" end="64,0" time="300" tween="cubic" easing="inout" condition="Container(503).Column(0)">Conditional</animation>
+				<animation effect="slide" end="191,0" time="300" tween="cubic" easing="inout" condition="Container(503).Column(1)">Conditional</animation>
+				<animation effect="slide" end="318,0" time="300" tween="cubic" easing="inout" condition="Container(503).Column(2)">Conditional</animation>
+				<animation effect="slide" end="445,0" time="300" tween="cubic" easing="inout" condition="Container(503).Column(3)">Conditional</animation>
+				<animation effect="slide" end="572,0" time="300" tween="cubic" easing="inout" condition="Container(503).Column(4)">Conditional</animation>
+				<animation effect="slide" end="699,0" time="300" tween="cubic" easing="inout" condition="Container(503).Column(5)">Conditional</animation>
+				<animation effect="slide" end="826,0" time="300" tween="cubic" easing="inout" condition="Container(503).Column(6)">Conditional</animation>
+				<animation effect="slide" end="953,0" time="300" tween="cubic" easing="inout" condition="Container(503).Column(7)">Conditional</animation>
+				<animation effect="slide" end="430,0" time="300" tween="cubic" easing="inout" condition="Container(503).Column(8)">Conditional</animation>
+				<animation effect="slide" end="557,0" time="300" tween="cubic" easing="inout" condition="Container(503).Column(9)">Conditional</animation>
+				<animation effect="slide" end="684,0" time="300" tween="cubic" easing="inout" condition="Container(503).Column(10)">Conditional</animation>
+				<animation effect="slide" end="811,0" time="300" tween="cubic" easing="inout" condition="Container(503).Column(11)">Conditional</animation>
+				<animation effect="slide" end="938,0" time="300" tween="cubic" easing="inout" condition="Container(503).Column(12)">Conditional</animation>
+				<animation effect="slide" end="1065,0" time="300" tween="cubic" easing="inout" condition="Container(503).Column(13)">Conditional</animation>
+				<animation effect="slide" end="1192,0" time="300" tween="cubic" easing="inout" condition="Container(503).Column(14)">Conditional</animation>
+
+				<!-- Backround Image -->
 				<control type="image">
-					<left>6</left>
-					<top>-24</top>
 					<width>650</width>
 					<height>470</height>
-					<texture border="40">dialog_back3.png</texture>
+					<texture border="2,2,2,2" colordiffuse="labelheader">background/1px_border.png</texture>
 				</control>
-				<control type="image">
-					<top>192</top>
-					<width>19</width>
-					<height>36</height>
-					<texture colordiffuse="FF060b0e">views/wall/arrow.png</texture>
-					<visible>Integer.IsLessOrEqual(Container(503).Column,3)</visible>
-				</control>
-				<control type="image">
-					<left>644</left>
-					<top>192</top>
-					<width>19</width>
-					<height>36</height>
-					<texture colordiffuse="FF060b0e" flipx="true">views/wall/arrow.png</texture>
-					<visible>Integer.IsGreater(Container(503).Column,3)</visible>
-				</control>
+				<!-- Title -->
 				<control type="label">
-					<left>50</left>
+					<left>10</left>
 					<top>20</top>
-					<width>550</width>
+					<width>560</width>
 					<height>20</height>
-					<font>font15</font>
+					<font>font_32</font>
 					<textcolor>grey</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 				</control>
-				<control type="image">
-					<left>50</left>
-					<top>46</top>
-					<width>180</width>
-					<height>70</height>
-					<aspectratio>keep</aspectratio>
-					<colordiffuse>grey</colordiffuse>
-					<texture fallback="flags/rating/0.0.png">$INFO[ListItem.Rating,flags/rating/,.png]</texture>
-					<visible>!ListItem.IsParentFolder + String.IsEmpty(ListItem.UserRating)</visible>
+				<!-- Year -->
+				<control type="label">
+					<top>20</top>
+					<align>right</align>
+					<width>640</width>
+					<height>20</height>
+					<font>font_32</font>
+					<textcolor>grey</textcolor>
+					<label>$INFO[ListItem.Year]</label>
 				</control>
-				<control type="image">
-					<left>50</left>
-					<top>46</top>
-					<width>180</width>
-					<height>70</height>
-					<aspectratio>keep</aspectratio>
-					<colordiffuse>themecolor</colordiffuse>
-					<texture>$INFO[ListItem.UserRating,flags/rating/,.png]</texture>
-					<visible>!ListItem.IsParentFolder + !String.IsEmpty(ListItem.UserRating)</visible>
+				<control type="grouplist">
+					<left>1</left>
+					<top>50</top>
+					<!-- Director -->
+					<control type="button">
+						<visible>!String.IsEmpty(ListItem.Director) + Container.Content(movies)</visible>
+						<width>630</width>
+						<font>font_24</font>
+						<label>[COLOR labelheader]$LOCALIZE[31000]:[/COLOR][CR]$INFO[ListItem.Director]</label>
+					</control>
+					<!-- Genre -->
+					<control type="button">
+						<visible>!String.IsEmpty(ListItem.Genre) + !Container.Content(episodes)</visible>
+						<width>630</width>
+						<font>font_24</font>
+						<label>[COLOR labelheader]$LOCALIZE[515]:[/COLOR][CR]$INFO[ListItem.Genre]</label>
+					</control>
+					<!-- Runtime -->
+					<control type="button">
+						<visible>!String.IsEmpty(ListItem.Duration)</visible>
+						<width>630</width>
+						<font>font_24</font>
+						<label>[COLOR labelheader]$LOCALIZE[2050]:[/COLOR][CR]$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
+					</control>
 				</control>
+				<!-- Plot -->
 				<control type="textbox">
-					<left>50</left>
-					<top>110</top>
-					<width>550</width>
-					<height>210</height>
-					<font>font15</font>
+					<left>10</left>
+					<top>240</top>
+					<width>630</width>
+					<height>155</height>
+					<font>font_26</font>
 					<textcolor>grey</textcolor>
 					<label>$VAR[503.InfoPanelTextboxVar]</label>
 				</control>
-				<control type="label">
-					<left>50</left>
-					<top>330</top>
-					<width>550</width>
-					<height>20</height>
-					<font>font15</font>
-					<textcolor>labelheader</textcolor>
-					<label>$INFO[ListItem.Year]$INFO[ListItem.Duration, - , $LOCALIZE[31162]]</label>
+				<!-- MediaInfo -->
+				<control type="grouplist">
+					<top>400</top>
+					<left>10</left>
+					<width>640</width>
+					<height>70</height>
+					<align>center</align>
+					<orientation>horizontal</orientation>
+					<include>VisibleFadeAnimation</include>
+					<include>MediaInfoFlags</include>
 				</control>
-				<control type="label">
-					<left>50</left>
-					<top>375</top>
-					<width>550</width>
-					<height>20</height>
-					<font>font15</font>
-					<textcolor>grey</textcolor>
-					<label>$VAR[503.InfoPanelLabel2Var]</label>
-				</control>
+
 			</control>
 		</control>
 	</include>
-	<include name="UpDownShadow">
-		<control type="group">
-			<animation effect="fade" time="300">WindowOpen</animation>
-			<animation effect="fade" time="300">WindowClose</animation>
-			<visible>Control.IsVisible(503)</visible>
-			<control type="image">
-				<width>100%</width>
-				<height>120</height>
-				<texture border="1">bottom_shadow.png</texture>
-			</control>
-			<control type="image">
-				<top>960</top>
-				<width>100%</width>
-				<height>120</height>
-				<texture border="1" flipy="true">bottom_shadow.png</texture>
-			</control>
-		</control>
-	</include>
+
 </includes>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-------------------------------------------------------------------------------------------------------------------------------->
-<!--  This is the list view.  										    											            -->
+<!--  This is the list view. 																									-->
+<!--  There are includes for each type of list (Video, Music Addon and Picture).  There sre Normal and Slim versions			-->
 <!-------------------------------------------------------------------------------------------------------------------------------->
 <includes>
 
@@ -2542,7 +2543,6 @@
 			</control>
 		</control>
 	</include>
-
 
 
 	<!-- Poster and secondary list used on both video lists-->
