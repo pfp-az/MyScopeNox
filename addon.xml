@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon id="skin.my.scope.nox" version="1.4.4" name="My Scope Nox" provider-name="pfp-az">
 	<requires>
-		<import addon="xbmc.gui" version="5.15.0" />
+		<import addon="xbmc.gui" version="5.17.0" />
 		<import addon="script.grab.fanart" version="0.12.8" />
 		<import addon="script.skinshortcuts" version="0.4.5" />
 		<import addon="service.library.data.provider" version="0.0.7" />
